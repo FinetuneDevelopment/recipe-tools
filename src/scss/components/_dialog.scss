@@ -1,0 +1,46 @@
+// Filched from here: bitsofco.de/accessible-modal-dialog
+.dialog-overlay {
+	background-color: rgba(0,0,0,.5);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
+.dialog {
+	-webkit-box-shadow: 0 0 50px 0 rgba(0,0,0,0.75);
+	   -moz-box-shadow: 0 0 50px 0 rgba(0,0,0,0.75);
+			box-shadow: 0 0 50px 0 rgba(0,0,0,0.75);
+	left: 50%;
+	max-height: calc(100% - #{$gutter-large});
+	max-width: 1112px;
+	overflow: auto;
+	position: absolute; // Was "postion: fixed"
+	top: $gutter-large;
+	transform: translate(-50%,0);
+	width: 90%;
+	z-index: 3;
+}
+
+@include media-breakpoint-down(lg) {
+	.dialog {
+		position: fixed;
+		top: $gutter-medium;
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.dialog { top: $gutter-small; }
+}
+
+.dialog-overlay[aria-hidden="true"],
+.dialog[aria-hidden="true"] {
+	display: none;
+}
+
+.dialog-overlay:not([aria-hidden="true"]),
+.dialog:not([aria-hidden="true"]) {
+	display: block;
+}

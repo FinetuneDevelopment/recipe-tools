@@ -1,0 +1,43 @@
+// Filched from here: https://codepen.io/fcalderan/pen/GRJeYOL
+.marquee { overflow: hidden; }
+
+.marquee__child {
+  animation: marquee var(--ad) linear infinite;
+  animation-play-state: running;
+  display: inline-block;
+  // This is the clever bit
+  text-shadow:
+    var(--tw) 0 currentColor, 
+    calc(var(--tw) * 2) 0 currentColor, 
+    calc(var(--tw) * 3) 0 currentColor,
+    calc(var(--tw) * 4) 0 currentColor
+  ;
+  white-space: nowrap;
+  width: var(--tw);
+  will-change: transform;
+}
+
+.marquee:hover .marquee__child {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+// on MacOs: System Preferences > Accessibility > Display > Reduce motion
+@media (prefers-reduced-motion: reduce) {
+ .marquee .marquee__child {
+    animation: none;
+    display: block;
+    line-height: 1.5;
+    text-align: center;
+    text-shadow: none;
+    white-space: normal;
+    width: auto;
+  }
+}
+
+// Ugh. This is a good feature which I'm guessing the design doesn't want
+//:checked ~ .marquee span { animation-play-state: running; }

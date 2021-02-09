@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+caption {
+  text-align: left;
+}
+
+th {
+  font-weight: normal;
+}
+
+thead th {
+  vertical-align: bottom;
+}
+
+// Rotates the cells, to squeeze in more data on mobile
+@include media-breakpoint-down(xs) {
+  .stack-xs {
+    text-align: right;
+    text-orientation: mixed;
+    writing-mode: vertical-rl;
+  }
+}

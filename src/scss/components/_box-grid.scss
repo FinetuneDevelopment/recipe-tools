@@ -1,0 +1,41 @@
+.box-grid {
+
+  label {
+    background-size: cover;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    width: 25%;
+
+    img { vertical-align: top; }
+  }
+
+  // Text
+  span {
+    background: rgba(256,256,256,.8);
+    left: 0;
+    line-height: 1.2;
+    padding: .5em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) skewY(8deg);
+    translate: all .2s;
+  }
+}
+
+input:checked + label span {
+  background: rgba(243,193,94,1); // #F3C15E
+}
+input:disabled + label {
+  opacity: .3;
+}
+
+@media (max-width: 1000px) {
+  .box-grid label { width: 50%; }
+
+}

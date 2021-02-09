@@ -1,0 +1,49 @@
+// Note that these paths need to be wonk, because of webpack.config.js.
+@font-face {
+  font-display: swap;
+  font-family: 'ETC Trispace bold';
+  src: url('../fonts/etc-trispace-bold.woff2') format('woff2'),
+      url('../fonts/etc-trispace-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'ETC Trispace medium';
+  src: url('../fonts/etc-trispace-medium.woff2') format('woff2'),
+      url('../fonts/etc-trispace-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'ETC Trispace regular';
+  src: url('../fonts/etc-trispace-regular.woff2') format('woff2'),
+      url('../fonts/etc-trispace-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family:'Anton';
+  src: url('../fonts/anton-regular.woff2') format('woff2'),
+  url('../fonts/anton-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2074;
+}
+
+@font-face {
+  font-display: swap;
+  font-family:'ETC Trispace wide';
+  src: url('../fonts/etc-trispace-wide.woff2') format('woff2'),
+  url('../fonts/etc-trispace-wide.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: expanded;
+  unicode-range: U+0020-00FE;
+}

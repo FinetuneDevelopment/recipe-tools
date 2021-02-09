@@ -1,0 +1,7 @@
+table { margin: 0 0 $gutter-base * 2; }
+
+th { font-family: $font-etc-bold; }
+
+thead th, thead td {
+  border-bottom: solid 2px $colour-interactive-blue;
+}

@@ -1,0 +1,14 @@
+// Cookie control popup
+.gdpr.gdpr {
+    bottom: 100px;
+    padding: 20px;
+    position: fixed;
+    transform-origin: 200% 200%;
+    transition: transform 1s;
+    right: 50px;
+    max-width: 24em;
+    z-index: 10; // Rude.
+
+    // *YOINK!*
+    &.hide { transform: rotate(-90deg); }
+}

@@ -1,0 +1,72 @@
+// This allows headings to appear to poke out of
+// blocks of colour. But the split has to happen
+// in sympathy with the line height of the heading.
+
+///////////////
+// 50:50 splits
+///////////////
+
+// Top half white, bottom half transparent
+.split-white-50 {
+  background: linear-gradient($colour-white 0%, $colour-white 50%, transparent 50%, transparent 100%);
+}
+
+// Top half mint, bottom half transparent
+.split-mint-50 {
+  background: linear-gradient($colour-mint 0%, $colour-mint 50%, transparent 50%, transparent 100%);
+}
+
+// Top half pink, bottom half transparent
+// (not currently used)
+.split-pink-50 {
+  background: linear-gradient($colour-pink 0%, $colour-pink 50%, transparent 50%, transparent 100%);
+}
+
+////////////////////////////
+// Half of the last line
+// based on the side of a h2
+////////////////////////////
+
+// Top part mint, bottom part transparent
+.split-mint-last {
+  background: linear-gradient(to top, transparent 0%, transparent 3em, $colour-mint 3em, $colour-mint 100%);
+}
+@include media-breakpoint-down(md) {
+  .split-mint-last {
+    background: linear-gradient(to top, transparent 0%, transparent 1.45em, $colour-mint 1.45em, $colour-mint 100%);
+  }
+}
+
+///////////////////////////////
+// One and a half line split,
+// based on the .h1 style
+// Also used in Insight articles
+// and Case studies.
+///////////////////////////////
+.split-mint-1-5 {
+  background: linear-gradient($colour-mint 0, $colour-mint 12.3em, transparent 12.3em, transparent 100%);
+}
+
+// Top bit white, the rest transparent
+.split-white-1-5 {
+  background: linear-gradient($colour-white 0, $colour-white 12.3em, transparent 12.3em, transparent 100%);
+}
+
+// Top bit pink, the rest transparent
+.split-pink-1-5 {
+  background: linear-gradient($colour-pink 0, $colour-pink 12.3em, transparent 12.3em, transparent 100%);
+}
+
+@include media-breakpoint-down(md) {
+  .split-mint-1-5 {
+    background: linear-gradient($colour-mint 0, $colour-mint 8.6em, transparent 8.6em, transparent 100%);
+  }
+
+  .split-white-1-5 {
+    background: linear-gradient($colour-white 0, $colour-white 8.6em, transparent 8.6em, transparent 100%);
+  }
+
+  .split-pink-1-5 {
+    background: linear-gradient($colour-pink 0, $colour-pink 8.6em, transparent 8.6em, transparent 100%);
+  }
+}

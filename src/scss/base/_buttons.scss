@@ -1,0 +1,155 @@
+// All button and some link styles
+.btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+      -ms-appearance: none;
+       -o-appearance: none;
+          appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.5;
+  // To fix an issue in IE11 where buttons were escaping out of their containers if
+  // they had oversized images inside them.
+  max-width: 100%;
+  // For <button>
+  padding: 0;
+  text-decoration: none;
+  text-transform: inherit;
+  vertical-align: top;
+}
+
+%standard-btn {
+  background: $colour-interactive-blue;
+  border: solid 1px $colour-interactive-blue;
+  color: $colour-white;
+  text-transform: uppercase;
+}
+
+// Used in the main navigation
+.btn-nav {
+  font-family: $font-etc-bold;
+  font-size: $font-size-nav;
+  padding: ($gutter-tiny / 2 + 2) $gutter-tiny;
+
+  // Things go a bit bonkers on mobile
+  @include media-breakpoint-down(sm) {
+    & {
+      display: block;
+      font-family: $font-heading;
+      font-size: $font-size-h3;
+      text-align: center;
+    }
+  }
+}
+
+// You are here
+em.btn-nav, em .btn-nav {
+  color: $colour-interactive-blue;
+  font-style: normal;
+}
+
+// The two main call-to-action styles on the page, with the drop-shadow
+.btn-primary, .btn-secondary {
+  @extend %standard-btn;
+
+  // Box shadow animation performance isn't great, but
+  // the alternative introduces a *lot* of complexity
+  box-shadow: 4px 3px 0 0 $colour-black;
+  margin: 0 $gutter-base $gutter-base 0;
+  padding: 15px 20px;
+  @include media-breakpoint-down(sm) {
+    padding: 10px 15px;
+  }
+  position: relative;
+  transition: all .1s;
+
+  &.btn-small {
+    padding-bottom: 9px;
+    padding-top: 9px;
+    @include media-breakpoint-down(sm) {
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+
+    &.btn-arrow {
+      &::before { bottom: 18px; }
+      &::after  { bottom: 10px; }
+    }
+  }
+
+  &.btn-arrow {
+    &::before {
+      bottom: 24px;
+      right:  15px;
+    }
+    &::after {
+      bottom: 16px;
+      right:  17px;
+    }
+  }
+
+  // A little depressed :(
+  &:focus, &:hover {
+    box-shadow: 3px 3px 0 0 $colour-black;
+    left: 1px;
+    top: 1px;
+  }
+
+  // Very depressed ;_;
+  &:active {
+    box-shadow: 0 0 0 0 $colour-black;
+    left: 4px;
+    top: 3px;
+  }
+}
+
+.btn-primary {
+  @extend %standard-btn;
+}
+
+.btn-secondary {
+  background: $colour-white;
+  color: $colour-interactive-blue;
+}
+
+// Adds an arrow within the button
+.btn-arrow {
+  padding-right: 100px;
+  text-transform: uppercase;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+  }
+
+  // Shaft
+  &::before {
+    bottom: 10px;
+    border-top: solid 1px currentColor;
+    right: 0;
+    width: 48px;
+  }
+
+  // Head
+  &::after {
+    border: solid 1px transparent;
+    border-right-color: currentColor;
+    border-top-color: currentColor;
+    bottom: 2px;
+    height: 17px;
+    right: 2px;
+    transform: rotate(45deg);
+    transform-origin: center;
+    width: 17px;
+  }
+}
+
+// Plane buttons, used for submit buttons on some forms
+.btn-plane {
+  @extend %standard-btn;
+  min-height: 60px;
+  padding: 16px 20px;
+}

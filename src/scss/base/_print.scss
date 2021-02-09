@@ -1,0 +1,31 @@
+@media print {
+  $print-space: 1cm;
+  $colour-black: #000;
+  @page {
+    margin: $print-space;
+  }
+
+  html body, [class*='bg-'], [class^='bg-'] {
+    background: transparent !important;
+    color: $colour-black !important;
+  }
+
+  [class*='brd-'], [class^='brd-'] { border-color: $colour-black !important; }
+
+  .btn { display: none !important; }
+
+  .container { max-width: none; }
+  .col-print-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .pad-vert-xlarge {
+    padding-bottom: 1em !important;
+  }
+  .pad-vert-xlarge, .pad-t-xlarge {
+    padding-top: 1em !important;
+  }
+  .gutter-large, .gutter-xxlarge {
+    margin-bottom: 1em;
+  }
+}

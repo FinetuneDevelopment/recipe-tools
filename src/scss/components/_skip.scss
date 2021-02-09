@@ -1,0 +1,14 @@
+// Skip link, top
+.skip {
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  top: -100%;
+  transition: all .2s;
+  z-index: 1;
+
+  &:focus { top: 0; }
+}

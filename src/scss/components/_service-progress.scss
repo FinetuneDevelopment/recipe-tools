@@ -1,0 +1,87 @@
+// A wee doofer which spreads out across the page and counts
+// out a number of stages. A bit like this:
+
+//   01  ____  02  ____ 03
+// Step 1    Step 2   Step 3
+
+.service-progress {
+  counter-reset: service-count;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+
+  // The line running through the numbers
+  &::before {
+    content: "";
+    position: absolute;
+
+    // Horizontal line
+    @include media-breakpoint-up(md) {
+      border-top: solid 5px $colour-interactive-blue;
+      left: 0;
+      margin: -1em 0 0;
+      right: 0;
+      top: 50%;
+    }
+
+    // Vertical line
+    @include media-breakpoint-down(sm) {
+      border-left: solid 3px $colour-interactive-blue;
+      bottom: 0;
+      left: 50%;
+      top: 0;
+    }
+  }
+
+  & > li {
+    counter-increment: service-count;
+    position: relative;
+
+    @include media-breakpoint-down(sm) {
+      margin: 0 0 3em;
+
+      &:last-child { margin-bottom: 0; }
+    }
+
+    & > *::before {
+      content: "0" counter(service-count);
+      display: block;
+      font-family: $font-heading;
+      font-size: $font-size-h1;
+      line-height: 1.2;
+
+      @include media-breakpoint-down(sm) {
+        font-size: $font-size-h3;
+      }
+    }
+
+    // So that items larger than 9 will not have a leading zero
+    // This is unlikely to be used, but it's such a beautiful
+    // use of CSS, I had to include it.
+    & > *:nth-child(n+10):before {
+      content: counter(service-count);
+    }
+  }
+
+  // A limitation of this approach is that in order
+  // to present the illusion of a broken blue line,
+  // the anchor need to have a background colour.
+  // This needs to be added via utility classes.
+  & > li > * {
+    display: block;
+    padding: 0 1em;
+    text-decoration: none; // Hurumph
+
+    @include media-breakpoint-down(sm) {
+      padding: 1em;
+    }
+  }
+}

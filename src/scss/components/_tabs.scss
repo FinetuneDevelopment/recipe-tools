@@ -1,0 +1,82 @@
+// Highest number of tabs required on the page.
+$tab-count: 10;
+$border-width: .05em;
+$border-colour: #000;
+
+// Because I use a loop to create the tabs rule, I need to use extend or the SCSS generates multiple similar rules.
+%show-tab {
+  display: block;
+}
+%selected-tab {
+  opacity: 1;
+}
+%focused-tab {
+  opacity: 1;
+}
+
+.tab-set {
+  // So we don't have to mess around with getBoundingClientRect() in JavaScript,
+  // to work out the width of the tabs
+  position: relative;
+  scroll-behavior: smooth;
+
+  // This allows too many tabs to scroll in small viewports.
+  // Added by JavaScript. Without it, users get a scroll bar, like it's 1996.
+  // This isn't part of the design, but it's not clear what happens on mobile.
+  // Might need to revisit this later.
+  &[data-js="active"] { overflow: hidden; }
+
+  ul, ol, li {
+    list-style: none;
+  }
+  ul, ol {
+    padding: 0;
+  }
+
+  // Default tabs
+  a, em, label {
+    cursor: pointer;
+    opacity: .5;
+    transition: all .2s;
+  }
+  // You are here
+  em, .selected {
+    @extend %selected-tab;
+  }
+  a:hover, a:focus {
+    @extend %focused-tab;
+  }
+}
+
+//@include media-breakpoint-down(md) {}
+
+// Functional styling
+// Showing and hiding the tab panes
+[role="tabpanel"] {display: none;}
+
+//  Note that one of the limitations of this method is that the maximum number of tabs needs to be know in advance.
+// I'm hoping to disguise this limitation, via the sneaky use of SCSS loops.
+@for $i from 1 through $tab-count {
+
+  // Showing the current tab pane
+  input[id="tab#{$i}"]:checked ~ [id="pane#{$i}"] {
+    @extend %show-tab;
+  }
+
+  // Selected tab
+  input[id="tab#{$i}"]:checked ~ .tab-set [for="tab#{$i}"] {
+    @extend %selected-tab;
+  }
+
+  // Focused tab
+  // (this is the clever bit: the label gets a style when the hidden radio button goes into focus)
+  input[id="tab#{$i}"]:focus ~ .tab-set [for="tab#{$i}"] {
+    @extend %focused-tab;
+	}
+}
+
+@media print {
+  .tab-set { display: none; }
+
+  [role="tabpanel"] { display: block !important; }
+}

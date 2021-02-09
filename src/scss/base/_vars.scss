@@ -1,0 +1,45 @@
+$font-heading-fallback: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$font-bodytext-fallback: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+
+$font-heading: $font-heading-fallback;
+$font-etc-regular: $font-bodytext-fallback;
+$font-etc-medium:  $font-bodytext-fallback;
+$font-etc-bold:    $font-bodytext-fallback;
+$font-etc-wide:    $font-bodytext-fallback;
+
+$font-size-body: 15px;
+$font-size-nav: 14px; // Delightful
+$font-size-small: 12px; // First use: tags in blog ctas, address bottom of footer
+
+// Just for the home page
+$font-size-h-splash:  120px;
+// Temp - will need to be adjusted
+$font-size-h1:        110px;
+$font-size-h2:         78px;
+$font-size-h3:         55px; // Originally 37px, changed for "Work" page, "The voice of customer experiences"
+$font-size-h4:         37px; // Was 30px
+$font-size-h5:         30px; // Was 20px
+$font-size-h6:         20px; // Was 16px
+
+// Colours
+$colour-black:            #010111; // SIKE!
+$colour-deep-blue:        #02023D;
+$colour-interactive-blue: #2e38ef;
+$colour-muted-blue:       #daebf6;
+$colour-grey:             #666;
+$colour-mint:             #d7f2db;
+$colour-pink:             #fee2dc;
+$colour-smoke:            #f4f4f4;
+$colour-white:            #fff;
+
+// Gutter sizes
+$gutter-tiny:  16px;
+$gutter-small: 22px;
+$gutter-base:  25px;
+$gutter-medium: 1.5 * $gutter-base; // 37.5px
+$gutter-large:   2  * $gutter-base; // 50px
+$gutter-xlarge:  4  * $gutter-base; // 100px
+$gutter-xxlarge: 6  * $gutter-base; // 150px
+
+// http://placeimg.com
+// animals architecture nature people tech

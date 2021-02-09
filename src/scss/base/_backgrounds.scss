@@ -1,0 +1,316 @@
+// Colours
+// Background tints start with the prefix "bt".
+// Background colours start with the prefix "bg".
+// Background tints do not require the body text
+// or links to change colours. Background colours
+// do.
+.bt-white {
+  background: $colour-white;
+  color: $colour-black;
+  // Used to contain errant margins
+  padding-bottom: .1px;
+}
+
+.bt-smoke {
+  background: $colour-smoke;
+  color: $colour-black;
+  padding-bottom: .1px;
+}
+
+.bt-muted-blue {
+  background: $colour-muted-blue;
+  color: $colour-black;
+  padding-bottom: .1px;
+}
+
+.bt-pink {
+  background: $colour-pink;
+  color: $colour-black;
+  padding-bottom: .1px;
+}
+
+.bt-mint {
+  background: $colour-mint;
+  color: $colour-black;
+  padding-bottom: .1px;
+}
+
+// Dark backgrounds
+.bg-interactive-blue, .bg-deep-blue, .bg-black, .bg-grey {
+  a { color: inherit; }
+}
+
+.bg-grey {
+  background: $colour-grey;
+  color: $colour-white;
+  padding-bottom: .1px;
+}
+
+.bg-interactive-blue {
+  background: $colour-interactive-blue;
+  color: $colour-white;
+  padding-bottom: .1px;
+}
+
+.bg-deep-blue {
+  background: $colour-deep-blue;
+  border-color: $colour-white;
+  color: $colour-white;
+  padding-bottom: .1px;
+  padding-top: .1px;
+}
+
+// Added for completeness / brand guidelines
+.bg-black {
+  background: $colour-black;
+  border-color: $colour-white;
+  color: $colour-white;
+  padding-bottom: .1px;
+  padding-top: .1px;
+}
+
+// Background images
+.bt-hand-reassuring-right {
+  background: url(/img/bg/bg-hand-reassuring-right.svg) 0 0 no-repeat;
+}
+
+.bg-hand-reassuring-left {
+  background: url(/img/bg/bg-hand-reassuring-left.svg) 100% 0 no-repeat;
+  background-size: 250px;
+}
+
+.bt-hand-money-se {
+  background: url(/img/bg/bg-hand-money-se.svg) 100% 100% no-repeat;
+  background-size: 300px;
+  min-height: 300px;
+  transition: background-position 1s;
+
+}
+.scrolling .bt-hand-money-se { background-position: 97% 100%; }
+@include media-breakpoint-down(md) {
+  .scrolling .bt-hand-money-se { background-position: 70% 100%; }
+}
+
+// A hand reaching in from the top left hand corner, holding a thick wad of cash
+.bt-hand-money-nw {
+  background: url(/img/bg/bg-hand-money-nw.svg) 0 0 no-repeat;
+  background-size: 134px 181px;
+  transition: background-position 1s;
+  @include media-breakpoint-down(md) { background-position: 0 -50px; }
+  @include media-breakpoint-down(sm) { background-position: 0 -100px; }
+  @include media-breakpoint-down(xs) { background-position: 0 -130px; }
+}
+.scrolling .bt-hand-money-nw { background-position: 0 -25px; }
+
+
+// A hand reaching in from the bottom left hand corner, holding a thick wad of cash
+.bt-hand-money-sw {
+  background: url(/img/bg/bg-hand-money-sw.svg) 0 100% no-repeat;
+  background-size: 20%;
+  transition: background-position 1s;
+}
+.scrolling .bt-hand-money-sw { background-position: 10% 110%; }
+
+// A hand reaching in from the right-hand side, holding a thick wad of cash
+.bt-hand-money-e {
+  background: url(/img/bg/bg-hand-money-e.svg) 100% 0 no-repeat;
+  background-size: 20%;
+  transition: background-position 1s;
+}
+.scrolling .bt-hand-money-e { background-position: 105% 0; }
+
+// A hand clasping a phone with a message reading "SALE CALL" on it
+.bt-phone-e {
+  background: url(/img/bg/bg-phone-e.svg) 100% 50% no-repeat;
+  background-size: 20%;
+  transition: background-position .75s;
+}
+.scrolling .bt-phone-e { background-position: 110% 30%; }
+
+.bt-hand-pen {
+  background: url(/img/bg/bg-hand-holding-pen.svg) 0 50% no-repeat;
+  background-size: contain;
+  min-height: 200px;
+  transition: background-position 1s;
+}
+.scrolling .bt-hand-pen { background-position: 0 20%; }
+
+.bt-calculator {
+  background: url(/img/bg/bg-calculator.svg) 50% 100% no-repeat;
+  background-size: contain;
+  min-height: 400px;
+  transition: background-position 1s;
+}
+.scrolling .bt-calculator { background-position: 20% 100%; }
+
+@include media-breakpoint-down(sm) {
+  .bt-hand-money-top { background-size: 20%; }
+}
+
+.bt-hand-pen-left {
+  background: url(/img/bg/bg-hand-pen-left.svg) 0 100% no-repeat;
+  background-size: contain;
+  transition: background-position 1s;
+}
+.scrolling .bt-hand-pen-left { background-position: 0 95%; }
+
+// Two images designed to sit on top of each other and create the
+// effect that a hand is pinching an on-screen element between
+// thumb and forefinger.
+// This requires very specific markup around the element being
+// pinched (markup simplified for space):
+// <span class="bt-hand-pinch-ne-background"></span>
+// <p>Element being pinched</p>
+// <span class="bt-hand-pinch-ne-foreground"></span>
+$pinch-size: 300px;
+
+.bt-hand-pinch-ne-foreground {
+  background: url(/img/bg/bg-hand-pinch-ne-foreground.svg) 5% 100% no-repeat;
+  background-size: $pinch-size;
+}
+
+.bt-hand-pinch-ne-background {
+  background: url(/img/bg/bg-hand-pinch-ne-background.svg) 5% 100% no-repeat;
+  background-size: $pinch-size;
+}
+
+// Used within tabs containing .quote-endorsement quotes, so SVGs
+// appear to sit on top of the logocoins.
+.bt-logocoin {
+  background: url(/img/content/logocoin-blank.png) 50% 50% no-repeat;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOTYgMjk2IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMDAiPjxwYXRoIGQ9Ik0yMjQgMjc2bC01MSAxOS01NS0xLTUwLTIwLTQwLTM4LTIzLTQ5LTQtNTQgMTUtNTIgMzQtNDMgNDYtMjggNTQtOSA1MyAxMSA0NiAyOSAzMiA0NCAxNCA1My02IDU0LTI0IDQ4eiIvPjwvc3ZnPgo=') 50% 50% no-repeat;
+  background-size: contain;
+}
+
+@include media-breakpoint-down(md) {
+  .bt-strategy {
+    background: $colour-white;
+    color: $colour-black;
+  }
+}
+
+// Strategy: a graph showing a rising line on a chart
+// This started as a class to add just a background graphic,
+// but then got other ideas.
+@include media-breakpoint-up(md) {
+  .bt-strategy {
+    background: $colour-white url(/img/bg/bg-strategy.svg) 0 0 no-repeat;
+    background-size: 400%;
+    color: $colour-black;
+  }
+  // To shift the position of the bg-strategy.svg for each of the
+  // .block-scroll children.
+  .bp-0-3 { background-position: 0 0; }
+  .bp-1-3 { background-position: 33.33% 0; }
+  .bp-2-3 { background-position: 66.66% 0; }
+  .bp-3-3 { background-position: 100% 0; }
+
+  // To add gutters so that the columns of text within each panel
+  // avoid overlapping with the image content. These figures are
+  // super arbratory.
+  .bt-strategy__col-1 { margin-top: 280px; }
+  .bt-strategy__col-2 { margin-top: 170px; }
+  .bt-strategy__col-3 { margin-top: 150px; }
+}
+@include media-breakpoint-down(md) {
+  .bt-strategy { border-bottom: dashed 2px $colour-black; }
+  .bt-strategy:last-child { border: 0; }
+}
+
+// This allows a background image to sort of hang off
+// the end of an element and follow it as the text
+// reflows on the page.
+.bt-attach {
+  display: inline-block;
+  position: relative;
+
+  @include media-breakpoint-up(xs) {
+    .bt-hand-reassuring-right {
+      left: -.28em;
+      top: -.6em;
+    }
+  }
+
+  // NO-ONE CAN ESCAPE THE HAND OF JUSTICE
+  @include media-breakpoint-down(xs) {
+    .bt-hand-reassuring-right {
+      background-size: 150px;
+      left: -.5em;
+      top: -1em;
+    }
+  }
+}
+
+// Another version, which uses absolute positioning
+.bt-abs-top-middle {
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+
+.bt-abs-bottom-right {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.bt-attach__child {
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+}
+
+// ↘
+.bt-attach__child-se {
+  right: 0;
+  bottom: 0;
+}
+
+// ↙
+.bt-attach__child-sw {
+  right: 0;
+  top: 0;
+
+  &.bg-hand-reassuring-left {
+    right: -40px;
+    top: -85px;
+  }
+}
+
+// ↑
+.bt-attach__child-n {
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  width: auto;
+
+  &.bt-hand-pen-left {
+    bottom: calc(100% - 9px);
+    left: 15px; // Hard-coded Bootstrap gutter alert
+  }
+}
+
+// ↗
+.bt-attach__child-ne {
+  bottom: 0;
+  left: 0;
+
+  &.bt-hand-pinch-ne-foreground, &.bt-hand-pinch-ne-background {
+    bottom: -40px;
+  }
+}
+
+// Not strictly speaking a background image, but I couldn't think where else to put this
+.logo-finetune {
+  height: 27px;
+  min-width: 124px;
+  width: 124px;
+}
+
+// For SVG animations
+svg {
+  [data-js="translate-20"],
+  [data-js="rotate-20"] {
+    transition: all 1s;
+  }
+}

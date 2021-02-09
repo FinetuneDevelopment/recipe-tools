@@ -1,0 +1,226 @@
+// CSS shapes and icons
+
+// Icon sizing
+
+// First use: about us panels
+.icon-large.icon-large {
+  display: inline-block;
+  height: 63px;
+  width: 63px;
+
+  &.icon-sq {
+    line-height: 63px;
+    text-align: center;
+
+    // w e e   d u n t
+    svg { transform: translate(0,-5px); }
+  }
+
+  svg, img {
+    height: 35px;
+    width:  35px;
+  }
+  .shape {
+    font-size: 2px;
+    transform: translate(0,-5px);
+  }
+}
+
+// Used for the social media icons on the blog article pages
+.icon-small.icon-small {
+  display: inline-block;
+  height: 38px;
+  width: 38px;
+
+  // Used for the close button on modal popups
+  &.icon-sq {
+    line-height: 38px;
+    text-align: center;
+
+    // w e e   d u n t
+    svg, span { transform: translate(0,-4px); }
+  }
+
+  svg, img {
+    height: 15px;
+    width:  15px;
+  }
+}
+
+// Social media icons, footer
+.icon-tiny.icon-tiny {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+
+  &.icon-sq {
+    line-height: 32px;
+    text-align: center;
+
+    // w e e   d u n t
+    svg { transform: translate(0,-3px); }
+  }
+
+  svg, img {
+    height: 12px;
+    width: 12px;
+  }
+  .shape {
+    font-size: 1px;
+    transform: translate(0,-4px);
+  }
+}
+
+.icon-large.icon-large, .icon-small.icon-small, .icon-tiny.icon-tiny {
+  svg { vertical-align: middle; }
+}
+
+// Doesn't hold icons. Used as "pips" in the image carousel, in case studies.
+.icon-pip {
+  height: 16px;
+  width:  16px;
+
+  &:focus, &:active, &:hover {
+    background: $colour-interactive-blue;
+  }
+}
+
+// Used in the marquee
+.ic-arrow {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: -.5em;
+  font-size: $font-size-h6;
+
+  &::before { content: "----------->"; } // This is super hacky, but is the best cross-browser solution I could find
+}
+
+
+// General icon class
+.shape {
+  display: inline-block;
+  font-size: 1.2px;
+  font-style: normal;
+  font-weight: normal;
+  position: relative;
+  vertical-align: middle;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+}
+
+// … - used to toggle the mobile navigation
+// Ellipses are the new hamburger
+.sh-ellipsis {
+  margin: 0 10em;
+
+  &, &::before, &::after {
+    background: currentColor;
+    border-radius: 50%;
+    height: 8em;
+    transition: all ease .2s;
+    width: 8em;
+  }
+
+  &::before { left:  13em; }
+  &::after  { right: 13em; }
+}
+
+// Focus never happens to the label tag
+.toggle:focus ~ .toggle-container .sh-ellipsis,
+label:hover .sh-ellipsis,
+.sh-ellipsis:hover {
+  &::before { left:  15em; }
+  &::after  { right: 15em; }
+}
+
+// Used in some submit <button>s
+// Adapted from .btn-arrow
+.sh-arrow-right, .sh-arrow-left {
+  height: 16em;
+  width: 16em;
+
+  // Shaft
+  &::before {
+    bottom: 8em;
+    border-top: solid .5em currentColor;
+    right: 0;
+    width: 16em;
+  }
+
+  // Head
+  &::after {
+    border: solid .5em transparent;
+    border-right-color: currentColor;
+    border-top-color: currentColor;
+    height: 8.5em;
+    transform-origin: center;
+    width: 8.5em;
+  }
+}
+
+.sh-arrow-right::after {
+  top: 3.5em;
+  right: .1em;
+  transform: rotate(45deg);
+}
+
+.sh-arrow-left::after {
+  left: 1em;
+  top: 3.5em;
+  transform: rotate(-135deg);
+}
+
+// Used in the skip link, top of the page
+.sh-arrow-up, .sh-arrow-down {
+  height: 16em;
+  width: 16em;
+
+  // Shaft
+  &::before {
+    bottom: 0;
+    border-right: solid .5em currentColor;
+    left: 8em;
+    height: 16em;
+  }
+
+  // Head
+  &::after {
+    border: solid .5em transparent;
+    border-right-color: currentColor;
+    border-top-color: currentColor;
+    height: 8.5em;
+    right: 3.5em;
+    transform-origin: center;
+    width: 8.5em;
+  }
+}
+
+.sh-arrow-up::after {
+  top: 1.5em;
+  transform: rotate(-45deg);
+}
+
+.sh-arrow-down::after {
+  bottom: 1.5em;
+  transform: rotate(135deg);
+}
+
+// ×
+.sh-close {
+  height: 10em;
+  width: 10em;
+
+  &::before, &::after {
+    border-top: solid 2px currentColor;
+    left: 0;
+    top: 50%;
+    transform-origin: center;
+    width: 11em;
+  }
+
+  &::before { transform: rotate( 45deg); }
+  &::after  { transform: rotate(-45deg); }
+}

@@ -1,0 +1,79 @@
+// This vaguely WWII sounding file creates this sort of thing:
+
+// s |
+// e |
+// l |
+// a |
+// S |
+//   |
+// --+------------------------
+//   |                 T i m e
+
+// ... which goes around the .block-scroll on the Services page.
+
+$axis-width: 40px;
+
+@include media-breakpoint-up(md) {
+
+  .strategy-axis {
+    padding: 0 0 $axis-width $axis-width * 2;
+    position: relative;
+
+    // The vertical and horizonal lines
+    &::before, &::after {
+      background: $colour-black;
+      content: "";
+      position: absolute;
+    }
+
+    // Y-axis
+    &::before {
+      bottom: 0;
+      left: $axis-width;
+      top: $axis-width; // d e s i g n
+      width: 1px;
+    }
+
+    // X-axis
+    &::after {
+      bottom: $axis-width * 2/3; // d e s i g n
+      height: 1px;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .strategy-axis__X, .strategy-axis__Y {
+    font-family: $font-etc-wide;
+    margin: 0;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  // In the example above, "S a l e s"
+  .strategy-axis__Y {
+    line-height: $axis-width;
+    padding: ($axis-width * 1) 0 0 0;
+    right: 100%;
+    top: 0;
+    transform: rotate(-90deg);
+    transform-origin: right center;
+  }
+
+  // In the example above, "T i m e"
+  .strategy-axis__X {
+    bottom: 0;
+    right: 0;
+  }
+
+  // Wee nudge
+  .scroll-control > :last-child { right: -22px; }
+
+  @include media-breakpoint-only(xl) {
+    .scroll-control > :last-child { right: -15px; }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .strategy-axis__Y, .strategy-axis__X { display: none; }
+}

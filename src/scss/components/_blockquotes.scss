@@ -1,0 +1,45 @@
+// From head hiedyuns in industry
+.quote-endorsement {
+  padding-left: 65px;
+  position: relative;
+
+  & > p {
+    font-size: $font-size-h5;
+    position: relative;
+    text-transform: uppercase;
+
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-h6;
+    }
+  }
+
+  footer {
+    font-size: $font-size-h6;
+  }
+
+  // (")
+  &::before {
+    background: $colour-interactive-blue;
+    border-radius: 50%;
+    color: $colour-white;
+    content: "\"";
+    font-family: $font-etc-wide;
+    font-size: $font-size-h5;
+    line-height: .7;
+    left: 13px;
+    padding: .5em .2em 0;
+    position: absolute;
+    top: 11px;
+  }
+
+  // |
+  &::after {
+    background: $colour-black;
+    bottom: 0;
+    content: "";
+    left: 31px;
+    position: absolute;
+    top: 60px;
+    width: 1px;
+  }
+}
