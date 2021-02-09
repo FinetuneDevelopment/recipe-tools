@@ -1,21 +1,25 @@
 .box-grid {
 
-  label {
-    background-size: cover;
-    cursor: pointer;
+  p {
     display: inline-block;
     font-size: 2em;
     font-weight: bold;
+    height: 25vw;
+    margin: 0;
     position: relative;
     text-align: center;
     vertical-align: top;
     width: 25%;
+  }
+
+  label {
+    cursor: pointer;
 
     img { vertical-align: top; }
   }
 
   // Text
-  span {
+  .name {
     background: rgba(256,256,256,.8);
     left: 0;
     line-height: 1.2;
@@ -26,9 +30,18 @@
     transform: translateY(-50%) skewY(8deg);
     translate: all .2s;
   }
+
+  // Checkbox
+  input {
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+  }
+
 }
 
-input:checked + label span {
+input:checked + label .name {
   background: rgba(243,193,94,1); // #F3C15E
 }
 input:disabled + label {
@@ -36,7 +49,10 @@ input:disabled + label {
 }
 
 @media (max-width: 1000px) {
-  .box-grid label { width: 50%; }
+  .box-grid p {
+    height: 50vw;
+    width: 50%;
+  }
 
 }
 

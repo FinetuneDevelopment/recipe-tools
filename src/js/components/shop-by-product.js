@@ -1760,14 +1760,14 @@ export default function scrollFactory() {
     // (in this example) of the ingredients required for a recipe.
     function popularIngredients(obj,criteria) {
       let sortedTags = sortObjectEntries(objectChart(obj,criteria));
-      let markup = '<section aria-label="Pick three things" class="pos-rel"><h2 class="instruction-overlay">Pick three things</h2> <p data-js="ingredient-dad" class="box-grid">';
+      let markup = '<section aria-label="Pick three things"><h2 class="instruction-overlay">Pick three things</h2> <div data-js="ingredient-dad" class="box-grid">';
       // Built up a list of the 20 most popular criteria
       for (let i = 0; i < 20; i++) {
         const name = sortedTags[i];
         const id = name.toLowerCase().replace(/\s+/g,'-'); // "Hello There, Man" becomes "hello-there,-man"
-        markup += '<input type="checkbox" id="' + id + '" value="' + name + '" data-js="ingredient" class="sr-only"><label for="' + id + '"><img src="/img/ingredients/' + id + '.jpg" alt=""><span>' + name + '</span></label>';
+        markup += '<p><input type="checkbox" id="' + id + '" value="' + name + '" data-js="ingredient"><label for="' + id + '"><img src="/img/ingredients/' + id + '.jpg" alt=""><span class="name">' + name + '</span></label></p>';
       }
-      markup += '</p></section>';
+      markup += '</div></section>';
       let tagTarget = document.querySelector('[data-js="ptt"]');
       if (tagTarget) tagTarget.innerHTML = markup;
     }
