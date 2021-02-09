@@ -39,3 +39,58 @@ input:disabled + label {
   .box-grid label { width: 50%; }
 
 }
+
+// Big, scary text which floats over the top of everything and gets in the way
+.instruction-overlay {
+  font-size: 9vw;
+  font-weight: bold;
+  letter-spacing: .25em;
+  margin: 0;
+  opacity: .7;
+  pointer-events: none;
+  position: fixed;
+  text-align: center;
+  text-transform: lowercase;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+}
+
+@supports (-webkit-text-stroke: .2vw #fff) {
+  .instruction-overlay {
+    -webkit-text-stroke: .2vw #fff;
+    -webkit-text-fill-color: #000;
+  }
+}
+
+.modal {
+  background: #fff;
+  bottom: 2vw;
+  left: 2vw;
+  margin: 0 auto;
+  max-width: 70em;
+  opacity: 1;
+  overflow: auto;
+  padding: 15px;
+  position: fixed;
+  right: 2vw;
+  top: 2vw;
+  transition: all .2s;
+  z-index: 1;
+}
+.modal[hidden] {
+  opacity: 0;
+  z-index: -1;
+}
+.modal .close {
+  background: rgba(0,0,0,.8);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 0 .5em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}

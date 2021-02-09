@@ -1760,11 +1760,11 @@ export default function scrollFactory() {
     // (in this example) of the ingredients required for a recipe.
     function popularIngredients(obj,criteria) {
       let sortedTags = sortObjectEntries(objectChart(obj,criteria));
-      let markup = '<section aria-label="Popular ' + criteria + '"><h2>Popular ' + criteria + '</h2> <p data-js="ingredient-dad" class="box-grid">';
+      let markup = '<section aria-label="Pick three things"><h2 class="instruction-overlay">Pick three things</h2> <p data-js="ingredient-dad" class="box-grid">';
       // Built up a list of the 20 most popular criteria
       for (let i = 0; i < 20; i++) {
         const name = sortedTags[i];
-        const id = name.toLowerCase().replace(/\s+/g,'-');
+        const id = name.toLowerCase().replace(/\s+/g,'-'); // "Hello There, Man" becomes "hello-there,-man"
         markup += '<input type="checkbox" id="' + id + '" value="' + name + '" data-js="ingredient" class="sr-only"><label for="' + id + '"><img src="/img/ingredients/' + id + '.jpg" alt=""><span>' + name + '</span></label>';
       }
       markup += '</p></section>';
@@ -1791,7 +1791,7 @@ export default function scrollFactory() {
         }
         // Build the markup out of that these list
         const recipeChart = returnChart(arList, ingredientArray, 'shopping');
-        let resultMarkup = '';
+        let resultMarkup = '<p class="close"><button type="button" title="Close" data-js="close" class="close">&times;</button></p>';
         // Building up the string of recipe markup
         for (let k = 0; k < 3; k++) {
           const recipeIndex = arLookup.indexOf(recipeChart[k]);
@@ -1799,7 +1799,11 @@ export default function scrollFactory() {
           resultMarkup += recipeSummary(recipeMarkup);
         }
         let tagTarget = document.querySelector('[data-js="ptt-results"]');
-        if (tagTarget) tagTarget.innerHTML = resultMarkup;
+        // Output the recipes to the page
+        if (tagTarget) {
+          tagTarget.innerHTML = resultMarkup;
+          tagTarget.removeAttribute('hidden');
+        }
       } else { // Free up the checkboxes
         for (let i = 0; i < allChecks.length; i++) {
           allChecks[i].disabled = false;
@@ -1890,14 +1894,15 @@ export default function scrollFactory() {
           else shoppingList += '.';
         }
       }
-      if (shoppingList !== '') shoppingList = '<p class="tags"><strong>Requires:</strong><br>' + shoppingList + '</p>';
+      if (shoppingList !== '') shoppingList = '<p><strong>Requires:</strong><br>' + shoppingList + '</p>';
 
-      let markup = '<section>' +
-          '<p><img src="' + object.image.replace('http://','https://') + '" alt=""></p>' +
+      let markup = '<section class="row" aria-label="' + object.name + '">' +
+          '<p class="col-md"><img src="' + object.image + '" alt=""></p>' +
+          '<div class="col">' +
           '<h2>' + object.name + '</h2>' +
-          '<p>' + object.description + '</p>' +
+          '<p class="lead">' + object.description + '</p>' +
           shoppingList +
-          '</section>';
+          '</div></section>';
       return markup;
     }
 
@@ -1977,6 +1982,10 @@ export default function scrollFactory() {
         if (arLookup.indexOf(id) > -1) {
           showRecipe(id);
         }
+      }
+      // Close the modal
+      if (target.getAttribute('data-js') === 'close' && document.querySelector('.modal')) {
+        document.querySelector('.modal').setAttribute('hidden','true');
       }
     }, false);
 
