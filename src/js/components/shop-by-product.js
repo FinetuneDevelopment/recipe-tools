@@ -1760,7 +1760,7 @@ export default function scrollFactory() {
     // (in this example) of the ingredients required for a recipe.
     function popularIngredients(obj,criteria) {
       let sortedTags = sortObjectEntries(objectChart(obj,criteria));
-      let markup = '<section aria-label="Pick three things"><h2 class="instruction-overlay">Pick three things</h2> <p data-js="ingredient-dad" class="box-grid">';
+      let markup = '<section aria-label="Pick three things" class="pos-rel"><h2 class="instruction-overlay">Pick three things</h2> <p data-js="ingredient-dad" class="box-grid">';
       // Built up a list of the 20 most popular criteria
       for (let i = 0; i < 20; i++) {
         const name = sortedTags[i];
@@ -1821,7 +1821,7 @@ export default function scrollFactory() {
           shoppingList += '<button type="button" data-tag="' + thisItem + '">' + thisItem + '</button> ';
         }
       }
-      if (shoppingList !== '') shoppingList = '<p class="tags"><strong>See more recipes featuring:</strong><br><button type="button" data-tag="All">Everything</button> ' + shoppingList + '</p>';
+      if (shoppingList !== '') shoppingList = '<p><strong>See more recipes featuring:</strong><br><button type="button" data-tag="All">Everything</button> ' + shoppingList + '</p>';
 
       // Builds the ingredients panel
       let ingredients = '';
@@ -1842,7 +1842,7 @@ export default function scrollFactory() {
       if (typeof object.ingredientGroup !== 'undefined') {
         for (let i = 0; i < object.ingredientGroup.length; i++) {
           let thisGroup = object.ingredientGroup[i];
-          if (typeof thisGroup.name !== 'undefined') ingredients += '<h3>' + thisGroup.name + '</h3>';
+          if (typeof thisGroup.name !== 'undefined') ingredients += '<h4>' + thisGroup.name + '</h4>';
           ingredients += '<ul>';
           for (let j = 0; j < thisGroup.ingredient.length; j++) {
             let thisIngredient = thisGroup.ingredient[j];
@@ -1868,17 +1868,19 @@ export default function scrollFactory() {
       let forked = '';
       if (typeof object.forked !== 'undefined') forked = '<p>' + object.forked + '</p>';
 
-      let markup = '<header style="background-image: url(' + object.image.replace('http://','https://') + ');">' +
-          '<h2>' + object.name + '</h2>' +
-          '<p>' + object.description + '</p>' +
-          shoppingList +
-          '</header>' +
-          '<div class="row"><section aria-label="Ingredients"><h2>Ingredients</h2>' +
-          ingredients +
-          '</section>' +
-          '<section aria-label="Method"><h2>Method</h2><ol>' +
-          steps + '</ol></section></div>' +
-          '<footer>' + notes + forked + '</footer>';
+      let markup = '<section class="row" aria-label="' + object.name + '">' +
+        '<header class="col-md">' +
+        '<h2>' + object.name + '</h2>' +
+        '<p>' + object.description + '</p>' +
+        '<p><img src="' + object.image + '" alt=""></p>' +
+        shoppingList +
+        '</header><div class="col-md">' +
+        '<section aria-label="Ingredients"><h3>Ingredients</h3>' +
+        ingredients +
+        '</section>' +
+        '<section aria-label="Method"><h3>Method</h3><ol>' +
+        steps + '</ol></section>' +
+        '<footer>' + notes + forked + '</footer></div></section>';
       return markup;
     }
 
@@ -1902,6 +1904,7 @@ export default function scrollFactory() {
           '<h2>' + object.name + '</h2>' +
           '<p class="lead">' + object.description + '</p>' +
           shoppingList +
+          '<p><button type="button" data-view="' + object.id + '">View <span class="sr-only">' + object.name + '</span> recipe</button></p>' +
           '</div></section>';
       return markup;
     }
@@ -1975,12 +1978,24 @@ export default function scrollFactory() {
     // Listens for clicks on the related recipes buttons
     document.addEventListener('click', function (event) {
       const target = event.target;
-      // Is this a button we need to worry about>
+      // On the shop by product page, the user has clicked on one of the related products
       if (target.getAttribute('data-show')) {
         const id = target.getAttribute('data-show');
         // Is the value of the attribute valid?
         if (arLookup.indexOf(id) > -1) {
           showRecipe(id);
+        }
+      }
+      // On the choose three things page, the user has clicked on the view button in the modal
+      if (target.getAttribute('data-view')) {
+        const id = target.getAttribute('data-view');
+        // Is the value of the attribute valid?
+        if (arLookup.indexOf(id) > -1) {
+          const objRecipe = arList[arLookup.indexOf(id)];
+          const target = document.querySelector('[data-js="ptt-results"]');
+          if (target) {
+            target.innerHTML = '<p class="close"><button type="button" title="Close" data-js="close" class="close">×</button></p>' + recipeMarkup(objRecipe);
+          }
         }
       }
       // Close the modal
