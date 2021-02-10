@@ -28,6 +28,7 @@
   min-height: 2em;
   padding: .2em .8em;
   position: relative;
+  transition: all .3s;
 }
 
 @mixin buttonpsudo {
@@ -35,6 +36,7 @@
   content: "";
   position: absolute;
   top: 0;
+  transition: all .3s;
 }
 
 
@@ -62,29 +64,17 @@
     right: -1em;
   }
 
-  &:hover {
-    background: $colour-salmon;
+  &:hover, &:focus {
+    margin: 0 2em 0 0;
 
     &::before {
-      border-bottom-color: $colour-salmon;
-      border-top-color: $colour-salmon;
+      border-left-width: 0;
+      left: 0;
     }
 
     &::after {
-      border-left-color: $colour-salmon;
-    }
-  }
-
-  &:focus {
-    background: $colour-cornflower;
-
-    &::before {
-      border-bottom-color: $colour-cornflower;
-      border-top-color: $colour-cornflower;
-    }
-
-    &::after {
-      border-left-color: $colour-cornflower;
+      border-left-width: 2em;
+      right: -2em;
     }
   }
 }
@@ -117,15 +107,12 @@
     right: -1em;
   }
 
-  &:hover {
-    background: $colour-salmon;
-    &::before { border-bottom-color: $colour-salmon; }
-    &::after { border-top-color: $colour-salmon; }
+  &:hover, &:focus {
+    &::before, &::after {
+      border-right-width: 0;
+      border-left-width: 0;
+    }
+    &::before { left: 0; }
+    &::after { right: 0; }
   }
-  &:focus {
-    background: $colour-cornflower;
-    &::before { border-bottom-color: $colour-cornflower; }
-    &::after { border-top-color: $colour-cornflower; }
-  }
-
 }

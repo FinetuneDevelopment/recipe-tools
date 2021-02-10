@@ -1956,7 +1956,7 @@ export default function scrollFactory() {
       for (let i = start; i < end; i++) {
         // The index of the related recipe, in the original object
         let relatedIndex = arLookup.indexOf(chart[i]);
-        markup += '<button type="button" data-show="' + chart[i] + '">' + arList[relatedIndex].name + '</button> ';
+        markup += '<button type="button" data-show="' + chart[i] + '" class="btn btn-secondary">' + arList[relatedIndex].name + '</button> ';
       }
       markup += '</p>';
       return markup;
