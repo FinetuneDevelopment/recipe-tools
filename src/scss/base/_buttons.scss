@@ -66,16 +66,16 @@
   }
 
   &:hover, &:focus {
-    margin: 0 2em 0 0;
+    margin: 0 1.5em 0 .2em;
 
     &::before {
-      border-left-width: 0;
-      left: 0;
+      border-left-width: .2em;
+      left: -.2em;
     }
 
     &::after {
-      border-left-width: 2em;
-      right: -2em;
+      border-left-width: 1.8em;
+      right: -1.8em;
     }
   }
 }

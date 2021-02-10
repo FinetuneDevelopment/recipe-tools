@@ -1819,10 +1819,10 @@ export default function scrollFactory() {
       if (object.shopping.length > 0) {
         for (let i = 0; i < object.shopping.length; i++) {
           let thisItem = object.shopping[i];
-          shoppingList += '<button type="button" data-tag="' + thisItem + '" class="btn btn-tag">' + thisItem + '</button> ';
+          shoppingList += '<a href="/recipes-featuring/?ingredient=' + thisItem + '" class="btn btn-tag">' + thisItem + '</a> ';
         }
       }
-      if (shoppingList !== '') shoppingList = '<p><strong>See more recipes featuring:</strong><br><button type="button" data-tag="All" class="btn btn-tag">Everything</button> ' + shoppingList + '</p>';
+      if (shoppingList !== '') shoppingList = '<p><strong>See more recipes featuring:</strong><br><a href="/recipes-featuring/" class="btn btn-tag">Everything</a> ' + shoppingList + '</p>';
 
       // Builds the ingredients panel
       let ingredients = '';
@@ -1971,7 +1971,7 @@ export default function scrollFactory() {
     function showRecipe(id) {
       var recipeObj = arList[arLookup.indexOf(id)];
       const randRecipeCard = recipeSummary(recipeObj);
-      const welcomeMessage = '<header aria-label="Hello, Stephen"><h2>Hello, Stephen</h2><p>Here\'s our recipe of the day:</p></header>';
+      const welcomeMessage = '<h1>Recipe of the day</h1>';
       const choice = '<footer class="row"><section class="col" aria-label="Different"><h3>Different</h3>' + showRelated(recipeObj,'reverse') + '</section><section class="col" aria-label="Similar"><h3>Similar</h3>' + showRelated(recipeObj) + '</section></footer>';
       let tagTarget = document.querySelector('[data-js="app"]');
       if (tagTarget) tagTarget.innerHTML = welcomeMessage + randRecipeCard + choice;
@@ -1988,7 +1988,7 @@ export default function scrollFactory() {
           showRecipe(id);
         }
       }
-      // On the choose three things page, the user has clicked on the view button in the modal
+      // The user has asked for the recipe to appear in a modal
       if (target.getAttribute('data-view')) {
         const id = target.getAttribute('data-view');
         // Is the value of the attribute valid?
@@ -1997,6 +1997,7 @@ export default function scrollFactory() {
           const target = document.querySelector('[data-js="ptt-results"]');
           if (target) {
             target.innerHTML = '<p class="close"><button type="button" title="Close" data-js="close" class="close">×</button></p>' + recipeMarkup(objRecipe);
+            target.removeAttribute('hidden');
           }
         }
       }

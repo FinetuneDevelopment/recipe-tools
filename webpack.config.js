@@ -129,12 +129,16 @@ const config = function (env, args) {
         favicon: path.resolve(__dirname, "src", "favicon.ico"),
       }),
       new HtmlWebpackPlugin({
-        filename: 'shop-by-product/index.html',
-        template: path.resolve(__dirname, 'src', 'shop-by-product/index.html'),
+        filename: 'recipe-of-the-day/index.html',
+        template: path.resolve(__dirname, 'src', 'recipe-of-the-day/index.html'),
       }),
       new HtmlWebpackPlugin({
         filename: 'pick-three-things/index.html',
         template: path.resolve(__dirname, 'src', 'pick-three-things/index.html'),
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'recipes-featuring/index.html',
+        template: path.resolve(__dirname, 'src', 'recipes-featuring/index.html'),
       }),
       new MiniCssExtractPlugin({
         filename: "css/[name].css",
