@@ -2,9 +2,7 @@
 
   p {
     display: inline-block;
-    font-size: 2em;
-    font-weight: bold;
-    height: 25vw;
+    min-height: 24vw; // waiting for the image to load
     margin: 0;
     position: relative;
     text-align: center;
@@ -14,18 +12,23 @@
 
   label {
     cursor: pointer;
+    display: block;
 
-    img { vertical-align: top; }
+    img { display: block; }
   }
+
 
   // Text
   .name {
     background: rgba(256,256,256,.8);
+    font-size: 2em;
+    font-weight: bold;
     left: 0;
     line-height: 1.2;
     padding: .5em;
     position: absolute;
     right: 0;
+    text-align: center; // Sometimes, this is inside a <button>
     top: 50%;
     transform: translateY(-50%) skewY(8deg);
     translate: all .2s;

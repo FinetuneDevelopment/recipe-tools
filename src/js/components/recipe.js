@@ -1772,7 +1772,6 @@ export default function scrollFactory() {
       if (tagTarget) tagTarget.innerHTML = markup;
     }
 
-
     popularIngredients(arList,'shopping');
 
     // Counts to see if the user has picked three ingredients, then if they have, spawns three matching recipes.
@@ -1975,6 +1974,76 @@ export default function scrollFactory() {
       const choice = '<footer class="row"><section class="col" aria-label="Different"><h3>Different</h3>' + showRelated(recipeObj,'reverse') + '</section><section class="col" aria-label="Similar"><h3>Similar</h3>' + showRelated(recipeObj) + '</section></footer>';
       let tagTarget = document.querySelector('[data-js="app"]');
       if (tagTarget) tagTarget.innerHTML = welcomeMessage + randRecipeCard + choice;
+    }
+
+    // User is on the Recipes Featuring page
+    let objRecipesFeaturing = document.querySelector('[data-js="recipes-featuring"]');
+    if (objRecipesFeaturing) {
+      const objResults = filterRecipy(getParameterByName('ingredient'));
+      objRecipesFeaturing.innerHTML = recipyThumbs(objResults);
+    }
+
+    // Returns names and images of recipes which match an ingredient filter, or if no
+    // filter is passed, returns all recipes.
+    function filterRecipy(criteria) {
+      let objResults = [];
+      // Show all recipes
+      if (!criteria) {
+        objResults.push({ "filter": "" });
+        for (let i = 0; i < arList.length; i++) {
+          let thisRecipe = arList[i];
+          // Building up objResults with content
+          let thumb = {
+            "name": thisRecipe.name,
+            "image": thisRecipe.image,
+            "id": thisRecipe.id
+          };
+          objResults.push(thumb);
+        }
+      } else { // Show recipes matching criteria
+        objResults.push({ "filter": criteria });
+        // Loop through all recipes, looking for a match.
+        for (let i = 0; i < arList.length; i++) {
+          let thisRecipe = arList[i];
+          let ingredients = thisRecipe.shopping;
+          // Building up objResults with content
+          if (ingredients.indexOf(criteria) > -1) {
+            let thumb = {
+              "name": thisRecipe.name,
+              "image": thisRecipe.image,
+              "id": thisRecipe.id
+            };
+            objResults.push(thumb);
+          }
+        }
+      }
+      return objResults;
+    }
+
+    // Builds a list of thumbnails of recipes
+    function recipyThumbs(obj) {
+      let searchTerm = obj[0].filter;
+      let heading;
+      if (searchTerm === '') {
+        heading = 'Pick a recipe';
+      } else if (obj.length < 2) {
+        heading = 'No recipes feature ' + searchTerm + ' :(';
+      } else {
+        heading = 'recipes featuring ' + searchTerm;
+      }
+      let markup = '<h2 class="instruction-overlay">' + heading + '</h2><div class="box-grid">';
+      // Position 0 has the search term
+      for (let i = 1; i < obj.length; i++) {
+        markup += '<p><button type="button" class="btn" data-view="' + obj[i].id + '"><img src="' + obj[i].image + '" alt="' + obj[i].name + '" data-view="' + obj[i].id + '"><span class="name" data-view="' + obj[i].id + '">' + obj[i].name + '</span></button></p>';
+      }
+      markup += '</div>';
+      return markup;
+    }
+
+    // Grabbing querystring parameters
+    function getParameterByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
     }
 
     // Listens for clicks on the related recipes buttons
