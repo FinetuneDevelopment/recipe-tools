@@ -21,135 +21,111 @@
   vertical-align: top;
 }
 
-%standard-btn {
-  background: $colour-interactive-blue;
-  border: solid 1px $colour-interactive-blue;
-  color: $colour-white;
-  text-transform: uppercase;
-}
-
-// Used in the main navigation
-.btn-nav {
-  font-family: $font-etc-bold;
-  font-size: $font-size-nav;
-  padding: ($gutter-tiny / 2 + 2) $gutter-tiny;
-
-  // Things go a bit bonkers on mobile
-  @include media-breakpoint-down(sm) {
-    & {
-      display: block;
-      font-family: $font-heading;
-      font-size: $font-size-h3;
-      text-align: center;
-    }
-  }
-}
-
-// You are here
-em.btn-nav, em .btn-nav {
-  color: $colour-interactive-blue;
-  font-style: normal;
-}
-
-// The two main call-to-action styles on the page, with the drop-shadow
-.btn-primary, .btn-secondary {
-  @extend %standard-btn;
-
-  // Box shadow animation performance isn't great, but
-  // the alternative introduces a *lot* of complexity
-  box-shadow: 4px 3px 0 0 $colour-black;
-  margin: 0 $gutter-base $gutter-base 0;
-  padding: 15px 20px;
-  @include media-breakpoint-down(sm) {
-    padding: 10px 15px;
-  }
+@mixin button {
+  background: $colour-yellow;
+  font-weight: bold;
+  letter-spacing: .1em;
+  min-height: 2em;
+  padding: .2em .8em;
   position: relative;
-  transition: all .1s;
-
-  &.btn-small {
-    padding-bottom: 9px;
-    padding-top: 9px;
-    @include media-breakpoint-down(sm) {
-      padding-bottom: 5px;
-      padding-top: 5px;
-    }
-
-    &.btn-arrow {
-      &::before { bottom: 18px; }
-      &::after  { bottom: 10px; }
-    }
-  }
-
-  &.btn-arrow {
-    &::before {
-      bottom: 24px;
-      right:  15px;
-    }
-    &::after {
-      bottom: 16px;
-      right:  17px;
-    }
-  }
-
-  // A little depressed :(
-  &:focus, &:hover {
-    box-shadow: 3px 3px 0 0 $colour-black;
-    left: 1px;
-    top: 1px;
-  }
-
-  // Very depressed ;_;
-  &:active {
-    box-shadow: 0 0 0 0 $colour-black;
-    left: 4px;
-    top: 3px;
-  }
 }
 
+@mixin buttonpsudo {
+  bottom: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+}
+
+
+// __________
+// > L i n k >
+// ‾‾‾‾‾‾‾‾‾‾
 .btn-primary {
-  @extend %standard-btn;
-}
-
-.btn-secondary {
-  background: $colour-white;
-  color: $colour-interactive-blue;
-}
-
-// Adds an arrow within the button
-.btn-arrow {
-  padding-right: 100px;
-  text-transform: uppercase;
+  margin: 0 1em;
+  @include button;
 
   &::before, &::after {
-    content: "";
-    position: absolute;
+    border: solid 1em $colour-yellow;
+    border-right: none;
+    @include buttonpsudo;
   }
 
-  // Shaft
   &::before {
-    bottom: 10px;
-    border-top: solid 1px currentColor;
-    right: 0;
-    width: 48px;
+    border-left-color: transparent;
+    left: -1em;
   }
 
-  // Head
   &::after {
-    border: solid 1px transparent;
-    border-right-color: currentColor;
-    border-top-color: currentColor;
-    bottom: 2px;
-    height: 17px;
-    right: 2px;
-    transform: rotate(45deg);
-    transform-origin: center;
-    width: 17px;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    right: -1em;
+  }
+
+  &:hover {
+    background: $colour-salmon;
+
+    &::before {
+      border-bottom-color: $colour-salmon;
+      border-top-color: $colour-salmon;
+    }
+
+    &::after {
+      border-left-color: $colour-salmon;
+    }
+  }
+
+  &:focus {
+    background: $colour-cornflower;
+
+    &::before {
+      border-bottom-color: $colour-cornflower;
+      border-top-color: $colour-cornflower;
+    }
+
+    &::after {
+      border-left-color: $colour-cornflower;
+    }
   }
 }
 
-// Plane buttons, used for submit buttons on some forms
-.btn-plane {
-  @extend %standard-btn;
-  min-height: 60px;
-  padding: 16px 20px;
+//  __________________
+// / T a g   n a m e /
+// ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+.btn-tag {
+  margin: 0 0 .3em 1em;
+  @include button;
+
+  &::before, &::after {
+    border: solid 1em $colour-yellow;
+    @include buttonpsudo;
+  }
+
+  &::before {
+    border-bottom-width: 2em;
+    border-left-color: transparent;
+    border-right: none;
+    border-top: none;
+    left: -1em;
+  }
+
+  &::after {
+    border-bottom: none;
+    border-right-color: transparent;
+    border-left: none;
+    border-top-width: 2em;
+    right: -1em;
+  }
+
+  &:hover {
+    background: $colour-salmon;
+    &::before { border-bottom-color: $colour-salmon; }
+    &::after { border-top-color: $colour-salmon; }
+  }
+  &:focus {
+    background: $colour-cornflower;
+    &::before { border-bottom-color: $colour-cornflower; }
+    &::after { border-top-color: $colour-cornflower; }
+  }
+
 }

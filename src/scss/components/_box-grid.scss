@@ -42,7 +42,7 @@
 }
 
 input:checked + label .name {
-  background: rgba(243,193,94,1); // #F3C15E
+  background: rgba(243,193,94,1); // #F3C15E $colour-yellow
 }
 input:disabled + label {
   opacity: .3;

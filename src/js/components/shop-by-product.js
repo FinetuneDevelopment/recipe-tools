@@ -1772,6 +1772,7 @@ export default function scrollFactory() {
       if (tagTarget) tagTarget.innerHTML = markup;
     }
 
+
     popularIngredients(arList,'shopping');
 
     // Counts to see if the user has picked three ingredients, then if they have, spawns three matching recipes.
@@ -1818,10 +1819,10 @@ export default function scrollFactory() {
       if (object.shopping.length > 0) {
         for (let i = 0; i < object.shopping.length; i++) {
           let thisItem = object.shopping[i];
-          shoppingList += '<button type="button" data-tag="' + thisItem + '">' + thisItem + '</button> ';
+          shoppingList += '<button type="button" data-tag="' + thisItem + '" class="btn btn-tag">' + thisItem + '</button> ';
         }
       }
-      if (shoppingList !== '') shoppingList = '<p><strong>See more recipes featuring:</strong><br><button type="button" data-tag="All">Everything</button> ' + shoppingList + '</p>';
+      if (shoppingList !== '') shoppingList = '<p><strong>See more recipes featuring:</strong><br><button type="button" data-tag="All" class="btn btn-tag">Everything</button> ' + shoppingList + '</p>';
 
       // Builds the ingredients panel
       let ingredients = '';
@@ -1904,10 +1905,11 @@ export default function scrollFactory() {
           '<h2>' + object.name + '</h2>' +
           '<p class="lead">' + object.description + '</p>' +
           shoppingList +
-          '<p><button type="button" data-view="' + object.id + '">View <span class="sr-only">' + object.name + '</span> recipe</button></p>' +
+          '<p><button type="button" data-view="' + object.id + '" class="btn btn-primary" title="View ' + object.name + ' recipe">View <span class="sr-only">' + object.name + '</span> recipe</button></p>' +
           '</div></section>';
       return markup;
     }
+
 
     // Compares two different Arrays and returns a score for how many items they have in common
     function arrayCompare(arr1, arr2) {
