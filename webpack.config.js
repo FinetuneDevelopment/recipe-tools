@@ -129,10 +129,6 @@ const config = function (env, args) {
         favicon: path.resolve(__dirname, "src", "favicon.ico"),
       }),
       new HtmlWebpackPlugin({
-        filename: 'recipe-of-the-day/index.html',
-        template: path.resolve(__dirname, 'src', 'recipe-of-the-day/index.html'),
-      }),
-      new HtmlWebpackPlugin({
         filename: 'pick-three-things/index.html',
         template: path.resolve(__dirname, 'src', 'pick-three-things/index.html'),
       }),
