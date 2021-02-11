@@ -140,6 +140,10 @@ const config = function (env, args) {
         filename: 'recipes-featuring/index.html',
         template: path.resolve(__dirname, 'src', 'recipes-featuring/index.html'),
       }),
+      new HtmlWebpackPlugin({
+        filename: 'themes/index.html',
+        template: path.resolve(__dirname, 'src', 'themes/index.html'),
+      }),
       new MiniCssExtractPlugin({
         filename: "css/[name].css",
       }),

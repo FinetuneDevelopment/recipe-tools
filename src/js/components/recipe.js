@@ -11,7 +11,7 @@ export default function scrollFactory() {
           "id": "giouvarlakia",
           "description": "A low carb version of a traditional hearty Greek dish",
           "shopping": ["Beef", "Pork", "Cauliflower", "Lemon", "Dill", "Onion", "Egg", "Olive oil", "Butter", "Parsley", "Garlic", "Stock"],
-          "tags": ["Mediterranean", "Winter"],
+          "tags": ["Mediterranean", "Winter", "Low-carb"],
           "image": "/img/recipes/giouvarlakia.jpg",
           "ingredient": [{
               "amount": "500",
@@ -99,7 +99,7 @@ export default function scrollFactory() {
           "id": "tahini-bread-pudding",
           "description": "A delicious baked dessert that takes 5 minutes to make!",
           "shopping": ["Honey", "Tahini", "Egg", "Baking powder", "Honey", "Brown sugar", "Maple extract", "Cinnamon", "Sesame seeds"],
-          "tags": ["Baking", "Autumn", "Low carb"],
+          "tags": ["Baking", "Autumn", "Low-carb"],
           "image": "/img/recipes/bread-pudding.jpg",
           "ingredient": [{
               "amount": "0.5",
@@ -411,7 +411,7 @@ export default function scrollFactory() {
           "id": "papoutsakia",
           "description": "A traditional Greek dish that tastes very similar to moussaka, but is much quicker to cook. Fun fact: Papoutsakia in Greek means \"little shoes\" and a portion usually has two. However, when cooking with large American eggplants, you'll likely find that one per portion is enough.",
           "shopping": ["Eggplant", "Aubergine", "Thyme", "Beef", "Lamb", "Cinnamon", "Cloves", "All Spice", "Double cream", "Worcestershire sauce", "Gruyère", "Nutmeg", "Olive oil", "Salt", "Pepper", "Yellow onions", "Garlic", "Passata", "Beef stock", "Cognac", "Brown sugar", "Bay leaves", "Butter", "Black pepper", "Coconut flour", "Egg"],
-          "tags": ["Mediterranean", "Comfort food"],
+          "tags": ["Mediterranean", "Comfort food", "Low-carb"],
           "ingredient": [{
               "amount": "3",
               "name": "eggplants"
@@ -835,7 +835,7 @@ export default function scrollFactory() {
           "id": "fathead-pineapple-pizza",
           "description": "Low carb and delicious!",
           "shopping": ["Mozzarella", "Tomato", "Mascarpone", "Egg", "Almond Flour", "Cumin", "Basil", "Soy Sauce", "Worcestershire sauce", "Oregano", "Green bell pepper", "Bacon", "Mushroom", "Pineapple", "Nutritional yeast", "Garlic powder", "Tomato purée", "Garlic", "Dried basil", "Red wine", "Sukrin Gold", "Gruyère"],
-          "tags": ["Mediterranean", "Italian-American", "Comfort food"],
+          "tags": ["Mediterranean", "Italian-American", "Comfort food", "Low-carb"],
           "ingredient": [],
           "step": [{
               "description": "Mix two thirds of the grated mozzarella, the almond flour, and the nutritional yeast in a microwaveable bowl. Add the mascarpone. Microwave on HIGH for 1 minute."
@@ -1176,7 +1176,7 @@ export default function scrollFactory() {
           "id": "octopus-in-wine",
           "description": "A traditional Greek dish (Htapodi Krasato).",
           "shopping": ["Raw octopus", "Bay leaves", "Olive", "Red wine", "Cloves", "Olive oil", "Potato"],
-          "tags": ["Mediterranean", "Seafood", "Alcohol"],
+          "tags": ["Mediterranean", "Seafood", "Alcohol", "Low-carb"],
           "ingredient": [{
               "amount": "2",
               "name": "whole raw octopus"
@@ -1239,7 +1239,7 @@ export default function scrollFactory() {
           "id": "salmon-teriyaki",
           "description": "Tender, refreshing and very easy to make",
           "shopping": ["Salmon fillets", "Bean Sprouts", "Soy Sauce", "Ginger", "Sesame", "Erythritol", "Garlic", "Dry sherry", "Sesame oil", "Spring onion"],
-          "tags": ["Alcohol", "Asian", "Seafood"],
+          "tags": ["Alcohol", "Asian", "Seafood", "Low-carb"],
           "ingredient": [{
               "amount": "2",
               "name": "half pound salmon fillets"
@@ -1491,7 +1491,7 @@ export default function scrollFactory() {
           "name": "No-Bake Strawberry Cheesecake",
           "description": "A delicious low carb treat!",
           "shopping": ["Almond Flour", "Cinnamon", "Mascarpone", "Lemon", "Strawberry", "Lemon", "Butter", "Sukrin Gold", "Vanilla extract", "Salt", "Erythritol", "Gelatin"],
-          "tags": ["Low carb", "Comfort food"],
+          "tags": ["Low-carb", "Comfort food"],
           "ingredient": [],
           "step": [{
               "description": "**Base:** \n1. In a medium frying pan, melt the ghee under low heat. \n2. Add the almond and coconut flour and stir continuously. \n3. It will look very runny at first, that's normal. When it starts darkening and becoming more viscous, add the cinnamon and sweetener. \n4. When it's light brown and most of the the ghee has been absorbed, it's about done. At that point, add the vanilla extract. It will foam, that's ok. Stir until it goes down again.\n5. Press into a 9\" springform cake tray. Let it cool down in the fridge."
@@ -1920,7 +1920,6 @@ export default function scrollFactory() {
       return markup;
     }
 
-
     // Compares two different Arrays and returns a score for how many items they have in common
     function arrayCompare(arr1, arr2) {
       arr1 = arr1.filter(onlyUnique);
@@ -2001,6 +2000,31 @@ export default function scrollFactory() {
         objResults = filterRecipy();
       }
       objRecipesFeaturing.innerHTML = recipyThumbs(objResults);
+    }
+
+    // User is on the Recipes themes page
+    let objRecipeThemes = document.querySelector('[data-js="recipes-themes"]');
+    if (objRecipeThemes) {
+       objRecipeThemes.innerHTML = popularThemes(arList,'tags');
+    }
+
+    // Builds the markup for a list of all the recipe themes, sorted by popularity
+    // obj - object, containing all recipes
+    // criteria - a string, representing the key associated with the Array which contains a list
+    function popularThemes(obj,criteria) {
+      const sortedTags = sortObjectEntries(objectChart(obj,criteria));
+      let markup = '<section aria-label="Pick a theme"><h2 class="instruction-overlay">Pick a theme</h2> <div data-js="theme-dad" class="box-grid">';
+      const length = sortedTags.length;
+      // Sometimes, we don't have enough themes
+      const limit = (length > 20) ? 20 : length;
+      // Built up a list of the 20 most popular criteria
+      for (let i = 0; i < limit; i++) {
+        const name = sortedTags[i];
+        let id = name.toLowerCase().replace(/\s+/g,'-'); // "Hello There, Man" becomes "hello-there,-man"
+        markup += '<p><button data-theme="' + name + '" ><img src="/img/themes/' + id + '.jpg" alt=""><span class="name">' + name + '</span></button></p>';
+      }
+      markup += '</div></section>';
+      return markup;
     }
 
     // Returns names and images of recipes which match an ingredient filter, or if no
