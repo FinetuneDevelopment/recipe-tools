@@ -208,6 +208,11 @@ const config = function (env, args) {
           to: path.resolve(__dirname, "dist", "img", "ingredients"),
           toType: "dir",
         },
+        {
+          from: path.resolve(__dirname, "src", "img", "themes"),
+          to: path.resolve(__dirname, "dist", "img", "themes"),
+          toType: "dir",
+        },
       ]),
     ],
   };
