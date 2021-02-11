@@ -11,6 +11,7 @@ export default function scrollFactory() {
           "id": "giouvarlakia",
           "description": "A low carb version of a traditional hearty Greek dish",
           "shopping": ["Beef", "Pork", "Cauliflower", "Lemon", "Dill", "Onion", "Egg", "Olive oil", "Butter", "Parsley", "Garlic", "Stock"],
+          "tags": ["Mediterranean", "Winter"],
           "image": "/img/recipes/giouvarlakia.jpg",
           "ingredient": [{
               "amount": "500",
@@ -98,6 +99,7 @@ export default function scrollFactory() {
           "id": "tahini-bread-pudding",
           "description": "A delicious baked dessert that takes 5 minutes to make!",
           "shopping": ["Honey", "Tahini", "Egg", "Baking powder", "Honey", "Brown sugar", "Maple extract", "Cinnamon", "Sesame seeds"],
+          "tags": ["Baking", "Autumn", "Low carb"],
           "image": "/img/recipes/bread-pudding.jpg",
           "ingredient": [{
               "amount": "0.5",
@@ -157,10 +159,11 @@ export default function scrollFactory() {
           "forked": "My friend Tal's \"tahini bread\" recipe."
         },
         {
-          "name": "Grand Marnier & Coffee Ice Cream",
+          "name": "Grand Marnier &amp; Coffee Ice Cream",
           "id": "grand-marnier-coffee-ice-cream",
           "description": "Easy and decadent!",
           "shopping": ["Double cream", "Coffee", "Icing sugar", "Egg", "Grand Marnier", "Vanilla extract", "Cocoa nibs"],
+          "tags": ["Alcohol", "Summer"],
           "ingredient": [{
               "amount": "4",
               "unit": "cups",
@@ -224,6 +227,7 @@ export default function scrollFactory() {
           "id": "turnip-carbonara",
           "description": "A healthier version of the classic dish that tastes just as good!",
           "shopping": ["Bacon", "Turnip", "Parmesan", "Egg", "Garlic", "Double cream", "Salt", "Pepper"],
+          "tags": ["Low-carb", "Mediterranean"],
           "ingredient": [{
               "amount": "16",
               "unit": "oz",
@@ -290,6 +294,7 @@ export default function scrollFactory() {
           "id": "spiced-lamb-chops-with-mint-mango-sauce",
           "description": "Delicious, refreshing, and super quick to make!",
           "shopping": ["Lamb", "Mango", "Lime", "Chili", "Avocado", "Olive oil", "Garlic", "Fresh mint", "Green onion", "Cumin", "Coriander", "Cinnamon", "Turmeric", "Cayenne pepper", "Cardamom", "Cloves", "Coarse kosher salt"],
+          "tags": ["BBQ", "Gluten free"],
           "ingredient": [{
               "amount": "8",
               "name": "lamb chops"
@@ -406,6 +411,7 @@ export default function scrollFactory() {
           "id": "papoutsakia",
           "description": "A traditional Greek dish that tastes very similar to moussaka, but is much quicker to cook. Fun fact: Papoutsakia in Greek means \"little shoes\" and a portion usually has two. However, when cooking with large American eggplants, you'll likely find that one per portion is enough.",
           "shopping": ["Eggplant", "Aubergine", "Thyme", "Beef", "Lamb", "Cinnamon", "Cloves", "All Spice", "Double cream", "Worcestershire sauce", "Gruyère", "Nutmeg", "Olive oil", "Salt", "Pepper", "Yellow onions", "Garlic", "Passata", "Beef stock", "Cognac", "Brown sugar", "Bay leaves", "Butter", "Black pepper", "Coconut flour", "Egg"],
+          "tags": ["Mediterranean", "Comfort food"],
           "ingredient": [{
               "amount": "3",
               "name": "eggplants"
@@ -544,9 +550,8 @@ export default function scrollFactory() {
           "name": "Gambas al Ajillo",
           "id": "gambas-al-ajillo",
           "description": "Quick and garlicky!",
-          "shopping": [
-            "Shrimp", "Dried chili", "Lemon", "Smoked paprika", "Garlic", "Olive oil", "Dry sherry", "Salt"
-          ],
+          "shopping": ["Shrimp", "Dried chili", "Lemon", "Smoked paprika", "Garlic", "Olive oil", "Dry sherry", "Salt"],
+          "tags": ["Mediterranean", "Seafood"],
           "ingredient": [{
               "amount": "2",
               "unit": "lbs",
@@ -607,9 +612,8 @@ export default function scrollFactory() {
           "name": "Shakshuka",
           "id": "shakshuka",
           "description": "Breakfast of champions (one of them)",
-          "shopping": [
-            "Lamb", "Beef", "Jalapeño chilli", "Tomato concentrate", "Smoked paprika", "Cumin", "Caraway seed", "Kale", "Egg", "Olive oil", "Yellow onions", "Green bell pepper", "Garlic", "Tomatoes", "Red wine", "Bay leaves", "Erythritol", "Beef stock", "Black pepper"
-          ],
+          "shopping": ["Lamb", "Beef", "Jalapeño chilli", "Tomato concentrate", "Smoked paprika", "Cumin", "Caraway seed", "Kale", "Egg", "Olive oil", "Yellow onions", "Green bell pepper", "Garlic", "Tomatoes", "Red wine", "Bay leaves", "Erythritol", "Beef stock", "Black pepper"],
+          "tags": ["Mediterranean", "Breakfast"],
           "ingredient": [{
               "amount": "3",
               "unit": "tbsp",
@@ -745,9 +749,8 @@ export default function scrollFactory() {
           "name": "Real Caesar Salad",
           "id": "real-caesar-salad",
           "description": "Based on the original 1920's Italian-American table-side recipe",
-          "shopping": [
-            "Anchovies", "Egg", "Dijon Mustard", "Worcestershire sauce", "Parmesan", "Lemon", "Garlic", "Olive oil", "Pepper", "Salt", "Romaine hearts"
-          ],
+          "shopping": ["Anchovies", "Egg", "Dijon Mustard", "Worcestershire sauce", "Parmesan", "Lemon", "Garlic", "Olive oil", "Pepper", "Salt", "Romaine hearts"],
+          "tags": ["Mediterranean", "Italian-American"],
           "image": "/img/recipes/real-caesar-salad.jpg",
           "ingredient": [{
               "amount": "0.5",
@@ -832,6 +835,7 @@ export default function scrollFactory() {
           "id": "fathead-pineapple-pizza",
           "description": "Low carb and delicious!",
           "shopping": ["Mozzarella", "Tomato", "Mascarpone", "Egg", "Almond Flour", "Cumin", "Basil", "Soy Sauce", "Worcestershire sauce", "Oregano", "Green bell pepper", "Bacon", "Mushroom", "Pineapple", "Nutritional yeast", "Garlic powder", "Tomato purée", "Garlic", "Dried basil", "Red wine", "Sukrin Gold", "Gruyère"],
+          "tags": ["Mediterranean", "Italian-American", "Comfort food"],
           "ingredient": [],
           "step": [{
               "description": "Mix two thirds of the grated mozzarella, the almond flour, and the nutritional yeast in a microwaveable bowl. Add the mascarpone. Microwave on HIGH for 1 minute."
@@ -999,6 +1003,7 @@ export default function scrollFactory() {
           "id": "garlic-mushrooms-a-la-creme-with-lardons-and-green-pepper",
           "description": "Not the most photogenic dish, but really easy, quick and delicious!",
           "shopping": ["Mushroom", "Bacon", "Green bell pepper", "Cheddar", "Thyme", "Nutmeg", "Worcestershire sauce", "Garlic", "Double cream", "Butter", "Coconut oil", "Salt", "Pepper"],
+          "tags": ["Mediterranean", "French", "Comfort food"],
           "ingredient": [{
               "amount": "10",
               "unit": "oz",
@@ -1100,9 +1105,8 @@ export default function scrollFactory() {
           "name": "Chicken Liver Pâté",
           "id": "chicken-liver-pate",
           "description": "Rich and creamy, delicious on bread or even on its own",
-          "shopping": [
-            "Chicken liver", "Parsley", "White onion", "Garlic", "Cognac", "Double cream", "Butter", "Salt", "Pepper"
-          ],
+          "shopping": ["Chicken liver", "Parsley", "White onion", "Garlic", "Cognac", "Double cream", "Butter", "Salt", "Pepper"],
+          "tags": ["Mediterranean", "French"],
           "ingredient": [{
               "amount": "500",
               "unit": "g",
@@ -1171,9 +1175,8 @@ export default function scrollFactory() {
           "name": "Octopus in Wine",
           "id": "octopus-in-wine",
           "description": "A traditional Greek dish (Htapodi Krasato).",
-          "shopping": [
-            "Raw octopus", "Bay leaves", "Olive", "Red wine", "Cloves", "Olive oil", "Potato"
-          ],
+          "shopping": ["Raw octopus", "Bay leaves", "Olive", "Red wine", "Cloves", "Olive oil", "Potato"],
+          "tags": ["Mediterranean", "Seafood", "Alcohol"],
           "ingredient": [{
               "amount": "2",
               "name": "whole raw octopus"
@@ -1235,9 +1238,8 @@ export default function scrollFactory() {
           "name": "Sous Vide Salmon Teriyaki",
           "id": "salmon-teriyaki",
           "description": "Tender, refreshing and very easy to make",
-          "shopping": [
-            "Salmon fillets", "Bean Sprouts", "Soy Sauce", "Ginger", "Sesame", "Erythritol", "Garlic", "Dry sherry", "Sesame oil", "Spring onion"
-          ],
+          "shopping": ["Salmon fillets", "Bean Sprouts", "Soy Sauce", "Ginger", "Sesame", "Erythritol", "Garlic", "Dry sherry", "Sesame oil", "Spring onion"],
+          "tags": ["Alcohol", "Asian", "Seafood"],
           "ingredient": [{
               "amount": "2",
               "name": "half pound salmon fillets"
@@ -1309,9 +1311,8 @@ export default function scrollFactory() {
           "image": "/img/recipes/sfouggato.jpg",
           "name": "Sfouggato",
           "description": "A Lesbian delicacy that is super easy to make and can be eaten hot or cold.",
-          "shopping": [
-            "Egg", "Zucchini", "Courgette", "Dill", "Mint", "Parsley", "Graviera", "Feta", "Red onion", "Spring onion", "Olive oil", "Salt", "Pepper"
-          ],
+          "shopping": ["Egg", "Zucchini", "Courgette", "Dill", "Mint", "Parsley", "Graviera", "Feta", "Red onion", "Spring onion", "Olive oil", "Salt", "Pepper"],
+          "tags": ["Mediterranean", "Summer"],
           "id": "sfouggato",
           "ingredient": [{
               "amount": "7",
@@ -1396,6 +1397,7 @@ export default function scrollFactory() {
           "name": "Khoresht Karafs",
           "description": "A delicious Persian stew with beef and celery.",
           "shopping": ["Fresh mint", "Beef", "Turmeric", "Yellow onion", "Garlic", "Parsley", "Celery", "Stock", "Lemon", "Butter"],
+          "tags": ["Mediterranean", "Winter"],
           "ingredient": [
             {
               "amount": "1",
@@ -1488,9 +1490,8 @@ export default function scrollFactory() {
           "image": "/img/recipes/cheesecake.jpg",
           "name": "No-Bake Strawberry Cheesecake",
           "description": "A delicious low carb treat!",
-          "shopping": [
-            "Almond Flour", "Cinnamon", "Mascarpone", "Lemon", "Strawberry", "Lemon", "Butter", "Sukrin Gold", "Vanilla extract", "Salt", "Erythritol", "Gelatin"
-          ],
+          "shopping": ["Almond Flour", "Cinnamon", "Mascarpone", "Lemon", "Strawberry", "Lemon", "Butter", "Sukrin Gold", "Vanilla extract", "Salt", "Erythritol", "Gelatin"],
+          "tags": ["Low carb", "Comfort food"],
           "ingredient": [],
           "step": [{
               "description": "**Base:** \n1. In a medium frying pan, melt the ghee under low heat. \n2. Add the almond and coconut flour and stir continuously. \n3. It will look very runny at first, that's normal. When it starts darkening and becoming more viscous, add the cinnamon and sweetener. \n4. When it's light brown and most of the the ghee has been absorbed, it's about done. At that point, add the vanilla extract. It will foam, that's ok. Stir until it goes down again.\n5. Press into a 9\" springform cake tray. Let it cool down in the fridge."
@@ -1595,6 +1596,7 @@ export default function scrollFactory() {
           "name": "Curried Beef Stew",
           "description": "Spicy, complex, and very flavorful, this Thai-inspired curry is perfect for cold winter nights.",
           "shopping": ["Beef", "Soy Sauce", "Cilantro", "Coriander", "Shallots", "Coconut oil", "Beef stock", "Turnip", "Kaffir lime leaf powder", "Thai basil", "Chili powder"],
+          "tags": ["Asian", "Winter"],
           "ingredient": [{
               "amount": "2",
               "unit": "pounds",
@@ -1823,6 +1825,15 @@ export default function scrollFactory() {
       }
       if (shoppingList !== '') shoppingList = '<p><strong>See more recipes featuring:</strong><br><a href="/recipes-featuring/" class="btn btn-tag">Everything</a> ' + shoppingList + '</p>';
 
+      let tags = '';
+      if (object.tags.length > 0) {
+        for (let i = 0; i < object.tags.length; i++) {
+          let thisItem = object.tags[i];
+          tags += '<a href="/recipes-featuring/?tag=' + thisItem + '" class="btn btn-tag">' + thisItem + '</a> ';
+        }
+      }
+      if (tags !== '') tags = '<p><strong>See more recipes tagged with:</strong><br><a href="/recipes-featuring/" class="btn btn-tag">Everything</a> ' + tags + '</p>';
+
       // Builds the ingredients panel
       let ingredients = '';
       if (object.ingredient.length > 0) {
@@ -1873,7 +1884,7 @@ export default function scrollFactory() {
         '<h2>' + object.name + '</h2>' +
         '<p>' + object.description + '</p>' +
         '<p><img src="' + object.image + '" alt=""></p>' +
-        shoppingList +
+        shoppingList + tags +
         '</header><div class="col-md">' +
         '<section aria-label="Ingredients"><h3>Ingredients</h3>' +
         ingredients +
@@ -1979,17 +1990,30 @@ export default function scrollFactory() {
     // User is on the Recipes Featuring page
     let objRecipesFeaturing = document.querySelector('[data-js="recipes-featuring"]');
     if (objRecipesFeaturing) {
-      const objResults = filterRecipy(getParameterByName('ingredient'));
+      const ingredientParam = getParameterByName('ingredient');
+      const tagParam = getParameterByName('tag');
+      let objResults;
+      if (ingredientParam) {
+        objResults = filterRecipy('shopping',ingredientParam);
+      } else if (tagParam) {
+        objResults = filterRecipy('tags',tagParam);
+      } else {
+        objResults = filterRecipy();
+      }
       objRecipesFeaturing.innerHTML = recipyThumbs(objResults);
     }
 
     // Returns names and images of recipes which match an ingredient filter, or if no
     // filter is passed, returns all recipes.
-    function filterRecipy(criteria) {
+    function filterRecipy(paramName,value) {
       let objResults = [];
+      let tagValue = '';
+      let ingredientValue = '';
+      if (paramName === 'tags') tagValue = value;
+      if (paramName === 'shopping') ingredientValue = value;
       // Show all recipes
-      if (!criteria) {
-        objResults.push({ "filter": "" });
+      if (!paramName) {
+        objResults.push({ "tag": tagValue, "ingredients": ingredientValue });
         for (let i = 0; i < arList.length; i++) {
           let thisRecipe = arList[i];
           // Building up objResults with content
@@ -2001,13 +2025,13 @@ export default function scrollFactory() {
           objResults.push(thumb);
         }
       } else { // Show recipes matching criteria
-        objResults.push({ "filter": criteria });
+        objResults.push({ "tag": tagValue, "ingredients": ingredientValue });
         // Loop through all recipes, looking for a match.
         for (let i = 0; i < arList.length; i++) {
           let thisRecipe = arList[i];
-          let ingredients = thisRecipe.shopping;
+          let currentArray = thisRecipe[paramName];
           // Building up objResults with content
-          if (ingredients.indexOf(criteria) > -1) {
+          if (currentArray.indexOf(value) > -1) {
             let thumb = {
               "name": thisRecipe.name,
               "image": thisRecipe.image,
@@ -2022,17 +2046,31 @@ export default function scrollFactory() {
 
     // Builds a list of thumbnails of recipes
     function recipyThumbs(obj) {
-      let searchTerm = obj[0].filter;
+      let ingredientTerm = obj[0].ingredients;
+      let tagTerm = obj[0].tag;
       let heading;
-      if (searchTerm === '') {
+      // User lands with no or meaningless querystring
+      if (ingredientTerm === '' && tagTerm === '') {
         heading = 'Pick a recipe';
-      } else if (obj.length < 2) {
-        heading = 'No recipes feature ' + searchTerm + ' :(';
-      } else {
-        heading = 'recipes featuring ' + searchTerm;
+      }
+      // User has picked an ingredient with no results
+      else if (obj.length < 2 && ingredientTerm !== '') {
+        heading = 'No recipes feature ' + ingredientTerm + ' :(';
+      }
+      // Ingredient term with results
+      else if (ingredientTerm !== '') {
+        heading = 'Recipes featuring ' + ingredientTerm;
+      }
+      // User has picked a tag with no results
+      else if (obj.length < 2 && tagTerm !== '') {
+        heading = 'No ' + tagTerm + ' recipes';
+      }
+      // Tag term with results
+      else {
+        heading = tagTerm + ' recipes';
       }
       let markup = '<h2 class="instruction-overlay">' + heading + '</h2><div class="box-grid">';
-      // Position 0 has the search term
+      // Position 0 has the search terms
       for (let i = 1; i < obj.length; i++) {
         markup += '<p><button type="button" class="btn" data-view="' + obj[i].id + '"><img src="' + obj[i].image + '" alt="' + obj[i].name + '" data-view="' + obj[i].id + '"><span class="name" data-view="' + obj[i].id + '">' + obj[i].name + '</span></button></p>';
       }
