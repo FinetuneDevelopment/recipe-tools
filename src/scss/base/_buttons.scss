@@ -24,6 +24,7 @@
 
 @mixin button {
   background: $colour-yellow;
+  font-style: normal;
   font-weight: bold;
   letter-spacing: .1em;
   min-height: 2em;
@@ -40,12 +41,11 @@
   transition: all .3s;
 }
 
-
 // __________
 // > L i n k >
 // ‾‾‾‾‾‾‾‾‾‾
 .btn-primary {
-  margin: 0 1em;
+  margin: 0 1em .5em;
   @include button;
 
   &::before, &::after {
@@ -66,7 +66,7 @@
   }
 
   &:hover, &:focus {
-    margin: 0 1.5em 0 .2em;
+    margin: 0 1.8em .5em .2em;
 
     &::before {
       border-left-width: .2em;
@@ -76,6 +76,31 @@
     &::after {
       border-left-width: 1.8em;
       right: -1.8em;
+    }
+  }
+
+  // Used as a "you are here" indicator, in the navigation
+  &.btn-selected {
+    background: $colour-cornflower;
+
+    &:hover, &:focus {
+      margin: 0 1em .5em;
+    }
+
+    &::before, &::after {
+      border-bottom-color: $colour-cornflower;
+      border-top-color: $colour-cornflower;
+    }
+
+    &::before {
+      border-left-width: .5em;
+      left: -.5em;
+    }
+
+    &::after {
+      border-left: none;
+      border-right: solid .5em transparent;
+      right: -.5em;
     }
   }
 }

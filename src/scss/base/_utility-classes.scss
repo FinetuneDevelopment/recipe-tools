@@ -16,51 +16,20 @@
 
 // Borders
 .brd-all {
-  border: solid 1px $colour-black;
+  border-style: solid;
+  border-width: 1px;
   border-color: inherit;
 }
 
 // Border directions
-.brd-top    { border-top:    solid 1px $colour-black; }
-.brd-bottom { border-bottom: solid 1px $colour-black; }
-
-.brd-nw {
-  border-left: solid 1px $colour-black;
-  border-top: solid 1px $colour-black;
+.brd-top {
+  border-top-style: solid;
+  border-width: 1px;
 }
-
-.brd-se {
-  border-bottom: solid 1px $colour-black;
-  border-right: solid 1px $colour-black;
+.brd-bottom {
+  border-bottom-style: solid;
+  border-width: 1px;
 }
-
-// Adding borders between (and around) columns in Bootstrap grids
-// Partially breaks Bootstrap's patterns
-.row-stave {
-  margin-left: 0;
-  margin-right: 0;
-
-  & > [class*='col']:first-child, & > [class^='col']:first-child {
-    border-left: solid 1px $colour-black;
-  }
-
-  & > [class*='col'], & > [class^='col'] {
-    border-right: solid 1px $colour-black;
-  }
-}
-
-// Border colours
-.brd-black            { border-color: $colour-black; }
-.brd-deep-blue        { border-color: $colour-deep-blue;}
-.brd-interactive-blue { border-color: $colour-interactive-blue;}
-.brd-mint             { border-color: $colour-mint;}
-.brd-pink             { border-color: $colour-pink;}
-.brd-white            { border-color: $colour-white;}
-
-.round { border-radius: 50%; }
-
-.semi-small   { font-size: $font-size-nav; }
-small, .small { font-size: $font-size-small; }
 
 // Text adjustment
 .text-left      { text-align: left; }
@@ -70,10 +39,6 @@ small, .small { font-size: $font-size-small; }
 .text-reset     { text-transform: unset !important; }
 .text-nowrap    { white-space: nowrap; }
 .text-forcewrap { overflow-wrap: break-word; }
-
-@include media-breakpoint-down(sm) {
-  .text-center-sm { text-align: center; }
-}
 
 // Padding within elements
 .pad-vert-tiny {
@@ -188,32 +153,6 @@ small, .small { font-size: $font-size-small; }
 // To hide stuff from the accessibility DOM too
 .hidden { display: none; }
 
-.cta-box {
-  height: 100%;
-  padding: $gutter-medium;
-  @include media-breakpoint-down(sm) {
-    padding: $gutter-tiny;
-  }
-
-  & > :last-child { margin-bottom: 0; }
-
-  svg {
-    height: auto;
-    min-width: 100%;
-    vertical-align: top;
-  }
-}
-
-// Hack
-.cta-box.dialog { height: auto; }
-
-// Say you have a set of icons or buttons and you want to make a quick-and-dirty navbar
-.space-between {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 // Say you have a CTA inside a Bootstrap column and you need it to have a vertical flexbox
 // layout, so you can push the button to the bottom (using a .mt-auto class, for example)
 // Works on elements which already have the whole height of the row, naturally.
@@ -232,22 +171,7 @@ small, .small { font-size: $font-size-small; }
   }
 }
 
-// Sometimes, links need to wrap around whole swaths of stuff.
-// This is designed to be added to elements such as rows and
-// columns which already have a display property, such as flext.
-.block-link {
-  color: inherit;
-  text-decoration: none;
+.logo svg {
+  height: 40px;
+  width: 40px;
 }
-
-// Used to give the SVG logos a wee dunt, inside tabs
-.skewchild  > * { transform: rotate(10deg); }
-.dunt-right > * { transform: rotate(5deg);  }
-.dunt-left  > * { transform: rotate(-5deg); }
-// Panels wobble when scrolled (as long as a attribute is added)
-.dunt-left  > *, .dunt-right > * { transition: transform 1s; }
-.scrolling .dunt-right > * { transform: rotate(-2deg); }
-.scrolling .dunt-left  > * { transform: rotate(2deg);  }
-
-// Used in the main navigation
-.toggle-container label { cursor: pointer; }
