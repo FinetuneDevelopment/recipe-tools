@@ -140,6 +140,10 @@ const config = function (env, args) {
         filename: 'themes/index.html',
         template: path.resolve(__dirname, 'src', 'themes/index.html'),
       }),
+      new HtmlWebpackPlugin({
+        filename: 'account/index.html',
+        template: path.resolve(__dirname, 'src', 'account/index.html'),
+      }),
       new MiniCssExtractPlugin({
         filename: "css/[name].css",
       }),
@@ -207,6 +211,11 @@ const config = function (env, args) {
         {
           from: path.resolve(__dirname, "src", "img", "themes"),
           to: path.resolve(__dirname, "dist", "img", "themes"),
+          toType: "dir",
+        },
+        {
+          from: path.resolve(__dirname, "src", "img", "users"),
+          to: path.resolve(__dirname, "dist", "img", "users"),
           toType: "dir",
         },
       ]),

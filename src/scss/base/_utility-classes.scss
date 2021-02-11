@@ -30,6 +30,10 @@
   border-bottom-style: solid;
   border-width: 1px;
 }
+.round {
+  border: solid 2px $colour-yellow;
+  border-radius: 50%;
+}
 
 // Text adjustment
 .text-left      { text-align: left; }
@@ -171,7 +175,9 @@
   }
 }
 
-.logo svg {
+.icon-medium svg {
   height: 40px;
   width: 40px;
 }
+
+.nav-text { text-decoration: none; }

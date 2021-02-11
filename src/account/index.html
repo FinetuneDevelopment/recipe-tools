@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Recipe tools</title>
+  <title>Your account - Recipe tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="HandheldFriendly" content="true">
-  <meta name="description" content="Recipe tools">
-  <meta property="og:title" content="Recipe tools">
-  <meta property="og:description" content="Recipe tools">
+  <meta name="description" content="Your account - Recipe tools">
+  <meta property="og:title" content="Your account - Recipe tools">
+  <meta property="og:description" content="Your account - Recipe tools">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://finetunepartners.com/">
   <link rel="canonical" href="https://finetunepartners.com/">
@@ -42,10 +42,10 @@
           <a href="/themes/" class="btn btn-primary">Recipe themes</a>
         </nav>
         <p class="col-2 col-md-1 icon-medium flush text-center small">
-          <a href="/account/" class="nav-text">
+          <span class="nav-text">
             <img src="/img/users/thumb-mum.jpg" alt="User" class="round">
             Account
-          </a>
+          </span>
         </p>
       </div>
     </div>
@@ -53,9 +53,32 @@
 
   <main>
     <div class="container">
-      <div data-js="app"></div>
-      <div data-js="ptt-results" class="modal bt-yellow brd-all brd-yellow" hidden></div>
+      <div class="row">
+        <nav class="col-md-4">
+          <ul>
+            <li><em>My favourite recipes</em></li>
+            <li><a href="#">Add a new recipe</a></li>
+                <!-- * Import a recipe from URL (if there's any microdata, import, if not, copy raw output or take screenshot) Imported recipes can't be shared with the community
+                * Manually add a recipe (share with community or not)
+                * Import a photo (store the photo initially, OCR coming later)-->
+            <li><a href="#">Update account info</a></li>
+          </ul>
+        </nav>
+        <section aria-label="My favourite recipes">
+          <h2>My favourite recipes</h2>
+
+          <section aria-label="Gambas al Ajillo" class="media">
+            <p class="mr-5"><img src="/img/recipes/gambas-al-ajillo.jpg" width="150" alt=""></p>
+            <div class="media-body">
+              <h3>Gambas al Ajillo</h3>
+              <p>Quick and garlicky!</p>
+              <p><button type="button" class="btn btn-primary" data-view="gambas-al-ajillo">View <span class="sr-only">Gambas al Ajillo</span> recipe</button></p>
+            </div>
+          </section>
+        </section>
+      </div>
     </div>
+    <div data-js="ptt-results" class="modal" hidden></div>
   </main>
 </body>
 
