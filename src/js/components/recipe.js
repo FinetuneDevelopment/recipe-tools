@@ -2021,7 +2021,7 @@ export default function scrollFactory() {
       for (let i = 0; i < limit; i++) {
         const name = sortedTags[i];
         let id = name.toLowerCase().replace(/\s+/g,'-'); // "Hello There, Man" becomes "hello-there,-man"
-        markup += '<p><button data-theme="' + name + '" ><img src="/img/themes/' + id + '.jpg" alt=""><span class="name">' + name + '</span></button></p>';
+        markup += '<p><a href="/recipes-featuring/?tag=' + name + '" ><img src="/img/themes/' + id + '.jpg" alt=""><span class="name">' + name + '</span></a></p>';
       }
       markup += '</div></section>';
       return markup;
