@@ -1815,6 +1815,17 @@ export default function scrollFactory() {
 
     // Builds the markup for a single recipe
     function recipeMarkup(object) {
+      // A list of tools for the user to interact with the recipe
+      let recipeTools = '<fieldset class="star-rating gutter-base"><legend class="sr-only">Rate this recipe</legend><strong>Rate this recipe</strong>';
+      // Building out the rating 1-5
+      for(let i = 5; i > 0; i--) {
+        recipeTools += '<input type="radio" name="' + object.id + '-ratingpop" id="' + object.id + '-pop-' + i + '" value="' + i + '" class="sr-only">' +
+        '<label for="' + object.id + '-pop-' + i + '" aria-label="' + i + ' stars">&#9733;</label>'
+      }
+      recipeTools += '</fieldset>' +
+        '<a href="#" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg> Add to favourites</a>' +
+        '<a href="#" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Report recipe</a>';
+
       // Builds the list of shopping items
       let shoppingList = '';
       if (object.shopping.length > 0) {
@@ -1884,7 +1895,7 @@ export default function scrollFactory() {
         '<h2>' + object.name + '</h2>' +
         '<p>' + object.description + '</p>' +
         '<p><img src="' + object.image + '" alt=""></p>' +
-        shoppingList + tags +
+        shoppingList + tags + recipeTools +
         '</header><div class="col-md">' +
         '<section aria-label="Ingredients"><h3>Ingredients</h3>' +
         ingredients +
