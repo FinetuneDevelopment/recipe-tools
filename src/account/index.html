@@ -55,36 +55,34 @@
     <div class="container pad-vert-base">
       <div class="row">
         <nav class="col-md-4">
-          <ul>
-            <li><em>My favourite recipes</em></li>
-            <li><a href="#">Add a new recipe</a></li>
-                <!-- * Import a recipe from URL (if there's any microdata, import, if not, copy raw output or take screenshot) Imported recipes can't be shared with the community
-                * Manually add a recipe (share with community or not)
-                * Import a photo (store the photo initially, OCR coming later)-->
-            <li><a href="#">Update account info</a></li>
-          </ul>
+          <p><em class="btn btn-primary btn-selected">My favourite recipes</em></p>
+          <p><a href="#" class="btn btn-primary">Add a new recipe</a></p>
+              <!-- * Import a recipe from URL (if there's any microdata, import, if not, copy raw output or take screenshot) Imported recipes can't be shared with the community
+              * Manually add a recipe (share with community or not)
+              * Import a photo (store the photo initially, OCR coming later)-->
+          <p><a href="#" class="btn btn-primary">Update account info</a></p>
         </nav>
         <section aria-label="My favourite recipes">
           <h2>My favourite recipes</h2>
 
           <section aria-label="Gambas al Ajillo" class="gutter-large">
             <div class="media">
-              <p class="mr-5"><img src="/img/recipes/gambas-al-ajillo.jpg" width="150" alt=""></p>
+              <p class="mr-5"><img src="/img/recipes/gambas-al-ajillo.jpg" width="200" alt=""></p>
               <div class="media-body">
                 <h3>Gambas al Ajillo</h3>
                 <p>Quick and garlicky!</p>
                 <fieldset class="star-rating gutter-base">
                   <legend class="sr-only">Your rating</legend>
                   <strong>Your rating</strong>
-                  <input type="radio" name="rating" id="gambas-al-ajillo-5" value="5" class="sr-only">
+                  <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-5" value="5" class="sr-only">
                   <label for="gambas-al-ajillo-5" aria-label="Perfection">&#9733;</label>
-                  <input type="radio" name="rating" id="gambas-al-ajillo-4" value="4" class="sr-only" checked>
-                  <label for="rating-4" aria-label="Very good">&#9733;</label>
-                  <input type="radio" name="rating" id="gambas-al-ajillo-3" value="3" class="sr-only">
+                  <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-4" value="4" class="sr-only" checked>
+                  <label for="gambas-al-ajillo-4" aria-label="Very good">&#9733;</label>
+                  <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-3" value="3" class="sr-only">
                   <label for="gambas-al-ajillo-3" aria-label="Average">&#9733;</label>
-                  <input type="radio" name="rating" id="gambas-al-ajillo-2" value="2" class="sr-only">
+                  <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-2" value="2" class="sr-only">
                   <label for="gambas-al-ajillo-2" aria-label="Quite good">&#9733;</label>
-                  <input type="radio" name="rating" id="gambas-al-ajillo-1" value="1" class="sr-only">
+                  <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-1" value="1" class="sr-only">
                   <label for="gambas-al-ajillo-1" aria-label="Poor">&#9733;</label>
                 </fieldset>
                 <p><button type="button" class="btn btn-primary" data-view="gambas-al-ajillo">View <span class="sr-only">Gambas al Ajillo</span> recipe</button></p>
@@ -110,22 +108,22 @@
 
           <section aria-label="Real Caesar Salad" class="gutter-large">
             <div class="media">
-              <p class="mr-5"><img src="/img/recipes/real-caesar-salad.jpg" width="150" alt=""></p>
+              <p class="mr-5"><img src="/img/recipes/real-caesar-salad.jpg" width="200" alt=""></p>
               <div class="media-body">
                 <h3>Real Caesar Salad</h3>
-                <p>Quick and garlicky!</p>
+                <p>Based on the original 1920's Italian-American table-side recipe</p>
                 <fieldset class="star-rating gutter-base">
                   <legend class="sr-only">Your rating</legend>
                   <strong>Your rating</strong>
-                  <input type="radio" name="rating" id="real-caesar-salad-5" value="5" class="sr-only">
+                  <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-5" value="5" class="sr-only">
                   <label for="real-caesar-salad-5" aria-label="Perfection">&#9733;</label>
-                  <input type="radio" name="rating" id="real-caesar-salad-4" value="4" class="sr-only">
-                  <label for="rating-4" aria-label="Very good">&#9733;</label>
-                  <input type="radio" name="rating" id="real-caesar-salad-3" value="3" class="sr-only" checked>
+                  <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-4" value="4" class="sr-only">
+                  <label for="real-caesar-salad-4" aria-label="Very good">&#9733;</label>
+                  <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-3" value="3" class="sr-only" checked>
                   <label for="real-caesar-salad-3" aria-label="Average">&#9733;</label>
-                  <input type="radio" name="rating" id="real-caesar-salad-2" value="2" class="sr-only">
+                  <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-2" value="2" class="sr-only">
                   <label for="real-caesar-salad-2" aria-label="Quite good">&#9733;</label>
-                  <input type="radio" name="rating" id="real-caesar-salad-1" value="1" class="sr-only">
+                  <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-1" value="1" class="sr-only">
                   <label for="real-caesar-salad-1" aria-label="Poor">&#9733;</label>
                 </fieldset>
                 <p><button type="button" class="btn btn-primary" data-view="real-caesar-salad">View <span class="sr-only">Real Caesar Salad</span> recipe</button></p>
@@ -151,22 +149,22 @@
 
           <section aria-label="Sfouggato" class="gutter-large">
             <div class="media">
-              <p class="mr-5"><img src="/img/recipes/sfouggato.jpg" width="150" alt=""></p>
+              <p class="mr-5"><img src="/img/recipes/sfouggato.jpg" width="200" alt=""></p>
               <div class="media-body">
                 <h3>Sfouggato</h3>
-                <p>Quick and garlicky!</p>
+                <p>A Lesbian delicacy that is super easy to make and can be eaten hot or cold.</p>
                 <fieldset class="star-rating gutter-base">
                   <legend class="sr-only">Your rating</legend>
                   <strong>Your rating</strong>
-                  <input type="radio" name="rating" id="sfouggato-5" value="5" class="sr-only" checked>
+                  <input type="radio" name="sfouggato-rating" id="sfouggato-5" value="5" class="sr-only" checked>
                   <label for="sfouggato-5" aria-label="Perfection">&#9733;</label>
-                  <input type="radio" name="rating" id="sfouggato-4" value="4" class="sr-only">
-                  <label for="rating-4" aria-label="Very good">&#9733;</label>
-                  <input type="radio" name="rating" id="sfouggato-3" value="3" class="sr-only">
+                  <input type="radio" name="sfouggato-rating" id="sfouggato-4" value="4" class="sr-only">
+                  <label for="sfouggato-rating-4" aria-label="Very good">&#9733;</label>
+                  <input type="radio" name="sfouggato-rating" id="sfouggato-3" value="3" class="sr-only">
                   <label for="sfouggato-3" aria-label="Average">&#9733;</label>
-                  <input type="radio" name="rating" id="sfouggato-2" value="2" class="sr-only">
+                  <input type="radio" name="sfouggato-rating" id="sfouggato-2" value="2" class="sr-only">
                   <label for="sfouggato-2" aria-label="Quite good">&#9733;</label>
-                  <input type="radio" name="rating" id="sfouggato-1" value="1" class="sr-only">
+                  <input type="radio" name="sfouggato-rating" id="sfouggato-1" value="1" class="sr-only">
                   <label for="sfouggato-1" aria-label="Poor">&#9733;</label>
                 </fieldset>
                 <p><button type="button" class="btn btn-primary" data-view="sfouggato">View <span class="sr-only">Sfouggato</span> recipe</button></p>
