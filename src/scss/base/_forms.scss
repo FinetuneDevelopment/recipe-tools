@@ -6,7 +6,11 @@
        -o-appearance: none;
           appearance: none;
   background: transparent;
+  border: solid 1px $colour-black;
   border-radius: 0;
+  display: block;
+  min-height: 2em;
+  min-width: 100%;
   width: 100%;
 }
 

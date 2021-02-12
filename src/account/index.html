@@ -36,7 +36,7 @@
             <path d="M9 4l11 11M4 8c0 1 0 2 1 3-1-1-1-2-1-3zm3 5l4 4zm9 8c-1-1-2-1-3-2"/>
           </svg>
         </p>
-        <nav class="col-8 col-md-10 text-center">
+        <nav class="col-8 col-md-10 text-center" aria-label="Main">
           <a href="/pick-three-things/" class="btn btn-primary">Pick three things</a>
           <a href="/recipes-featuring/" class="btn btn-primary">Recipes featuring</a>
           <a href="/themes/" class="btn btn-primary">Recipe themes</a>
@@ -54,15 +54,15 @@
   <main>
     <div class="container pad-vert-base">
       <div class="row">
-        <nav class="col-md-4">
+        <nav class="col-md-4" aria-label="Account">
           <p><em class="btn btn-primary btn-selected">My favourite recipes</em></p>
-          <p><a href="#" class="btn btn-primary">Add a new recipe</a></p>
+          <p><a href="/account/add-recipe/" class="btn btn-primary">Add a new recipe</a></p>
               <!-- * Import a recipe from URL (if there's any microdata, import, if not, copy raw output or take screenshot) Imported recipes can't be shared with the community
               * Manually add a recipe (share with community or not)
               * Import a photo (store the photo initially, OCR coming later)-->
           <p><a href="#" class="btn btn-primary">Update account info</a></p>
         </nav>
-        <section aria-label="My favourite recipes">
+        <section class="col-md-8" aria-label="My favourite recipes">
           <h2>My favourite recipes</h2>
 
           <section aria-label="Gambas al Ajillo" class="gutter-large">

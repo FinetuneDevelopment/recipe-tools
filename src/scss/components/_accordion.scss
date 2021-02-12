@@ -1,0 +1,62 @@
+// This doesn't care about the name or ID values in the attributes
+// which means you can have multiple accordions on a page, as long
+// as they are grouped together using the name attribute and have
+// unique IDs.
+
+// Markup structure:
+// .accordion
+//   input.accordion__control <- Checkbox or radio button, hidden from screenreaders. Must appear first in the markup.
+//   label.accordion__trigger <- Linked to the above input, user's trigger to interact with the accordion
+//     .accordion__icon       <- Holds an icon which pivots when the pane opens and closes
+//   .accordion__details      <- The panel which shows and hides
+//  ^^^ These three elements need to be siblings.
+
+.accordion {
+
+  // Expanded panels
+  .accordion__details { display: none; }
+
+  .accordion__control:checked {
+    ~ .accordion__details { display: block; }
+
+    // v becomes ^
+    ~ .accordion__trigger .accordion__icon { transform: rotate(180deg); }
+
+  }
+
+  .accordion__control:focus ~ .accordion__trigger {
+    outline: dotted .1em $colour-gold;
+  }
+}
+
+.accordion__icon {
+  display: inline-block;
+  // Bigger target, mate.
+  padding: 0 .2em;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: all .2s;
+}
+
+// Clicky parts
+.accordion__trigger { cursor: pointer; }
+
+// Because accordions, it turns out, turn up in all kinds of places you wouldn't expect
+// them to, and need to wear a lot of hats, metaphorically speaking.
+.accordion__spacing {
+  margin: 0 -.5em;
+  padding: .2em .5em;
+}
+
+// Varient which only becomes an accordion in small sizes (first use: accounts pages)
+@include media-breakpoint-up(md) {
+  .accordion-sm {
+    .accordion__trigger { cursor: default; }
+    .accordion__details { display: block !important; }
+  }
+}
+
+@media print {
+  .accordion .accordion__details { display: block !important; }
+  .accordion__icon { display: none; }
+}
