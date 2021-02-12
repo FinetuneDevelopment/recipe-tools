@@ -52,7 +52,7 @@
   </header>
 
   <main>
-    <div class="container">
+    <div class="container pad-vert-base">
       <div class="row">
         <nav class="col-md-4">
           <ul>
@@ -67,14 +67,129 @@
         <section aria-label="My favourite recipes">
           <h2>My favourite recipes</h2>
 
-          <section aria-label="Gambas al Ajillo" class="media">
-            <p class="mr-5"><img src="/img/recipes/gambas-al-ajillo.jpg" width="150" alt=""></p>
-            <div class="media-body">
-              <h3>Gambas al Ajillo</h3>
-              <p>Quick and garlicky!</p>
-              <p><button type="button" class="btn btn-primary" data-view="gambas-al-ajillo">View <span class="sr-only">Gambas al Ajillo</span> recipe</button></p>
+          <section aria-label="Gambas al Ajillo" class="gutter-large">
+            <div class="media">
+              <p class="mr-5"><img src="/img/recipes/gambas-al-ajillo.jpg" width="150" alt=""></p>
+              <div class="media-body">
+                <h3>Gambas al Ajillo</h3>
+                <p>Quick and garlicky!</p>
+                <fieldset class="star-rating gutter-base">
+                  <legend class="sr-only">Your rating</legend>
+                  <strong>Your rating</strong>
+                  <input type="radio" name="rating" id="gambas-al-ajillo-5" value="5" class="sr-only">
+                  <label for="gambas-al-ajillo-5" aria-label="Perfection">&#9733;</label>
+                  <input type="radio" name="rating" id="gambas-al-ajillo-4" value="4" class="sr-only" checked>
+                  <label for="rating-4" aria-label="Very good">&#9733;</label>
+                  <input type="radio" name="rating" id="gambas-al-ajillo-3" value="3" class="sr-only">
+                  <label for="gambas-al-ajillo-3" aria-label="Average">&#9733;</label>
+                  <input type="radio" name="rating" id="gambas-al-ajillo-2" value="2" class="sr-only">
+                  <label for="gambas-al-ajillo-2" aria-label="Quite good">&#9733;</label>
+                  <input type="radio" name="rating" id="gambas-al-ajillo-1" value="1" class="sr-only">
+                  <label for="gambas-al-ajillo-1" aria-label="Poor">&#9733;</label>
+                </fieldset>
+                <p><button type="button" class="btn btn-primary" data-view="gambas-al-ajillo">View <span class="sr-only">Gambas al Ajillo</span> recipe</button></p>
+              </div>
             </div>
+            <footer>
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                Remove from favourites
+              </a>
+
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Edit"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Edit recipe
+              </a>
+
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                Report recipe
+              </a>
+            </footer>
           </section>
+
+          <section aria-label="Real Caesar Salad" class="gutter-large">
+            <div class="media">
+              <p class="mr-5"><img src="/img/recipes/real-caesar-salad.jpg" width="150" alt=""></p>
+              <div class="media-body">
+                <h3>Real Caesar Salad</h3>
+                <p>Quick and garlicky!</p>
+                <fieldset class="star-rating gutter-base">
+                  <legend class="sr-only">Your rating</legend>
+                  <strong>Your rating</strong>
+                  <input type="radio" name="rating" id="real-caesar-salad-5" value="5" class="sr-only">
+                  <label for="real-caesar-salad-5" aria-label="Perfection">&#9733;</label>
+                  <input type="radio" name="rating" id="real-caesar-salad-4" value="4" class="sr-only">
+                  <label for="rating-4" aria-label="Very good">&#9733;</label>
+                  <input type="radio" name="rating" id="real-caesar-salad-3" value="3" class="sr-only" checked>
+                  <label for="real-caesar-salad-3" aria-label="Average">&#9733;</label>
+                  <input type="radio" name="rating" id="real-caesar-salad-2" value="2" class="sr-only">
+                  <label for="real-caesar-salad-2" aria-label="Quite good">&#9733;</label>
+                  <input type="radio" name="rating" id="real-caesar-salad-1" value="1" class="sr-only">
+                  <label for="real-caesar-salad-1" aria-label="Poor">&#9733;</label>
+                </fieldset>
+                <p><button type="button" class="btn btn-primary" data-view="real-caesar-salad">View <span class="sr-only">Real Caesar Salad</span> recipe</button></p>
+              </div>
+            </div>
+            <footer>
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                Remove from favourites
+              </a>
+
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Edit"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Edit recipe
+              </a>
+
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                Report recipe
+              </a>
+            </footer>
+          </section>
+
+          <section aria-label="Sfouggato" class="gutter-large">
+            <div class="media">
+              <p class="mr-5"><img src="/img/recipes/sfouggato.jpg" width="150" alt=""></p>
+              <div class="media-body">
+                <h3>Sfouggato</h3>
+                <p>Quick and garlicky!</p>
+                <fieldset class="star-rating gutter-base">
+                  <legend class="sr-only">Your rating</legend>
+                  <strong>Your rating</strong>
+                  <input type="radio" name="rating" id="sfouggato-5" value="5" class="sr-only" checked>
+                  <label for="sfouggato-5" aria-label="Perfection">&#9733;</label>
+                  <input type="radio" name="rating" id="sfouggato-4" value="4" class="sr-only">
+                  <label for="rating-4" aria-label="Very good">&#9733;</label>
+                  <input type="radio" name="rating" id="sfouggato-3" value="3" class="sr-only">
+                  <label for="sfouggato-3" aria-label="Average">&#9733;</label>
+                  <input type="radio" name="rating" id="sfouggato-2" value="2" class="sr-only">
+                  <label for="sfouggato-2" aria-label="Quite good">&#9733;</label>
+                  <input type="radio" name="rating" id="sfouggato-1" value="1" class="sr-only">
+                  <label for="sfouggato-1" aria-label="Poor">&#9733;</label>
+                </fieldset>
+                <p><button type="button" class="btn btn-primary" data-view="sfouggato">View <span class="sr-only">Sfouggato</span> recipe</button></p>
+              </div>
+            </div>
+            <footer>
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>
+                Remove from favourites
+              </a>
+
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Edit"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Edit recipe
+              </a>
+
+              <a href="#" class="btn btn-secondary icon-small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                Report recipe
+              </a>
+            </footer>
+          </section>
+
         </section>
       </div>
     </div>

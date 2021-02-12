@@ -142,3 +142,11 @@
     &::after { right: 0; }
   }
 }
+
+// Simple secondary buttons
+.btn-secondary {
+  border: solid 1px $colour-black;
+  border-radius: 5px;
+  margin: 0 .5em 0 0;
+  padding: .2em .5em;
+}

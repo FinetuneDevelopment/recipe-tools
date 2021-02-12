@@ -6,42 +6,48 @@
        -o-appearance: none;
           appearance: none;
   background: transparent;
-  border: solid 1px $colour-interactive-blue;
   border-radius: 0;
-  -webkit-box-shadow: 0 0 0 0 $colour-interactive-blue;
-     -moz-box-shadow: 0 0 0 0 $colour-interactive-blue;
-          box-shadow: 0 0 0 0 $colour-interactive-blue;
-  display: block;
-  line-height: 1.5;
-  max-width: calc(100% - 2px);
-  min-height: 60px;
-  padding: 18px 10px;
-  transition: box-shadow .2s;
   width: 100%;
-
-  &:focus {
-    -webkit-box-shadow: 2px 2px 0 0 $colour-interactive-blue;
-       -moz-box-shadow: 2px 2px 0 0 $colour-interactive-blue;
-            box-shadow: 2px 2px 0 0 $colour-interactive-blue;
-  }
-
-  &:invalid {
-    border-color: $colour-deep-blue;
-    -webkit-box-shadow: 2px 2px 0 0 $colour-deep-blue;
-       -moz-box-shadow: 2px 2px 0 0 $colour-deep-blue;
-            box-shadow: 2px 2px 0 0 $colour-deep-blue;
-  }
 }
 
-input[type="checkbox"] {
-  border-color: $colour-interactive-blue;
-  color: $colour-interactive-blue;
+$depth: .1em;
+
+%selected-star {
+  text-shadow: $depth $depth 0 $colour-grey;
+  transform: translate($depth * -1, $depth * -1);
 }
 
-// For when the recaptcha is inside an iframe
-@media (max-width: 300px) {
-  .g-recaptcha {
-    transform: scale(0.77);
-    transform-origin: 0 0;
+.star-rating {
+  color: $colour-grey;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 1.8em;
+  justify-content: flex-end;
+
+  // "Your rating"
+  strong {
+    color: $colour-black;
+    font-size: 18px;
+    margin: 0 0 0 1em;
+  }
+
+  label {
+    cursor: pointer;
+    line-height: .8;
+    transition: all .2s ease;
+    text-shadow: 0 0 0 #000;
+  }
+
+  label:hover,
+  input:checked ~ label,
+  input:focus ~ label {
+    color: $colour-gold;
+    & ~ label { color: $colour-gold; }
+  }
+
+  label:hover,
+  input:focus ~ label {
+    @extend %selected-star;
+    & ~ label { @extend %selected-star; }
   }
 }
