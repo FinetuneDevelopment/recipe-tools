@@ -3,7 +3,6 @@
 export default function addFieldFactory() {
   let myFactory = {};
 
-  // This fixes the target="_blank" vunribility. Sorry for the annoying filename.
   myFactory.init = function () {
     let addFieldTriggers = document.querySelectorAll('[data-add-field]');
     // Adds a new field into the form

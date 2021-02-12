@@ -30,22 +30,24 @@
   <header class="bt-yellow pad-vert-tiny brd-bottom brd-yellow">
     <div class="container">
       <div class="row">
-        <p class="col-2 col-md-1 icon-medium flush">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Recipe tools">
-            <path d="M1 5c1-1 3-2 4 0 1-1 3-1 4-1 0-2 3-4 5-2l9 9c1 2-1 4-3 4 1 3-1 6-4 6-1 2-4 3-6 1l-9-9c-1-1 0-5 3-5 0-1 0-2 1-3" fill="#6C9C15"/>
-            <path d="M9 4l11 11M4 8c0 1 0 2 1 3-1-1-1-2-1-3zm3 5l4 4zm9 8c-1-1-2-1-3-2"/>
-          </svg>
+        <p class="col-2 col-md-1 flush">
+          <a href="/" title="Return to the home page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Recipe tools">
+              <path d="M1 5c1-1 3-2 4 0 1-1 3-1 4-1 0-2 3-4 5-2l9 9c1 2-1 4-3 4 1 3-1 6-4 6-1 2-4 3-6 1l-9-9c-1-1 0-5 3-5 0-1 0-2 1-3" fill="#6C9C15"/>
+              <path d="M9 4l11 11M4 8c0 1 0 2 1 3-1-1-1-2-1-3zm3 5l4 4zm9 8c-1-1-2-1-3-2"/>
+            </svg>
+          </a>
         </p>
-        <nav class="col-8 col-md-10 text-center" aria-label="Main">
+        <nav class="col-8 col-md-10 text-center pad-vert-base" aria-label="Main">
           <a href="/pick-three-things/" class="btn btn-primary">Pick three things</a>
           <a href="/recipes-featuring/" class="btn btn-primary">Recipes featuring</a>
           <a href="/themes/" class="btn btn-primary">Recipe themes</a>
         </nav>
         <p class="col-2 col-md-1 icon-medium flush text-center small">
-          <span class="nav-text">
-            <img src="/img/users/thumb-mum.jpg" alt="User" class="round">
+          <a href="/account/" class="nav-text">
+            <img src="/img/users/thumb-sarah-bishop.jpg" alt="User" class="round">
             Account
-          </span>
+          </a>
         </p>
       </div>
     </div>
@@ -57,10 +59,7 @@
         <nav class="col-md-4" aria-label="Account">
           <p><a href="/account/" class="btn btn-primary">My favourite recipes</a></p>
           <p><em class="btn btn-primary btn-selected">Add a new recipe</em></p>
-              <!-- * Import a recipe from URL (if there's any microdata, import, if not, copy raw output or take screenshot) Imported recipes can't be shared with the community
-              * Manually add a recipe (share with community or not)
-              * Import a photo (store the photo initially, OCR coming later)-->
-          <p><a href="#" class="btn btn-primary">Update account info</a></p>
+          <p><a href="/account/user-information/" class="btn btn-primary">Update account info</a></p>
         </nav>
         <section class="col-md-8" aria-label="Add a new recipe">
           <h2>Add a new recipe</h2>
@@ -97,7 +96,7 @@
           </div>
 
           <div class="accordion">
-            <input type="radio" name="recipe-from" id="recipe-from-form" class="accordion__control sr-only" checked>
+            <input type="radio" name="recipe-from" id="recipe-from-form" class="accordion__control sr-only">
             <label for="recipe-from-form" class="accordion__trigger media">
               <span class="media-body h4">Type it in</span>
               <span class="accordion__icon icon-small ml-3 align-self-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Chevron down"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg></span>
@@ -112,7 +111,7 @@
                 <p class="col-sm-4"><label for="recipe-description">Description</label></p>
                 <p class="col-sm-8"><input type="text" name="recipe-description" id="recipe-description" class="input"></p>
               </div>
-              <!-- Note that the "shopping" Array i would not be added manually by normal users. Instead, the final recipe would be scanned for occurrances of existing ingredients anywhere in the text and this Array would be populated automatically. -->
+              <!-- Note that the "shopping" Array would not be added manually by normal users. Instead, the final recipe would be scanned for occurrances of existing ingredients anywhere in the text and this Array would be populated automatically. -->
               <div class="row">
                 <p class="col-sm-4"><label for="recipe-tags">Enter tags</label></p>
                 <p class="col-sm-8"><input type="text" name="recipe-tags" id="recipe-tags" class="input" placeholder="e.g. Mediterranean, Winter; Comfort food; Family favourite"> <span class="small d-block">Tags can contain spaces. Split tags using a comma or a semi-colon.</span></p>
@@ -142,7 +141,12 @@
                   </div>
                 </div>
                 <footer class="row">
-                  <p class="offset-sm-4 col-sm-8"><button type="button" class="btn btn-secondary" data-add-field="ingredient-container">Add another ingredient</button></p>
+                  <p class="offset-sm-4 col-sm-8">
+                    <button type="button" class="btn btn-secondary icon-small" data-add-field="ingredient-container">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Add"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      Add another ingredient
+                    </button>
+                  </p>
                 </footer>
               </fieldset>
 
@@ -155,7 +159,12 @@
                   </li>
                 </ol>
                 <footer class="row">
-                  <p class="offset-sm-4 col-sm-8"><button type="button" class="btn btn-secondary" data-add-field="steps-container">Add another step</button></p>
+                  <p class="offset-sm-4 col-sm-8">
+                    <button type="button" class="btn btn-secondary icon-small" data-add-field="steps-container">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Add"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                      Add another step
+                    </button>
+                  </p>
                 </footer>
               </fieldset>
 
@@ -171,7 +180,7 @@
               <p class="small">Please don't share recipes which are subject to copyright.</p>
               <p><input type="checkbox" name="recipe-confirm" id="recipe-confirm"> <label for="recipe-confirm">I confirm this recipe is mine to share with the world.</label></p>
 
-              <p class="texct-right"><button class="btn btn-primary">Save recipe</button></p>
+              <p><button class="btn btn-primary">Save recipe</button></p>
 
             </fieldset>
           </div>

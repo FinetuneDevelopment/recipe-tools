@@ -148,6 +148,14 @@ const config = function (env, args) {
         filename: 'account/add-recipe/index.html',
         template: path.resolve(__dirname, 'src', 'account/add-recipe/index.html'),
       }),
+      new HtmlWebpackPlugin({
+        filename: 'account/user-information/index.html',
+        template: path.resolve(__dirname, 'src', 'account/user-information/index.html'),
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'report-recipe/index.html',
+        template: path.resolve(__dirname, 'src', 'report-recipe/index.html'),
+      }),
       new MiniCssExtractPlugin({
         filename: "css/[name].css",
       }),
