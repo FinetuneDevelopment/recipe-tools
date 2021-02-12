@@ -5,11 +5,13 @@ export default function addFieldFactory() {
 
   // This fixes the target="_blank" vunribility. Sorry for the annoying filename.
   myFactory.init = function () {
-    let addFieldTrigger = document.querySelector('[data-add-field]');
+    let addFieldTriggers = document.querySelectorAll('[data-add-field]');
     // Adds a new field into the form
-    addFieldTrigger.addEventListener('click', function (e) {
-      addField(e.target.getAttribute('data-add-field'));
-    });
+    for (let i = 0; i < addFieldTriggers.length; i++) {
+      addFieldTriggers[i].addEventListener('click', function (e) {
+        addField(e.target.getAttribute('data-add-field'));
+      });
+    }
 
     // This function is passed the ID of an element which (hopefully) has one or more elements with an data-js="replicater-child"
     // attribute. The function copies this nodeset, then increments any "for" or "id" attributes within it, then adds another
