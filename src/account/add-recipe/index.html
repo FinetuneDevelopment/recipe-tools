@@ -115,21 +115,37 @@
               <!-- Note that the "shopping" Array i would not be added manually by normal users. Instead, the final recipe would be scanned for occurrances of existing ingredients anywhere in the text and this Array would be populated automatically. -->
               <div class="row">
                 <p class="col-sm-4"><label for="recipe-tags">Enter tags</label></p>
-                <p class="col-sm-8"><input type="text" name="recipe-tags" id="recipe-tags" class="input" placeholder="e.g. Mediterranean, Winter; Comfort food; Family favourite"> <span class="small">Tags can contain spaces. Split tags using a comma or a semi-colon.</span></p>
+                <p class="col-sm-8"><input type="text" name="recipe-tags" id="recipe-tags" class="input" placeholder="e.g. Mediterranean, Winter; Comfort food; Family favourite"> <span class="small d-block">Tags can contain spaces. Split tags using a comma or a semi-colon.</span></p>
               </div>
               <div class="row">
-                <p class="col-sm-4"><label for="recipe-new-image">Upload image of final dish</label></p>
-                <div class="col-sm-8">
-                  <p id="recipe-gallery">
-                    <input type="file" name="recipe-new-image" id="recipe-new-image" class="input">
-                    <input type="text" name="recipe-new-image2" id="recipe-new-image2" class="input2">
-                  </p>
-                  <p><button class="btn btn-secondary" data-add-field="recipe-gallery">Add new image field</button></p>
-                </div>
+                <p class="col-sm-4"><label for="recipe-new-image">Upload images</label></p>
+                <p class="col-sm-8"><input type="file" name="recipe-new-image" id="recipe-new-image" class="input" multiple></p>
               </div>
+              <fieldset>
+                <legend class="sr-only">Ingredient</legend>
+                <div id="ingredient-container">
+                  <div class="row" data-js="replicater-child">
+                    <p class="col-sm-4"><label for="recipe-new-image">Ingredient</label></p>
+                    <p class="col-sm-4">
+                      <input type="text" name="ingredient-name" id="ingredient-name" class="input">
+                      <label for="ingredient-name" class="small d-block">Ingredient name</label>
+                    </p>
+                    <p class="col-sm-2">
+                      <input type="number" name="ingredient-amount" id="ingredient-amount" class="input">
+                      <label for="ingredient-amount" class="small d-block">Ingredient amount</label>
+                    </p>
+                    <p class="col-sm-2">
+                      <input type="text" name="ingredient-unit" id="ingredient-unit" class="input" value="g">
+                      <label for="ingredient-unit" class="small d-block">Measurement unit</label>
+                    </p>
+                  </div>
+                </div>
+                <footer class="row">
+                  <p class="offset-sm-4 col-sm-8"><button type="button" class="btn btn-secondary" data-add-field="ingredient-container">Add another ingredient</button></p>
+                </footer>
+              </fieldset>
               <!--
         {
-          "image": "/img/recipes/giouvarlakia.jpg",
           "ingredient": [{
               "amount": "500",
               "unit": "g",

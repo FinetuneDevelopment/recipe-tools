@@ -11,61 +11,33 @@ export default function addFieldFactory() {
       addField(e.target.getAttribute('data-add-field'));
     });
 
-    // This function is passed the ID of an element which has one or more input elements inside it.
-    // The function adds another one onto the bottom, respecting the numbering which is already in place.
-    // It makes the following assumptions:
-    // (1) The first input element to appear within the element is the "gestalt"
-    // (2) The other input elements have already been added following the original pattern
-    // This means that it is possible for this to add input elements with the same ID as one which is already on the page.
+    // This function is passed the ID of an element which (hopefully) has one or more elements with an data-js="replicater-child"
+    // attribute. The function copies this nodeset, then increments any "for" or "id" attributes within it, then adds another
+    // copy of this nodeset into the parent element at the bottom.
+    // This may lead to duplicate IDs, and replication of existing markup errors, depending upon what is already in place.
     function addField(ID){
       const container = document.getElementById(ID);
       if (container) {
-        const gestalt = container.querySelector('input:first-child');
+        const gestalt = container.querySelector('[data-js="replicater-child"]');
         if (gestalt) {
-          console.log("Yup");
+          const nodeCount = container.querySelectorAll('[data-js="replicater-child"]').length;
+          let newNode = gestalt.cloneNode(true);
+          // All tags with a "for" attribute
+          let allLabels = newNode.querySelectorAll('[for]');
+          // Add an incremented count onto the label's "for" attribute
+          for (let i = 0; i < allLabels.length; i++) {
+            allLabels[i].setAttribute('for',allLabels[i].getAttribute('for') + '-' + (nodeCount + 1));
+          }
+          // All elements with an ID
+          let allInputs = newNode.querySelectorAll('[id]');
+          // Add an incremented count onto the "id" attribute
+          for (let i = 0; i < allInputs.length; i++) {
+            allInputs[i].setAttribute('id',allInputs[i].getAttribute('id') + '-' + (nodeCount + 1));
+          }
+          container.append(newNode);
         }
       }
     }
-
-    // Adds an input element and a select box, when the user clicks on "add field"
-    /*function addField(name, datatype) {
-      let newLabels = document.getElementById('new-labels');
-      if (!name) name = '';
-      let stringSelected = '';
-      let booleanSelected = '';
-      let moneySelected = '';
-      let numberSelected = '';
-      switch (datatype) {
-        case 'string':
-          stringSelected = ' selected';
-          break;
-        case 'money':
-          moneySelected = ' selected';
-          break;
-        case 'boolean':
-          booleanSelected = ' selected';
-          break;
-        case 'number':
-          numberSelected = ' selected';
-          break;
-      }
-      if (newLabels) {
-        let count = document.querySelectorAll('[data-js="new-field"]').length + 1;
-        let fieldMarkup = '<legend>New metafield ' + count + '</legend>' +
-          '<p><label for="newmeta' + count + '">Name your new metafield</label>' +
-          '<input type="text" id="newmeta' + count + '" placeholder="Name your new metafield" pattern="[A-Za-z_-]+" value="' + name + '" data-js="new-field"> ' +
-          '<label for="type' + count + '">Data type</label> ' +
-          '<select id="type' + count + '">' +
-          '<option value="boolean"' + booleanSelected + '>Boolean</option>' +
-          '<option value="string"' + stringSelected + '>String</option>' +
-          '<option value="money"' + moneySelected + '>Money</option>' +
-          '<option value="number"' + numberSelected + '>Number</option>' +
-          '</select></p>';
-        let newField = document.createElement('fieldset');
-        newField.innerHTML = fieldMarkup;
-        newLabels.appendChild(newField);
-      }
-    }*/
   }
 
   return myFactory;
