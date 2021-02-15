@@ -1805,6 +1805,7 @@ export default function scrollFactory() {
         if (tagTarget) {
           tagTarget.innerHTML = resultMarkup;
           tagTarget.removeAttribute('hidden');
+          document.querySelector('[data-js="overlay"]').removeAttribute('hidden');
         }
       } else { // Free up the checkboxes
         for (let i = 0; i < allChecks.length; i++) {
@@ -2184,13 +2185,20 @@ export default function scrollFactory() {
           if (target) {
             target.innerHTML = '<p class="close"><button type="button" title="Close" data-js="close" class="close">×</button></p>' + recipeMarkup(objRecipe);
             target.removeAttribute('hidden');
+            document.querySelector('[data-js="overlay"]').removeAttribute('hidden');
           }
         }
       }
       // Close the modal
-      if (target.getAttribute('data-js') === 'close' && document.querySelector('.modal')) {
+      if (
+          target.getAttribute('data-js') === 'close' && document.querySelector('.modal')
+          ||
+          target.getAttribute('data-js') === 'overlay'
+        ) {
         document.querySelector('.modal').setAttribute('hidden','true');
+        document.querySelector('[data-js="overlay"]').setAttribute('hidden','true');
       }
+
     }, false);
 
     // Listens for the user influencing form elements
