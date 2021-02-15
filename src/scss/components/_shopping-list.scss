@@ -1,0 +1,29 @@
+// A checkbox for a single line in the shopping list. Unchecking it crosses out the line, but does not delete it
+.list-input {
+  & ~ .list-line {
+    opacity: .4;
+    text-decoration: line-through red wavy;
+  }
+  & ~ .list-control {
+    svg {
+      transform: rotate(45deg);
+      transition: all .2s;
+    }
+
+    .opt-in  { display: inline; }
+    .opt-out { display: none; }
+  }
+}
+
+.list-input:checked {
+  & ~ .list-line {
+    opacity: 1;
+    text-decoration: none;
+  }
+  & ~ .list-control {
+    svg { transform: rotate(0deg) };
+    .opt-in  { display: none; }
+    .opt-out { display: inline; }
+  }
+
+}

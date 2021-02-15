@@ -153,6 +153,10 @@ const config = function (env, args) {
         template: path.resolve(__dirname, 'src', 'account/edit-recipe/index.html'),
       }),
       new HtmlWebpackPlugin({
+        filename: 'account/shopping-list/index.html',
+        template: path.resolve(__dirname, 'src', 'account/shopping-list/index.html'),
+      }),
+      new HtmlWebpackPlugin({
         filename: 'account/user-information/index.html',
         template: path.resolve(__dirname, 'src', 'account/user-information/index.html'),
       }),

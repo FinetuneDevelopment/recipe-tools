@@ -1,5 +1,5 @@
 // HTML forms
-.input {
+.input, .input-inline {
   -webkit-appearance: none;
      -moz-appearance: none;
       -ms-appearance: none;
@@ -8,14 +8,20 @@
   background: transparent;
   border: solid 1px $colour-black;
   border-radius: 0;
-  display: block;
   max-width: 100%;
   min-height: 2em;
-  min-width: 100%;
   padding: 0 .5em;
+}
+
+.input {
+  display: block;
+  min-width: 100%;
   width: 100%;
 }
 
+.input-short { width: 3em; }
+
+// ★★★★★
 $depth: .1em;
 
 %selected-star {

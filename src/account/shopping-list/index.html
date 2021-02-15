@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebSite">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping List - Recipe tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="description" content="Shopping List - Recipe tools">
+  <meta property="og:title" content="Shopping List - Recipe tools">
+  <meta property="og:description" content="Shopping List - Recipe tools">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://finetunepartners.com/">
+  <link rel="canonical" href="https://finetunepartners.com/">
+  <meta property="og:site_name" content="Recipe tools">
+  <meta property="og:image" content="/img/og/og.jpg">
+  <meta itemprop="image" content="/img/og/og.jpg">
+  <link rel="image_src" href="/img/og/og.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#2e38ef">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#d7f2db">
+</head>
+
+<body>
+  <header class="bt-yellow pad-vert-tiny brd-bottom brd-yellow">
+    <div class="container">
+      <div class="row">
+        <p class="col-2 col-md-1 flush">
+          <a href="/" title="Return to the home page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Recipe tools">
+              <path d="M1 5c1-1 3-2 4 0 1-1 3-1 4-1 0-2 3-4 5-2l9 9c1 2-1 4-3 4 1 3-1 6-4 6-1 2-4 3-6 1l-9-9c-1-1 0-5 3-5 0-1 0-2 1-3" fill="#6C9C15"/>
+              <path d="M9 4l11 11M4 8c0 1 0 2 1 3-1-1-1-2-1-3zm3 5l4 4zm9 8c-1-1-2-1-3-2"/>
+            </svg>
+          </a>
+        </p>
+        <nav class="col-8 col-md-10 text-center pad-vert-base" aria-label="Main">
+          <a href="/pick-three-things/" class="btn btn-primary">Pick three things</a>
+          <a href="/recipes-featuring/" class="btn btn-primary">Recipes featuring</a>
+          <a href="/themes/" class="btn btn-primary">Recipe themes</a>
+        </nav>
+        <p class="col-2 col-md-1 icon-medium flush text-center small">
+          <a href="/account/" class="nav-text">
+            <img src="/img/users/thumb-sarah-bishop.jpg" alt="User" class="round">
+            Account
+          </a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container pad-vert-base">
+      <div class="row">
+        <nav class="col-md-4" aria-label="Account">
+          <p><a href="/account/" class="btn btn-primary">My favourite recipes</a></p>
+          <p><em class="btn btn-primary btn-selected">My shopping list</em></p>
+          <p><a href="/account/meal-plan/" class="btn btn-primary">My meal plan</a></p>
+          <p><a href="/account/user-information/" class="btn btn-primary">Update account info</a></p>
+          <p><a href="/account/add-recipe/" class="btn btn-primary">Add a new recipe</a></p>
+          <p><a href="/" class="btn btn-primary">Log out</a></p>
+        </nav>
+        <section class="col-md-8" aria-label="My shopping list">
+          <h2>My shopping list</h2>
+
+          <form method="get" action="#" class="gutter-medium">
+
+            <div class="media">
+              <input type="checkbox" name="eggs" value="6" id="eggs" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Eggs
+                (&times;
+                <label for="eggs-quantity" class="sr-only">Eggs quantity</label>
+                <input type="number" id="eggs-quantity" name="eggs-quantity" value="6" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="eggs" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="courgette" value="7" id="courgette" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Courgette
+                (&times;
+                <label for="courgette-quantity" class="sr-only">Courgette quantity</label>
+                <input type="number" id="courgette-quantity" name="courgette-quantity" value="7" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="courgette" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="parsley" value="1" id="parsley" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Parsley
+                (&times;
+                <label for="parsley-quantity" class="sr-only">Parsley quantity</label>
+                <input type="number" id="parsley-quantity" name="parsley-quantity" value="1" class="input-inline input-short">
+                )                </p>
+              <p class="ml-3 align-self-center list-control"><label for="parsley" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="dill" value="1" id="dill" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Dill
+                (&times;
+                <label for="dill-quantity" class="sr-only">Dill quantity</label>
+                <input type="number" id="dill-quantity" name="dill-quantity" value="1" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="dill" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="mint" value="1" id="mint" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Mint
+                (&times;
+                <label for="mint-quantity" class="sr-only">Mint quantity</label>
+                <input type="number" id="mint-quantity" name="mint-quantity" value="1" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="mint" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="cheddar" value="1" id="cheddar" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Cheddar
+                (&times;
+                <label for="cheddar-quantity" class="sr-only">Cheddar quantity</label>
+                <input type="number" id="cheddar-quantity" name="cheddar-quantity" value="1" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="cheddar" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="feta" value="1" id="feta" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Feta
+                (&times;
+                <label for="feta-quantity" class="sr-only">Feta quantity</label>
+                <input type="number" id="feta-quantity" name="feta-quantity" value="1" class="input-inline input-short">
+                )
+                </p>
+              <p class="ml-3 align-self-center list-control"><label for="feta" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="salt" value="1" id="salt" class="sr-only list-input">
+              <p class="lead media-body list-line">
+                Salt
+                (&times;
+                <label for="salt-quantity" class="sr-only">Salt quantity</label>
+                <input type="number" id="salt-quantity" name="salt-quantity" value="1" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="salt" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="pepper" value="1" id="pepper" class="sr-only list-input">
+              <p class="lead media-body list-line">
+                Pepper
+                (&times;
+                <label for="pepper-quantity" class="sr-only">Pepper quantity</label>
+                <input type="number" id="pepper-quantity" name="pepper-quantity" value="1" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="pepper" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="red-onion" value="1" id="red-onion" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Red Onion
+                (&times;
+                <label for="red-onion-quantity" class="sr-only">Red onion quantity</label>
+                <input type="number" id="red-onion-quantity" name="red-onion-quantity" value="1" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="red-onion" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="spring-onion" value="1" id="spring-onion" class="sr-only list-input" checked>
+              <p class="lead media-body list-line">
+                Spring onion
+                (&times;
+                <label for="spring-onion-quantity" class="sr-only">Spring onion quantity</label>
+                <input type="number" id="spring-onion-quantity" name="spring-onion-quantity" value="1" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="spring-onion" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+
+              </label></p>
+            </div>
+
+            <div class="media">
+              <input type="checkbox" name="olive-oil" value="6" id="olive-oil" class="sr-only list-input">
+              <p class="lead media-body list-line">
+                Olive oil
+                (&times;
+                <label for="olive-oil-quantity" class="sr-only">Olive oil quantity</label>
+                <input type="number" id="olive-oil-quantity" name="olive-oil-quantity" value="1" class="input-inline input-short">
+                )
+              </p>
+              <p class="ml-3 align-self-center list-control"><label for="olive-oil" class="btn btn-secondary icon-tiny">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                  <line x1="23" y1="1" x2="1" y2="23"></line>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+                <span class="opt-out">Not required</span>
+                <span class="opt-in">Add</span>
+              </label></p>
+            </div>
+
+            <p class="text-right"><button class="btn btn-primary">Place order</button></p>
+
+          </form>
+
+          <aside class="row" aria-label="Recipies in your meal plan">
+            <h2 class="col-12">Recipies in your meal plan</h2>
+
+            <section class="col-6 col-lg-4 flex-vert gutter-medium" aria-label="Sfouggato">
+              <p><img src="/img/recipes/sfouggato.jpg" alt=""></p>
+              <h3>Sfouggato</h3>
+              <p>A Lesbian delicacy that is super easy to make and can be eaten hot or cold.</p>
+              <p class="mt-auto">
+                <button type="button" class="btn btn-secondary icon-tiny">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                    <line x1="23" y1="1" x2="1" y2="23"></line>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                  Cancel <span class="sr-only">Sfouggato</span> recipe
+                </button>
+              </p>
+            </section>
+
+            <section class="col-6 col-lg-4 flex-vert gutter-medium" aria-label="Papoutsakia">
+              <p><img src="/img/recipes/papoutsakia.jpg" alt=""></p>
+              <h3>Papoutsakia</h3>
+              <p>A traditional Greek dish that tastes very similar to moussaka, but is much quicker to cook. Fun fact: Papoutsakia in Greek means "little shoes" and a portion usually has two. However, when cooking with large American eggplants, you'll likely find that one per portion is enough.</p>
+              <p class="mt-auto">
+                <button type="button" class="btn btn-secondary icon-tiny">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                    <line x1="23" y1="1" x2="1" y2="23"></line>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                  Cancel <span class="sr-only">Papoutsakia</span> recipe
+                </button>
+              </p>
+            </section>
+
+            <section class="col-6 col-lg-4 flex-vert gutter-medium" aria-label="Shakshuka">
+              <p><img src="/img/recipes/shakshuka.jpg" alt=""></p>
+              <h3>Shakshuka</h3>
+              <p>Breakfast of champions (one of them)</p>
+              <p class="mt-auto">
+                <button type="button" class="btn btn-secondary icon-tiny">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                    <line x1="23" y1="1" x2="1" y2="23"></line>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                  Cancel <span class="sr-only">Shakshuka</span> recipe
+                </button>
+              </p>
+            </section>
+
+            <section class="col-6 col-lg-4 flex-vert gutter-medium" aria-label="Real Caesar Salad">
+              <p><img src="/img/recipes/real-caesar-salad.jpg" alt=""></p>
+              <h3>Real Caesar Salad</h3>
+              <p>Based on the original 1920's Italian-American table-side recipe</p>
+              <p class="mt-auto">
+                <button type="button" class="btn btn-secondary icon-tiny">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                    <line x1="23" y1="1" x2="1" y2="23"></line>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                  Cancel <span class="sr-only">Real Caesar Salad</span> recipe
+                </button>
+              </p>
+            </section>
+
+            <section class="col-6 col-lg-4 flex-vert gutter-medium" aria-label="Khoresht Karafs">
+              <p><img src="/img/recipes/khoresht-karafs.jpg" alt=""></p>
+              <h3>Khoresht Karafs</h3>
+              <p>A delicious Persian stew with beef and celery.</p>
+              <p class="mt-auto">
+                <button type="button" class="btn btn-secondary icon-tiny">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" role="img" aria-label="Close">
+                    <line x1="23" y1="1" x2="1" y2="23"></line>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                  Cancel <span class="sr-only">Khoresht Karafs</span> recipe
+                </button>
+              </p>
+            </section>
+
+          </aside>
+        </section>
+      </div>
+    </div>
+    <div data-js="overlay" class="modal-overlay" title="Close popup" hidden></div>
+    <div data-js="ptt-results" class="modal" hidden></div>
+  </main>
+
+  <footer class="bt-yellow pad-vert-tiny brd-top brd-yellow">
+    <div class="container">
+      <div class="d-block d-md-flex">
+        <p class="media-body flush">
+          <a href="/" class="nav-text">Logout</a>
+          <a href="/" class="nav-text">About us</a>
+          <a href="/account/shopping-list/" class="nav-text">Shopping list</a>
+        </p>
+        <p class="flush">
+          <a href="https://www.instagram.com/" target="_blank" class="nav-text icon-small">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            Instagram
+          </a>
+
+          <a href="https://www.pinterest.co.uk/" target="_blank" class="nav-text icon-small">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" aria-label="Pinterest"><path d="M12 .6a11.4 11.4 0 00-4.2 22 11 11 0 010-3.2l1.4-5.7S9 13 9 12c0-1.6.9-2.8 2-2.8 1 0 1.5.7 1.5 1.6 0 1-.6 2.5-1 3.8-.2 1.2.6 2 1.7 2 2 0 3.6-2 3.6-5.1 0-2.8-2-4.7-4.7-4.7a5 5 0 00-5.2 5c0 1 .4 2 .8 2.6l.1.3-.3 1.3c0 .2-.2.3-.4.2-1.4-.7-2.3-2.8-2.3-4.5 0-3.6 2.6-6.9 7.6-6.9 4 0 7 2.8 7 6.6 0 4-2.5 7.1-6 7.1-1 0-2.2-.6-2.6-1.3L10 20c-.2 1-1 2.3-1.4 3A11.4 11.4 0 1012 .6"/></svg>
+            Pinterest
+          </a>
+
+          <a href="https://twitter.com/" target="_blank" class="nav-text icon-small">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="none" aria-label="Twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            Twitter
+          </a>
+
+          <a href="https://en-gb.facebook.com/" target="_blank" class="nav-text icon-small">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="none" aria-label="Facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            Facebook
+          </a>
+
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
