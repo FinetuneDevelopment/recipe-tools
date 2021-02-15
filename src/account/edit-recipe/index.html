@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebSite">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Edit recipe - Recipe tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="description" content="Edit recipe - Recipe tools">
+  <meta property="og:title" content="Edit recipe - Recipe tools">
+  <meta property="og:description" content="Edit recipe - Recipe tools">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://finetunepartners.com/">
+  <link rel="canonical" href="https://finetunepartners.com/">
+  <meta property="og:site_name" content="Recipe tools">
+  <meta property="og:image" content="/img/og/og.jpg">
+  <meta itemprop="image" content="/img/og/og.jpg">
+  <link rel="image_src" href="/img/og/og.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#2e38ef">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content="#d7f2db">
+</head>
+
+<body>
+  <header class="bt-yellow pad-vert-tiny brd-bottom brd-yellow">
+    <div class="container">
+      <div class="row">
+        <p class="col-2 col-md-1 flush">
+          <a href="/" title="Return to the home page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Recipe tools">
+              <path d="M1 5c1-1 3-2 4 0 1-1 3-1 4-1 0-2 3-4 5-2l9 9c1 2-1 4-3 4 1 3-1 6-4 6-1 2-4 3-6 1l-9-9c-1-1 0-5 3-5 0-1 0-2 1-3" fill="#6C9C15" />
+              <path d="M9 4l11 11M4 8c0 1 0 2 1 3-1-1-1-2-1-3zm3 5l4 4zm9 8c-1-1-2-1-3-2" />
+            </svg>
+          </a>
+        </p>
+        <nav class="col-8 col-md-10 text-center pad-vert-base" aria-label="Main">
+          <a href="/pick-three-things/" class="btn btn-primary">Pick three things</a>
+          <a href="/recipes-featuring/" class="btn btn-primary">Recipes featuring</a>
+          <a href="/themes/" class="btn btn-primary">Recipe themes</a>
+        </nav>
+        <p class="col-2 col-md-1 icon-medium flush text-center small">
+          <a href="/account/" class="nav-text">
+            <img src="/img/users/thumb-sarah-bishop.jpg" alt="User" class="round">
+            Account
+          </a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container pad-vert-base">
+      <div class="row">
+        <nav class="col-md-4" aria-label="Account">
+          <p><a href="/account/" class="btn btn-primary">My favourite recipes</a></p>
+          <p><a href="/account/add-recipe/" class="btn btn-primary">Add a new recipe</a></p>
+          <p><a href="/account/user-information/" class="btn btn-primary">Update account info</a></p>
+        </nav>
+        <section class="col-md-8" aria-label="Add a new recipe">
+          <h2>Edit recipe</h2>
+          <p>When you edit an existing recipe, you automatically save it to your account and make it private. If your alterations are large enough, you can share it with the Recipe Tools community.</p>
+
+          <div class="row">
+            <p class="col-sm-4"><label for="recipe-name">Recipe name</label></p>
+            <p class="col-sm-8"><input type="text" name="recipe-name" id="recipe-name" class="input"></p>
+          </div>
+          <div class="row">
+            <p class="col-sm-4"><label for="recipe-description">Description</label></p>
+            <p class="col-sm-8"><input type="text" name="recipe-description" id="recipe-description" class="input"></p>
+          </div>
+          <div class="row">
+            <p class="col-sm-4"><label for="recipe-tags">Enter tags</label></p>
+            <p class="col-sm-8"><input type="text" name="recipe-tags" id="recipe-tags" class="input" placeholder="e.g. Mediterranean, Winter; Comfort food; Family favourite"> <span class="small d-block">Tags can contain spaces. Split tags using a comma or a semi-colon.</span></p>
+          </div>
+          <div class="row">
+            <p class="col-sm-4"><label for="recipe-new-image">Upload images</label></p>
+            <p class="col-sm-8"><input type="file" name="recipe-new-image" id="recipe-new-image" class="input" multiple><span class="small d-block">You can select more than one image</span></p>
+          </div>
+
+          <fieldset>
+            <legend class="h6">Ingredients</legend>
+            <div id="ingredient-container">
+              <div class="row" data-js="replicater-child">
+                <p class="col-sm-4">Ingredient</p>
+                <p class="col-sm-4">
+                  <input type="text" name="ingredient-name" id="ingredient-name" class="input">
+                  <label for="ingredient-name" class="small d-block">Ingredient name</label>
+                </p>
+                <p class="col-sm-2">
+                  <input type="number" name="ingredient-amount" id="ingredient-amount" step="any" class="input">
+                  <label for="ingredient-amount" class="small d-block">Ingredient amount</label>
+                </p>
+                <p class="col-sm-2">
+                  <input type="text" name="ingredient-unit" id="ingredient-unit" class="input" value="g">
+                  <label for="ingredient-unit" class="small d-block">Measurement unit</label>
+                </p>
+              </div>
+            </div>
+            <footer class="row">
+              <p class="offset-sm-4 col-sm-8">
+                <button type="button" class="btn btn-secondary icon-small" data-add-field="ingredient-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Add">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Add another ingredient
+                </button>
+              </p>
+            </footer>
+          </fieldset>
+
+          <fieldset>
+            <legend class="h6">Recipe steps</legend>
+            <ol id="steps-container">
+              <li data-js="replicater-child" class="gutter-base">
+                <label for="step" class="sr-only">Step</label>
+                <textarea id="step" name="recipe-step" cols="75" rows="5" class="input"></textarea>
+              </li>
+            </ol>
+            <footer class="row">
+              <p class="offset-sm-4 col-sm-8">
+                <button type="button" class="btn btn-secondary icon-small" data-add-field="steps-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Add">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                  Add another step
+                </button>
+              </p>
+            </footer>
+          </fieldset>
+
+          <div class="row">
+            <p class="col-sm-4"><label for="recipe-notes">Recipe notes</label></p>
+            <p class="col-sm-8">
+              <textarea id="recipe-notes" name="recipe-notes" cols="35" rows="5" class="input"></textarea>
+              <span class="small d-block">Notes appear at the bottom of recipes and can contain information such as ingredient substitutions or the origins of the original recipe.</span>
+            </p>
+          </div>
+
+          <footer class="row">
+            <p class="offset-sm-4 col-sm-8"><input type="checkbox" name="recipe-share" id="recipe-share" disabled> <label for="recipe-share">Share recipe with the Recipe Tools community</label></p>
+            <p class="offset-sm-4 col-sm-8"><button class="btn btn-primary">Save recipe</button></p>
+          </footer>
+
+       </section>
+     </div>
+    </div>
+  </main>
+</body>
+
+</html>
