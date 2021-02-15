@@ -32,6 +32,8 @@
     top: 50%;
     transform: translateY(-50%) skewY(8deg);
     translate: all .2s;
+
+    @include media-breakpoint-down(sm) { font-size: 5vw; }
   }
 
   // Checkbox
