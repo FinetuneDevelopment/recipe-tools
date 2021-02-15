@@ -34,6 +34,7 @@ export default function addFieldFactory() {
           // Add an incremented count onto the "id" attribute
           for (let i = 0; i < allInputs.length; i++) {
             allInputs[i].setAttribute('id',allInputs[i].getAttribute('id') + '-' + (nodeCount + 1));
+            allInputs[i].value = '';
           }
           container.append(newNode);
         }
