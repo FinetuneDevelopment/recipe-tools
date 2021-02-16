@@ -64,116 +64,177 @@
           <p><em class="btn btn-primary btn-selected">Update account info</em></p>
           <p><a href="/" class="btn btn-primary">Log out</a></p>
         </nav>
-        <section class="col-md-8" aria-label="User Information">
-          <h2>User Information</h2>
-          <div class="row gutter-base">
-            <p class="col-sm-4">Profile image:</p>
-            <p class="col-sm-8"><img src="/img/users/sarah-bishop.jpg" alt="Sarah Bishop" class="round"></p>
-          </div>
-          <div class="row gutter-base">
-            <p class="col-sm-4"><label for="user-avatar">Update profile image:</label></p>
-            <p class="col-sm-8"><input type="file" name="user-avatar" id="user-avatar" class="input" placeholder="Update image"></p>
-          </div>
-          <div class="row gutter-base">
-            <p class="col-sm-4"><label for="user-name">Name:</label></p>
-            <p class="col-sm-8"><input type="text" name="user-name" id="user-name" class="input" value="Sarah Bishop"></p>
-          </div>
-          <div class="row gutter-base">
-            <p class="col-sm-4"><label for="user-email">Main email address:</label></p>
-            <p class="col-sm-8"><input type="email" name="user-email" id="user-email" class="input" value="sarah_bishop_1993@gmail.com"></p>
-          </div>
-          <div class="row gutter-base">
-            <p class="col-sm-4"><label for="user-backup-email">Backup email address:</label></p>
-            <p class="col-sm-8"><input type="email" name="user-backup-email" id="user-backup-email" class="input" value="bishopbashbosh@yahoo.co.uk"></p>
-          </div>
-          <div class="row gutter-base">
-            <p class="col-sm-4"><label for="user-password">Password:</label></p>
-            <p class="col-sm-8">
-              <input type="password" name="user-password" id="user-password" class="input" value="password-which-is-long" disabled>
-              <span class="small d-block gutter-base">Note that due to how we store your password, we cannot directly access it. If you wish to change your password, press the request password reset button below.</span>
-              <button class="btn btn-secondary icon-small" value="password-reset-email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Padlock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                Request password reset
-              </button>
-            </p>
-          </div>
-          <fieldset>
-            <legend class="h3">Food preferences</legend>
+        <form action="/account/user-information/" method="get" class="col-md-8">
 
-            <fieldset class="row gutter-base">
-              <legend class="sr-only">I am:</legend>
-              <p class="col-sm-4">I am:</p>
-              <p class="col-sm-8">
-                <input type="radio" name="diet-type" id="diet-type-omnivore" value="omnivore" checked>
-                <label for="diet-type-omnivore">Omnivore (I eat everything)</label>
-                <br>
-                <input type="radio" name="diet-type" id="diet-type-vegetarian" value="vegetarian">
-                <label for="diet-type-vegetarian">Vegetarian</label>
-                <br>
-                <input type="radio" name="diet-type" id="diet-type-vegan" value="vegan">
-                <label for="diet-type-vegan">Vegan</label>
-              </p>
-            </fieldset>
+          <div class="accordion">
+            <input type="checkbox" id="your-details" class="accordion__control sr-only" checked>
+            <label for="your-details" class="accordion__trigger media">
+              <span class="media-body h3">Your details</span>
+              <span class="accordion__icon icon-small ml-3 align-self-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Chevron down"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg></span>
+            </label>
+            <fieldset class="accordion__details pad-vert-base">
+              <legend class="sr-only">Your details</legend>
+              <div class="row gutter-base">
+                <p class="col-sm-4">Profile image:</p>
+                <p class="col-sm-8"><img src="/img/users/sarah-bishop.jpg" alt="Sarah Bishop" class="round"></p>
+              </div>
+              <div class="row gutter-base">
+                <p class="col-sm-4"><label for="user-avatar">Update profile image:</label></p>
+                <p class="col-sm-8"><input type="file" name="user-avatar" id="user-avatar" class="input" placeholder="Update image"></p>
+              </div>
+              <div class="row gutter-base">
+                <p class="col-sm-4"><label for="user-name">Name:</label></p>
+                <p class="col-sm-8"><input type="text" name="user-name" id="user-name" class="input" value="Sarah Bishop"></p>
+              </div>
+              <div class="row gutter-base">
+                <p class="col-sm-4"><label for="user-email">Main email address:</label></p>
+                <p class="col-sm-8"><input type="email" name="user-email" id="user-email" class="input" value="sarah_bishop_1993@gmail.com"></p>
+              </div>
+              <div class="row gutter-base">
+                <p class="col-sm-4"><label for="user-backup-email">Backup email address:</label></p>
+                <p class="col-sm-8"><input type="email" name="user-backup-email" id="user-backup-email" class="input" value="bishopbashbosh@yahoo.co.uk"></p>
+              </div>
+              <div class="row gutter-base">
+                <p class="col-sm-4"><label for="user-password">Password:</label></p>
+                <p class="col-sm-8">
+                  <input type="password" name="user-password" id="user-password" class="input" value="password-which-is-long" disabled>
+                  <span class="small d-block gutter-base">Note that due to how we store your password, we cannot directly access it. If you wish to change your password, press the request password reset button below.</span>
+                  <button class="btn btn-secondary icon-small" value="password-reset-email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Padlock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Request password reset
+                  </button>
+                </p>
+              </div>
+            <fieldset>
+          </div>
 
-            <fieldset class="row gutter-base">
-              <legend class="sr-only">I observe:</legend>
-              <p class="col-sm-4">I observe:</p>
-              <p class="col-sm-8">
-                <input type="checkbox" name="diet-belief" id="diet-belief-halal" value="halal">
-                <label for="diet-belief-halal">Halāl</label>
-                <br>
-                <input type="checkbox" name="diet-belief" id="diet-belief-jainism" value="jainism">
-                <label for="diet-belief-jainism">Jainism (vegetarian, no root vegatables or eggs)</label>
-                <br>
-                <input type="checkbox" name="diet-belief" id="diet-belief-kosher" value="kosher">
-                <label for="diet-belief-kosher">Kosher</label>
-                <br>
-                <input type="checkbox" name="diet-belief" id="diet-belief-l-tal" value="l-tal">
-                <label for="diet-belief-l-tal">L-tal (Rastafarianism)</label>
-              </p>
-            </fieldset>
+          <div class="accordion">
+            <input type="checkbox" id="food-preferences" class="accordion__control sr-only">
+            <label for="food-preferences" class="accordion__trigger media">
+              <span class="media-body h3">Food preferences</span>
+              <span class="accordion__icon icon-small ml-3 align-self-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Chevron down"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg></span>
+            </label>
+            <fieldset class="accordion__details pad-vert-base">
+              <legend class="sr-only">Food preferences</legend>
 
-            <fieldset class="row gutter-base">
-              <legend class="sr-only">I avoid:</legend>
-              <p class="col-sm-4">I avoid:</p>
-              <p class="col-sm-8">
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-alcohol" value="alcohol">
-                <label for="diet-restriction-alcohol">Alcohol</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-caffeine" value="caffeine">
-                <label for="diet-restriction-caffeine">Caffeine</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-eggs" value="eggs">
-                <label for="diet-restriction-eggs">Eggs</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-fish" value="fish">
-                <label for="diet-restriction-fish">Fish</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-gluten" value="gluten">
-                <label for="diet-restriction-gluten">Gluten</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-lactose" value="lactose">
-                <label for="diet-restriction-lactose">Lactose</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-lamb" value="lamb">
-                <label for="diet-restriction-lamb">Lamb</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-nuts" value="nuts">
-                <label for="diet-restriction-nuts">Nuts</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-shellfish" value="shellfish">
-                <label for="diet-restriction-shellfish">Shellfish</label>
-                <br>
-                <input type="checkbox" name="diet-restriction" id="diet-restriction-soy" value="soy">
-                <label for="diet-restriction-soy">Soy</label>
-              </p>
-            </fieldset>
+              <fieldset class="row gutter-base">
+                <legend class="sr-only">I am:</legend>
+                <p class="col-sm-4">I am:</p>
+                <p class="col-sm-8">
+                  <input type="radio" name="diet-type" id="diet-type-omnivore" value="omnivore" checked>
+                  <label for="diet-type-omnivore">Omnivore (I eat everything)</label>
+                  <br>
+                  <input type="radio" name="diet-type" id="diet-type-vegetarian" value="vegetarian">
+                  <label for="diet-type-vegetarian">Vegetarian</label>
+                  <br>
+                  <input type="radio" name="diet-type" id="diet-type-vegan" value="vegan">
+                  <label for="diet-type-vegan">Vegan</label>
+                </p>
+              </fieldset>
 
-          </fieldset>
+              <fieldset class="row gutter-base">
+                <legend class="sr-only">I observe:</legend>
+                <p class="col-sm-4">I observe:</p>
+                <p class="col-sm-8">
+                  <input type="checkbox" name="diet-belief" id="diet-belief-halal" value="halal">
+                  <label for="diet-belief-halal">Halāl</label>
+                  <br>
+                  <input type="checkbox" name="diet-belief" id="diet-belief-jainism" value="jainism">
+                  <label for="diet-belief-jainism">Jainism (vegetarian, no root vegatables or eggs)</label>
+                  <br>
+                  <input type="checkbox" name="diet-belief" id="diet-belief-kosher" value="kosher">
+                  <label for="diet-belief-kosher">Kosher</label>
+                  <br>
+                  <input type="checkbox" name="diet-belief" id="diet-belief-l-tal" value="l-tal">
+                  <label for="diet-belief-l-tal">L-tal (Rastafarianism)</label>
+                </p>
+              </fieldset>
+
+              <fieldset class="row gutter-base">
+                <legend class="sr-only">I avoid:</legend>
+                <p class="col-sm-4">I avoid:</p>
+                <p class="col-sm-8">
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-alcohol" value="alcohol">
+                  <label for="diet-restriction-alcohol">Alcohol</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-caffeine" value="caffeine">
+                  <label for="diet-restriction-caffeine">Caffeine</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-eggs" value="eggs">
+                  <label for="diet-restriction-eggs">Eggs</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-fish" value="fish">
+                  <label for="diet-restriction-fish">Fish</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-gluten" value="gluten">
+                  <label for="diet-restriction-gluten">Gluten</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-lactose" value="lactose">
+                  <label for="diet-restriction-lactose">Lactose</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-lamb" value="lamb">
+                  <label for="diet-restriction-lamb">Lamb</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-nuts" value="nuts">
+                  <label for="diet-restriction-nuts">Nuts</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-shellfish" value="shellfish">
+                  <label for="diet-restriction-shellfish">Shellfish</label>
+                  <br>
+                  <input type="checkbox" name="diet-restriction" id="diet-restriction-soy" value="soy">
+                  <label for="diet-restriction-soy">Soy</label>
+                </p>
+              </fieldset>
+              <fieldset>
+          </div>
+
+          <div class="accordion">
+            <input type="checkbox" id="localisation" class="accordion__control sr-only">
+            <label for="localisation" class="accordion__trigger media">
+              <span class="media-body h3">Localisation</span>
+              <span class="accordion__icon icon-small ml-3 align-self-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Chevron down"><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg></span>
+            </label>
+            <fieldset class="accordion__details pad-vert-base">
+              <legend class="sr-only">Localisation</legend>
+              <fieldset class="row gutter-base">
+                <legend class="sr-only">I prefer measurement in:</legend>
+                <p class="col-sm-4">I prefer measurement in:</p>
+                <p class="col-sm-8">
+                  <input type="radio" name="measurement-type" id="measurement-type-metric" value="metric" checked>
+                  <label for="measurement-type-metric">Metric (grams, milliliter)</label>
+                  <br>
+                  <input type="radio" name="measurement-type" id="measurement-type-cups" value="cups">
+                  <label for="measurement-type-cups">Cups</label>
+                  <br>
+                  <input type="radio" name="measurement-type" id="measurement-type-imperial" value="imperial">
+                  <label for="measurement-type-imperial">Imperial (pounds, pints)</label>
+                  <br>
+                  <span class="small">Note that <abbr title="tablespoon">tbsp</abbr> and <abbr title="teaspoon">tsp</abbr> may remain unchaged in recipes.</span>
+                </p>
+              </fieldset>
+
+              <fieldset class="row gutter-base">
+                <legend class="sr-only">I prefer to see currency in:</legend>
+                <p class="col-sm-4">I prefer to see currency in:</p>
+                <p class="col-sm-8">
+                  <input type="radio" name="currency-type" id="currency-type-pounds" value="pounds" checked>
+                  <label for="currency-type-metric">Pounds (&pound;, <abbr title="United Kingdom">UK</abbr>)</label>
+                  <br>
+                  <input type="radio" name="currency-type" id="currency-type-dollars" value="dollars">
+                  <label for="currency-type-dollars"><abbr title="United States">US</abbr> Dollars ($, <abbr title="United States of America">USA</abbr>)</label>
+                  <br>
+                  <span class="small">Note that the shopping functionality of Recipe Tools is not currently available, outside of <abbr>UK</abbr> and <abbr>USA</abbr> territories.</span>
+                </p>
+              </fieldset>
+
+            <fieldset>
+          </div>
+
           <footer class="row">
             <p class="offset-sm-4 col-sm-8"><button class="btn btn-primary">Update my details</button></p>
           </footer>
-        </section>
+
+        </form>
       </div>
     </div>
     <div data-js="overlay" class="modal-overlay" title="Close popup" hidden></div>
