@@ -137,6 +137,10 @@ const config = function (env, args) {
         template: path.resolve(__dirname, 'src', 'recipes-featuring/index.html'),
       }),
       new HtmlWebpackPlugin({
+        filename: 'detail/index.html',
+        template: path.resolve(__dirname, 'src', 'detail/index.html'),
+      }),
+      new HtmlWebpackPlugin({
         filename: 'themes/index.html',
         template: path.resolve(__dirname, 'src', 'themes/index.html'),
       }),

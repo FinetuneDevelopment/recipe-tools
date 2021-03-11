@@ -98,7 +98,7 @@ export default function scrollFactory() {
           "name": "Tal’s Tahini “bread pudding”",
           "id": "tahini-bread-pudding",
           "description": "A delicious baked dessert that takes 5 minutes to make!",
-          "shopping": ["Honey", "Tahini", "Egg", "Baking powder", "Honey", "Brown sugar", "Maple extract", "Cinnamon", "Sesame seeds"],
+          "shopping": ["Tahini", "Egg", "Baking powder", "Honey", "Brown sugar", "Maple extract", "Cinnamon", "Sesame seeds"],
           "tags": ["Baking", "Autumn", "Low-carb"],
           "image": "/img/recipes/bread-pudding.jpg",
           "ingredient": [{
@@ -1869,7 +1869,8 @@ export default function scrollFactory() {
         notesQuery +
         '" class="btn btn-secondary icon-small">' +
         '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Edit"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg> Edit recipe</a>' +
-        '<a href="/report-recipe/?recipe-name=' + encodeURIComponent(object.name) + '" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Report recipe</a></p>';
+        '<a href="/report-recipe/?recipe-name=' + encodeURIComponent(object.name) + '" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Report recipe</a>' +
+        '<a href="/detail/?recipeID=' + encodeURIComponent(object.id) + '" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="text file"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> View recipe on new page</a></p>';
 
       // Builds the list of shopping items
       let shoppingList = '';
@@ -2062,6 +2063,23 @@ export default function scrollFactory() {
     let objRecipeThemes = document.querySelector('[data-js="recipes-themes"]');
     if (objRecipeThemes) {
        objRecipeThemes.innerHTML = popularThemes(arList,'tags');
+    }
+
+    // User is on the recipe detail page
+    let objRecipeDetail = document.querySelector('[data-js="recipes-detail"]');
+    if (objRecipeDetail) {
+      const id = getParameterByName('recipeID');
+      // Do we have an ID? Is it valid?
+      if (id !== null && arLookup.indexOf(id) > -1) {
+        const objRecipe = arList[arLookup.indexOf(id)];
+        //console.log(arLookup.indexOf(id));
+        objRecipeDetail.innerHTML = recipeMarkup(objRecipe);
+      }
+      // No valid ID passed in the querystring: show thumbnails
+      else {
+        const objResults = filterRecipy();
+        objRecipeDetail.innerHTML = recipyThumbs(objResults);
+      }
     }
 
     // Builds the markup for a list of all the recipe themes, sorted by popularity
