@@ -1814,28 +1814,25 @@ export default function scrollFactory() {
       }
     }
 
-    // Builds the markup for a single recipe
-    function recipeMarkup(object) {
-      // A list of tools for the user to interact with the recipe
-      let recipeTools = '<fieldset class="star-rating gutter-base"><legend class="sr-only">Rate this recipe</legend><strong>Rate this recipe</strong>';
-
-      // Building out the rating 1-5
-      for(let i = 5; i > 0; i--) {
-        recipeTools += '<input type="radio" name="' + object.id + '-ratingpop" id="' + object.id + '-pop-' + i + '" value="' + i + '" class="sr-only">' +
-        '<label for="' + object.id + '-pop-' + i + '" aria-label="' + i + ' stars">&#9733;</label>'
+    // Just the star rating module for a given recipe ID
+    function buildRating(id) {
+      if (id !== null && arLookup.indexOf(id) > -1) {
+        let markup = '<fieldset class="star-rating gutter-base"><legend class="sr-only">Rate this recipe</legend><strong>Rate this recipe</strong>';
+        // Building out the rating 1-5
+        for(let i = 5; i > 0; i--) {
+          markup += '<input type="radio" name="' + id + '-ratingpop" id="' + id + '-pop-' + i + '" value="' + i + '" class="sr-only">' +
+          '<label for="' + id + '-pop-' + i + '" aria-label="' + i + ' stars">&#9733;</label>'
+        }
+        markup += '</fieldset><p>';
+        return markup;
       }
+    }
 
-      // Building out the recipe tags for the querystring
-      let tagsQuery = '';
-      for (let i = 0; i < object.tags.length; i++) {
-        tagsQuery +=  encodeURIComponent(object.tags[i]);
-        if (i < (object.tags.length - 1)) tagsQuery += ', ';
-      }
-
-      // Building out the recipe ingredients for the querystring
+    // Building the ingredient querystring, for the "edit recipe" feature
+    function ingredientQuerystring(ingredients) {
       let ingedientsQuery = '';
-      for (let i = 0; i < object.ingredient.length; i++) {
-        const group = object.ingredient[i];
+      for (let i = 0; i < ingredients.length; i++) {
+        const group = ingredients[i];
         if (i === 0) {
           if (group.name)   ingedientsQuery += '&amp;ingredient-name='   + encodeURIComponent(group.name);
           if (group.amount) ingedientsQuery += '&amp;ingredient-amount=' + encodeURIComponent(group.amount);
@@ -1846,20 +1843,114 @@ export default function scrollFactory() {
           if (group.unit)   ingedientsQuery += '&amp;ingredient-unit-'   + (i + 1) + '=' + encodeURIComponent(group.unit);
         }
       }
+      return ingedientsQuery;
+    }
 
-      // Building out the recipe steps for the querystring
-      let stepsQuery = '';
-      for (let i = 0; i < object.step.length; i++) {
-        if (i === 0) stepsQuery += '&amp;step=' + encodeURIComponent(object.step[i].description);
-        else stepsQuery += '&amp;step-' + (i + 1) + '=' + encodeURIComponent(object.step[i].description);
+    // Building out the steps querystring, for the "edit recipe" feature
+    function stepsQueryString(steps) {
+      let string = '';
+      for (let i = 0; i < steps.length; i++) {
+        const step = steps[i];
+        if (i === 0) string += '&amp;step=' + encodeURIComponent(step.description);
+        else string += '&amp;step-' + (i + 1) + '=' + encodeURIComponent(step.description);
       }
+      return string;
+    }
+
+    // Builds out a list of ingredients, with links to other recipes featuring the same
+    function buildIngredientList(shopping) {
+      let markup = '';
+      for (let i = 0; i < shopping.length; i++) {
+        const thisItem = shopping[i];
+        markup += '<a href="/recipes-featuring/?ingredient=' + thisItem + '" class="btn btn-tag">' + thisItem + '</a> ';
+      }
+      if (markup !== '') {
+        markup = '<p><strong>See more recipes featuring:</strong><br><a href="/recipes-featuring/" class="btn btn-tag">Everything</a> ' + markup + '</p>';
+      }
+      return markup;
+    }
+
+    // Builds a list of tags for recipe themes, plus links
+    function buildTagList(tags) {
+      let markup = '';
+      for (let i = 0; i < tags.length; i++) {
+        const thisItem = tags[i];
+        markup += '<a href="/recipes-featuring/?tag=' + thisItem + '" class="btn btn-tag">' + thisItem + '</a> ';
+      }
+      if (markup !== '') markup = '<p><strong>See more recipes tagged with:</strong><br><a href="/recipes-featuring/" class="btn btn-tag">Everything</a> ' + markup + '</p>';
+      return markup;
+    }
+
+    // Builds the markup for the ingredients panel
+    function ingredientsMarkup(obj,objGroup) {
+      let markup = '';
+      if (obj.length > 0) {
+        markup += '<ul>';
+        for (let i = 0; i < obj.length; i++) {
+          const thisIngredient = obj[i];
+          markup += '<li>';
+          if (typeof thisIngredient.amount !== 'undefined')      markup += thisIngredient.amount + ' ';
+          if (typeof thisIngredient.unit !== 'undefined')        markup += thisIngredient.unit + ' ';
+          if (typeof thisIngredient.name !== 'undefined')        markup += thisIngredient.name + ' ';
+          if (typeof thisIngredient.preparation !== 'undefined') markup += thisIngredient.preparation + ' ';
+          markup +=  '</li>';
+        }
+        markup +=  '</ul>';
+      }
+      // Sometimes, the ingredients are split into groups
+      if (typeof objGroup !== 'undefined') {
+        for (let i = 0; i < objGroup.length; i++) {
+          const thisGroup = objGroup[i];
+          if (typeof thisGroup.name !== 'undefined') {
+            markup += '<h4>' + thisGroup.name + '</h4>';
+          }
+          markup += '<ul>';
+          for (let j = 0; j < thisGroup.ingredient.length; j++) {
+            const thisIngredient = thisGroup.ingredient[j];
+            markup += '<li> + ';
+            if (typeof thisIngredient.amount !== 'undefined')      markup += thisIngredient.amount + ' ';
+            if (typeof thisIngredient.unit !== 'undefined')        markup += thisIngredient.unit + ' ';
+            if (typeof thisIngredient.name !== 'undefined')        markup += thisIngredient.name + ' ';
+            if (typeof thisIngredient.preparation !== 'undefined') markup += thisIngredient.preparation + ' ';
+            markup += '</li>';
+          }
+          markup += '</ul>';
+        }
+      }
+      return markup;
+    }
+
+    // Builds the markup for the steps panel
+    function stepsMarkup(obj) {
+      let markup = '';
+      for (let i = 0; i < obj.length; i++) {
+        const step = obj[i];
+        markup += '<li>';
+        if (typeof step.description !== 'undefined') markup += step.description.replace('\\n','<br>') + ' ';
+        markup += '</li>';
+      }
+      return markup
+    }
+
+    // Builds the markup for a single recipe
+    function recipeMarkup(object) {
+      let recipeTools = buildRating(object.id);
+
+      // Building out the recipe tags for the querystring
+      let tagsQuery = '';
+      for (let i = 0; i < object.tags.length; i++) {
+        tagsQuery +=  encodeURIComponent(object.tags[i]);
+        if (i < (object.tags.length - 1)) tagsQuery += ', ';
+      }
+
+      const ingedientsQuery = ingredientQuerystring(object.ingredient);
+      const stepsQuery      = stepsQueryString(object.step);
 
       // Checks for recipe notes
       let notesQuery = '';
       if (object.notes !== undefined) notesQuery = '&amp;recipe-notes=' + encodeURIComponent(object.notes);
 
-      recipeTools += '</fieldset><p>' +
-        '<a href="/account/" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg> Add to favourites</a>' +
+      recipeTools += '<a href="/account/" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg> Add to favourites</a>' +
         '<a href="/account/edit-recipe/?' +
         'recipe-name=' + encodeURIComponent(object.name) +
         '&amp;recipe-description=' + encodeURIComponent(object.description) +
@@ -1872,71 +1963,17 @@ export default function scrollFactory() {
         '<a href="/report-recipe/?recipe-name=' + encodeURIComponent(object.name) + '" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Report recipe</a>' +
         '<a href="/detail/?recipeID=' + encodeURIComponent(object.id) + '" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="text file"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> View recipe on new page</a></p>';
 
-      // Builds the list of shopping items
-      let shoppingList = '';
-      if (object.shopping.length > 0) {
-        for (let i = 0; i < object.shopping.length; i++) {
-          let thisItem = object.shopping[i];
-          shoppingList += '<a href="/recipes-featuring/?ingredient=' + thisItem + '" class="btn btn-tag">' + thisItem + '</a> ';
-        }
-      }
-      if (shoppingList !== '') shoppingList = '<p><strong>See more recipes featuring:</strong><br><a href="/recipes-featuring/" class="btn btn-tag">Everything</a> ' + shoppingList + '</p>';
+      const shoppingList = buildIngredientList(object.shopping);
+      const tags         = buildTagList(object.tags);
+      const ingredients  = ingredientsMarkup(object.ingredient,object.ingredientGroup);
+      const steps        = stepsMarkup(object.step);
 
-      let tags = '';
-      if (object.tags.length > 0) {
-        for (let i = 0; i < object.tags.length; i++) {
-          let thisItem = object.tags[i];
-          tags += '<a href="/recipes-featuring/?tag=' + thisItem + '" class="btn btn-tag">' + thisItem + '</a> ';
-        }
-      }
-      if (tags !== '') tags = '<p><strong>See more recipes tagged with:</strong><br><a href="/recipes-featuring/" class="btn btn-tag">Everything</a> ' + tags + '</p>';
-
-      // Builds the ingredients panel
-      let ingredients = '';
-      if (object.ingredient.length > 0) {
-        ingredients += '<ul>';
-        for (let i = 0; i < object.ingredient.length; i++) {
-          let thisIngredient = object.ingredient[i];
-          ingredients += '<li>';
-          if (typeof thisIngredient.amount !== 'undefined') ingredients += thisIngredient.amount + ' ';
-          if (typeof thisIngredient.unit !== 'undefined') ingredients += thisIngredient.unit + ' ';
-          if (typeof thisIngredient.name !== 'undefined') ingredients += thisIngredient.name + ' ';
-          if (typeof thisIngredient.preparation !== 'undefined') ingredients += thisIngredient.preparation + ' ';
-          ingredients +=  '</li>';
-        }
-        ingredients +=  '</ul>';
-      }
-      // Sometimes, the ingredients are split into groups
-      if (typeof object.ingredientGroup !== 'undefined') {
-        for (let i = 0; i < object.ingredientGroup.length; i++) {
-          let thisGroup = object.ingredientGroup[i];
-          if (typeof thisGroup.name !== 'undefined') ingredients += '<h4>' + thisGroup.name + '</h4>';
-          ingredients += '<ul>';
-          for (let j = 0; j < thisGroup.ingredient.length; j++) {
-            let thisIngredient = thisGroup.ingredient[j];
-            ingredients += '<li> + ';
-            if (typeof thisIngredient.amount !== 'undefined') ingredients += thisIngredient.amount + ' ';
-            if (typeof thisIngredient.unit !== 'undefined') ingredients += thisIngredient.unit + ' ';
-            if (typeof thisIngredient.name !== 'undefined') ingredients += thisIngredient.name + ' ';
-            if (typeof thisIngredient.preparation !== 'undefined') ingredients += thisIngredient.preparation + ' ';
-            ingredients += '</li>';
-          }
-          ingredients += '</ul>';
-        }
-      }
-
-      let steps = '';
-      for (let i = 0; i < object.step.length; i++) {
-        steps += '<li>';
-        if (typeof object.step[i].description !== 'undefined') steps += object.step[i].description.replace('\\n','<br>') + ' ';
-        steps += '</li>';
-      }
       let notes = '';
       if (typeof object.notes !== 'undefined') notes = '<p>' + object.notes + '</p>';
       let forked = '';
       if (typeof object.forked !== 'undefined') forked = '<p>' + object.forked + '</p>';
 
-      let markup = '<section class="row" aria-label="' + object.name + '">' +
+      const markup = '<section class="row" aria-label="' + object.name + '">' +
         '<header class="col-md">' +
         '<h2>' + object.name + '</h2>' +
         '<p>' + object.description + '</p>' +
@@ -1949,6 +1986,69 @@ export default function scrollFactory() {
         '<section aria-label="Method"><h3>Method</h3><ol>' +
         steps + '</ol></section>' +
         '<footer>' + notes + forked + '</footer></div></section>';
+      return markup;
+    }
+
+    // Builds the markup for a single recipe, but on a stand-alone page, rather than a modal
+    function recipeDetail(object) {
+      // A list of tools for the user to interact with the recipe
+      let recipeTools = buildRating(object.id);
+
+      // Building out the recipe tags for the querystring
+      let tagsQuery = '';
+      for (let i = 0; i < object.tags.length; i++) {
+        tagsQuery +=  encodeURIComponent(object.tags[i]);
+        if (i < (object.tags.length - 1)) tagsQuery += ', ';
+      }
+
+      const ingedientsQuery = ingredientQuerystring(object.ingredient);
+      const stepsQuery = stepsQueryString(object.step);
+
+      // Checks for recipe notes
+      let notesQuery = '';
+      if (object.notes !== undefined) notesQuery = '&amp;recipe-notes=' + encodeURIComponent(object.notes);
+
+      recipeTools += '<a href="/account/" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg> Add to favourites</a>' +
+        '<a href="/account/edit-recipe/?' +
+        'recipe-name=' + encodeURIComponent(object.name) +
+        '&amp;recipe-description=' + encodeURIComponent(object.description) +
+        '&amp;recipe-tags=' + tagsQuery +
+        stepsQuery +
+        ingedientsQuery +
+        notesQuery +
+        '" class="btn btn-secondary icon-small">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Edit"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg> Edit recipe</a>' +
+        '<a href="/report-recipe/?recipe-name=' + encodeURIComponent(object.name) + '" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Report recipe</a></p>';
+
+      const shoppingList = buildIngredientList(object.shopping);
+      const tags         = buildTagList(object.tags);
+      const ingredients  = ingredientsMarkup(object.ingredient,object.ingredientGroup);
+      const steps        = stepsMarkup(object.step);
+
+      let notes = '';
+      if (typeof object.notes !== 'undefined') notes = '<p>' + object.notes + '</p>';
+      let forked = '';
+      if (typeof object.forked !== 'undefined') forked = '<p>' + object.forked + '</p>';
+
+      const markup = '<section class="container" aria-label="' + object.name + '">' +
+        '<header class="row gutter-base">' +
+        '<p class="col-md-8 pos-rel"><img src="' + object.image + '" class="img-fit-md" alt=""></p>' +
+        '<div class="col-md-4">' +
+        '<h2>' + object.name + '</h2>' +
+        '<p>' + object.description + '</p>' +
+        '</div>' +
+        '</header>' +
+        '<div class="row">' +
+        '<div class="col-md-8">' +
+        '<section aria-label="Ingredients"><h3>Ingredients</h3>' +
+        ingredients +
+        '</section>' +
+        '<section aria-label="Method"><h3>Method</h3><ol>' +
+        steps + '</ol></section>' +
+        '<footer>' + notes + forked + '</footer>' +
+        '</div>' +
+        '<aside class="col-md-4">' + shoppingList + tags + recipeTools + '</aside>' +
+        '</div></section>';
       return markup;
     }
 
@@ -2072,10 +2172,9 @@ export default function scrollFactory() {
       // Do we have an ID? Is it valid?
       if (id !== null && arLookup.indexOf(id) > -1) {
         const objRecipe = arList[arLookup.indexOf(id)];
-        //console.log(arLookup.indexOf(id));
-        objRecipeDetail.innerHTML = recipeMarkup(objRecipe);
+        objRecipeDetail.innerHTML = recipeDetail(objRecipe);
       }
-      // No valid ID passed in the querystring: show thumbnails
+      // No valid ID passed in the querystring: show thumbnails instead
       else {
         const objResults = filterRecipy();
         objRecipeDetail.innerHTML = recipyThumbs(objResults);

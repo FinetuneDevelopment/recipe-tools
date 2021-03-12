@@ -125,7 +125,16 @@
 }
 // ... and sometimes you just need to ensure all elements have a relative point.
 .pos-rel { position: relative; }
-
+@include media-breakpoint-up(md) {
+  .img-fit-md {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
 .sr-only, .js.js [data-js="hidden"] {
   appearance: none;
   border: 0;
