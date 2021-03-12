@@ -1,0 +1,20 @@
+// A meter element, but, you know, stylable.
+.meter {
+  background: linear-gradient(90deg, red 0%, yellow 50%, green 100%);
+  display: flex;
+  line-height: 1em;
+
+  span {
+    background: $colour-yellow;
+    flex-grow: 1;
+    min-height: 1em;
+    transition: width 1s;
+  }
+
+  // Because you can't do a colour change based on value, in terms of greater than or less than,
+  // more of the background spectrum is exposed as the span increases in size.
+  span[style] {
+    background: transparent;
+    flex-grow: 0;
+  }
+}

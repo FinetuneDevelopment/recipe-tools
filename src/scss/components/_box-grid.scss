@@ -15,6 +15,10 @@
     display: block;
     text-decoration: none;
 
+    &:hover, &:focus {
+      .name { background: #fff; }
+    }
+
     img { display: block; }
   }
 

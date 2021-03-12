@@ -149,4 +149,9 @@
   border-radius: 5px;
   margin: 0 .5em .5em 0;
   padding: .2em .5em;
+
+  &:focus, &:hover {
+    background: $tint-yellow;
+    border-radius: 0;
+  }
 }

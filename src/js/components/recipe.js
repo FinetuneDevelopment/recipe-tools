@@ -2027,7 +2027,8 @@ export default function scrollFactory() {
       let notesQuery = '';
       if (object.notes !== undefined) notesQuery = '&amp;recipe-notes=' + encodeURIComponent(object.notes);
 
-      recipeTools += '<a href="/account/" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg> Add to favourites</a>' +
+      recipeTools += '<p><strong>Keto barometer</strong></p><p id="keto-barometer" class="meter"><span style="width: 30%;"></span><span></span></p>' +
+      '<p><a href="/account/" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg> Add to favourites</a>' +
         '<a href="/account/edit-recipe/?' +
         'recipe-name=' + encodeURIComponent(object.name) +
         '&amp;recipe-description=' + encodeURIComponent(object.description) +
@@ -2156,8 +2157,9 @@ export default function scrollFactory() {
     function relatedCTA(obj,count) {
       // An object, representing the most similar to the least similar recipes
       let chart = returnChart(arList, obj.shopping, 'shopping');
-      let markup = '<aside aria-label="Similar recipes" class="box-grid"><h2>Similar recipes</h2>';
-      for (let i = 0; i < count; i++) {
+      let markup = '<aside aria-label="Similar recipes" class="box-grid gutter-large"><h2>Similar recipes</h2>';
+      // We count this way because the recipe which is most similar to the current recipe will always be... the current recipe.
+      for (let i = 1; i < (count + 1); i++) {
         const thisRecipe = chart[i];
         // The index of the related recipe, in the original object
         const currentIndex = arLookup.indexOf(thisRecipe);
