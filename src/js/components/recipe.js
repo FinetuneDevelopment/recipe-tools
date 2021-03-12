@@ -1932,6 +1932,25 @@ export default function scrollFactory() {
       return markup
     }
 
+    // Builds the markup for social share links
+    function shareLinks(title,url) {
+      let markup = '';
+      if (title && url) {
+        markup += '<a href="https://twitter.com/intent/tweet?' +
+          'url=' + encodeURIComponent(url) +
+          '&amp;text=' + encodeURIComponent(title) +
+          '" class="btn icon-small" target="_blank" title="Share this recipe on Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-label="Share this recipe on Twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>' +
+          '<a href="https://www.facebook.com/sharer/sharer.php' +
+          'u=' + encodeURIComponent(url) +
+          '&amp;title=' + encodeURIComponent(title) +
+          '" class="btn icon-small" target="_blank" title="Share this recipe on Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-label="Share this recipe on Facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>' +
+          '<a href="https://www.linkedin.com/sharing/share-offsite/' +
+          '?url=' + encodeURIComponent(url) +
+          '" class="btn icon-small" target="_blank" title="Share this recipe on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" aria-label="Share this recipe on LinkedIn" fill="currentColor" viewBox="0 0 24 24"><rect ry="0" y="9" x="1" height="14" width="5"/><circle r="2.5" cy="4.5" cx="3.5"/><path d="M 8,23 V 9 h 5 v 2 c 0,-2 9,-5 10,4 v 8 h -5 v -8 c 0,-4 -5,-3 -5,0 v 8 z"/></svg></a>';
+      }
+      return markup;
+    }
+
     // Builds the markup for a single recipe
     function recipeMarkup(object) {
       let recipeTools = buildRating(object.id);
@@ -1992,7 +2011,7 @@ export default function scrollFactory() {
     // Builds the markup for a single recipe, but on a stand-alone page, rather than a modal
     function recipeDetail(object) {
       // A list of tools for the user to interact with the recipe
-      let recipeTools = buildRating(object.id);
+      let recipeTools = '';
 
       // Building out the recipe tags for the querystring
       let tagsQuery = '';
@@ -2018,7 +2037,11 @@ export default function scrollFactory() {
         notesQuery +
         '" class="btn btn-secondary icon-small">' +
         '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Edit"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg> Edit recipe</a>' +
-        '<a href="/report-recipe/?recipe-name=' + encodeURIComponent(object.name) + '" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Report recipe</a></p>';
+        '<a href="/report-recipe/?recipe-name=' + encodeURIComponent(object.name) + '" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Warning"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Report recipe</a>' +
+        '<button type="button" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Email"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Email me this recipe</button>' +
+        '</p>' +
+        '<p>' + shareLinks(object.name,document.location) + ' <strong>Share this recipe:</strong></p>' +
+        buildRating(object.id);
 
       const shoppingList = buildIngredientList(object.shopping);
       const tags         = buildTagList(object.tags);
@@ -2033,7 +2056,7 @@ export default function scrollFactory() {
       const markup = '<section class="container" aria-label="' + object.name + '">' +
         '<header class="row gutter-base">' +
         '<p class="col-md-8 pos-rel"><img src="' + object.image + '" class="img-fit-md" alt=""></p>' +
-        '<div class="col-md-4">' +
+        '<div class="col-md-4 pad-vert-large">' +
         '<h2>' + object.name + '</h2>' +
         '<p>' + object.description + '</p>' +
         '</div>' +
@@ -2047,8 +2070,8 @@ export default function scrollFactory() {
         steps + '</ol></section>' +
         '<footer>' + notes + forked + '</footer>' +
         '</div>' +
-        '<aside class="col-md-4">' + shoppingList + tags + recipeTools + '</aside>' +
-        '</div></section>';
+        '<aside class="col-md-4">' + recipeTools + shoppingList + tags +  '</aside>' +
+        '</div>' + relatedCTA(object,8) + '</section>';
       return markup;
     }
 
@@ -2127,6 +2150,27 @@ export default function scrollFactory() {
       markup += '</p>';
       return markup;
     }
+
+    // Returns similar recipes, the number of which is defined by a parameter.
+    // These have images, rather than just links, like showRelated().
+    function relatedCTA(obj,count) {
+      // An object, representing the most similar to the least similar recipes
+      let chart = returnChart(arList, obj.shopping, 'shopping');
+      let markup = '<aside aria-label="Similar recipes" class="box-grid"><h2>Similar recipes</h2>';
+      for (let i = 0; i < count; i++) {
+        const thisRecipe = chart[i];
+        // The index of the related recipe, in the original object
+        const currentIndex = arLookup.indexOf(thisRecipe);
+        const currentObj = arList[currentIndex];
+        markup += '<p><a href="/detail/?recipeID=' + currentObj.id + '">' +
+        '<img src="' + currentObj.image + '" alt="">' +
+        '<span class="name">' + currentObj.name + '</span>' +
+        '</a></p>';
+      }
+      markup += '</aside>';
+      return markup;
+    }
+
 
     // Showing a random recipe
     let randRecipeInt = (Math.round((arList.length - 1) * Math.random()));

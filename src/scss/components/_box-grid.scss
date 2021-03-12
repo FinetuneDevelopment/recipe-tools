@@ -10,9 +10,10 @@
     width: 25%;
   }
 
-  label {
+  label, a {
     cursor: pointer;
     display: block;
+    text-decoration: none;
 
     img { display: block; }
   }
@@ -44,6 +45,12 @@
     top: 50%;
   }
 
+}
+
+// The paragraph gets pretty big otherwise
+.container .box-grid p {
+  height: auto;
+  min-height: 0;
 }
 
 input:checked + label .name {
