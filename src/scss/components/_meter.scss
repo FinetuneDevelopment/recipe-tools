@@ -1,11 +1,18 @@
 // A meter element, but, you know, stylable.
 .meter {
-  background: linear-gradient(90deg, red 0%, yellow 50%, green 100%);
+  background: linear-gradient(90deg, red 0%, yellow 50%, green 100%) no-repeat;;
+  background-origin: content-box;
+  border: solid 1px $colour-black;
+  border-radius: 0 0 5px 5px;
   display: flex;
   line-height: 1em;
+  margin-top: 2em;
+  padding: .5em;
+  position: relative;
 
+  // A sort of mask which shrinks to reveal more of the background gradient
   span {
-    background: $colour-yellow;
+    background: $colour-white;
     flex-grow: 1;
     min-height: 1em;
     transition: width 1s;
@@ -15,6 +22,28 @@
   // more of the background spectrum is exposed as the span increases in size.
   span[style] {
     background: transparent;
+    border-right: solid 5px $colour-black;
     flex-grow: 0;
+  }
+
+  // The labels for the meter
+  &::before, &::after {
+    background: $colour-white;
+    border: solid 1px $colour-black;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    bottom: 100%;
+    padding: .2em .5em;
+    position: absolute;
+  }
+
+  &::before {
+    content: "Bad";
+    left: -1px;
+  }
+
+  &::after {
+    content: "Good";
+    right: -1px;
   }
 }
