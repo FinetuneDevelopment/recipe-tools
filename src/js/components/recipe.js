@@ -1,6 +1,6 @@
 'use strict';
 
-export default function scrollFactory() {
+export default function recipeFactory() {
   let myFactory = {};
 
   myFactory.init = function () {
@@ -293,7 +293,7 @@ export default function scrollFactory() {
           "name": "Spiced lamb chops with mint-mango sauce",
           "id": "spiced-lamb-chops-with-mint-mango-sauce",
           "description": "Delicious, refreshing, and super quick to make!",
-          "shopping": ["Lamb", "Mango", "Lime", "Chili", "Avocado", "Olive oil", "Garlic", "Fresh mint", "Green onion", "Cumin", "Coriander", "Cinnamon", "Turmeric", "Cayenne pepper", "Cardamom", "Cloves", "Coarse kosher salt"],
+          "shopping": ["Lamb", "Mango", "Lime", "Chili powder", "Avocado", "Olive oil", "Garlic", "Fresh mint", "Green onion", "Cumin", "Coriander", "Cinnamon", "Turmeric", "Cayenne pepper", "Cardamom", "Cloves", "Coarse kosher salt"],
           "tags": ["BBQ", "Gluten free"],
           "ingredient": [{
               "amount": "8",
@@ -410,7 +410,7 @@ export default function scrollFactory() {
           "name": "Papoutsakia",
           "id": "papoutsakia",
           "description": "A traditional Greek dish that tastes very similar to moussaka, but is much quicker to cook. Fun fact: Papoutsakia in Greek means \"little shoes\" and a portion usually has two. However, when cooking with large American eggplants, you'll likely find that one per portion is enough.",
-          "shopping": ["Eggplant", "Aubergine", "Thyme", "Beef", "Lamb", "Cinnamon", "Cloves", "All Spice", "Double cream", "Worcestershire sauce", "Gruyère", "Nutmeg", "Olive oil", "Salt", "Pepper", "Yellow onions", "Garlic", "Passata", "Beef stock", "Cognac", "Brown sugar", "Bay leaves", "Butter", "Black pepper", "Coconut flour", "Egg"],
+          "shopping": ["Eggplant", "Aubergine", "Thyme", "Beef", "Lamb", "Cinnamon", "Cloves", "All Spice", "Double cream", "Worcestershire sauce", "Gruyère", "Nutmeg", "Olive oil", "Salt", "Pepper", "Yellow onion", "Garlic", "Passata", "Beef stock", "Cognac", "Brown sugar", "Bay leaves", "Butter", "Black pepper", "Coconut flour", "Egg"],
           "tags": ["Mediterranean", "Comfort food", "Low-carb"],
           "ingredient": [{
               "amount": "3",
@@ -612,7 +612,7 @@ export default function scrollFactory() {
           "name": "Shakshuka",
           "id": "shakshuka",
           "description": "Breakfast of champions (one of them)",
-          "shopping": ["Lamb", "Beef", "Jalapeño chilli", "Tomato concentrate", "Smoked paprika", "Cumin", "Caraway seed", "Kale", "Egg", "Olive oil", "Yellow onions", "Green bell pepper", "Garlic", "Tomatoes", "Red wine", "Bay leaves", "Erythritol", "Beef stock", "Black pepper"],
+          "shopping": ["Lamb", "Beef", "Jalapeño chilli", "Tomato concentrate", "Smoked paprika", "Cumin", "Caraway seed", "Kale", "Egg", "Olive oil", "Yellow onion", "Green bell pepper", "Garlic", "Tomatoes", "Red wine", "Bay leaves", "Erythritol", "Beef stock", "Black pepper"],
           "tags": ["Mediterranean", "Breakfast"],
           "ingredient": [{
               "amount": "3",
@@ -1870,6 +1870,24 @@ export default function scrollFactory() {
       return markup;
     }
 
+    // Builds a list of all the ingredients used and returns it in JSON format
+    function ingredientsJSON() {
+      let arIngredients = [];
+      // Loop through all recipes
+      for (let i = 0; i < arList.length; i++) {
+        const thisRecipe = arList[i];
+        // Add the ingredients from this recipe into the mast list
+        let tempArray = thisRecipe.shopping.concat(arIngredients);
+        // Filter out the duplicates
+        tempArray = tempArray.filter(onlyUnique);
+        arIngredients = tempArray;
+      }
+      arIngredients.sort();
+      console.log(arIngredients);
+      //return arIngredients;
+    }
+    ingredientsJSON();
+
     // Builds a list of tags for recipe themes, plus links
     function buildTagList(tags) {
       let markup = '';
@@ -2096,7 +2114,7 @@ export default function scrollFactory() {
           '<h2>' + object.name + '</h2>' +
           '<p class="lead">' + object.description + '</p>' +
           shoppingList +
-          '<p><button type="button" data-view="' + object.id + '" class="btn btn-primary" title="View ' + object.name + ' recipe">View <span class="sr-only">' + object.name + '</span> recipe</button></p>' +
+          '<p><a href="/detail/?recipeID=' + object.id + '" class="btn btn-primary" title="View ' + object.name + ' recipe">View <span class="sr-only">' + object.name + '</span> recipe</a></p>' +
           '</div></section>';
       return markup;
     }
@@ -2172,7 +2190,6 @@ export default function scrollFactory() {
       markup += '</aside>';
       return markup;
     }
-
 
     // Showing a random recipe
     let randRecipeInt = (Math.round((arList.length - 1) * Math.random()));

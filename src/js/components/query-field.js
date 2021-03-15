@@ -3,6 +3,7 @@
 export default function queryFieldFactory() {
   let myFactory = {};
 
+  // NOT USED ANY MORE
   // Markup:
   // <input type="text" data-querystring="example">
   // URL:
