@@ -4,7 +4,7 @@ export default function recipeFactory() {
   let myFactory = {};
 
   myFactory.init = function () {
-    let recipies = {
+    const recipies = {
       "recipe": [
         {
           "name": "Giouvarlakia",
@@ -1721,6 +1721,7 @@ export default function recipeFactory() {
         }
       ]
     }
+
     // All recipes
     const arList = recipies.recipe;
     /* A sort of lookup for the index of a recipe. Usage:
@@ -1728,6 +1729,9 @@ export default function recipeFactory() {
        Returns an index which will be the same for arList and arLookup. */
     let arLookup = [];
     for (var i = 0; i < arList.length; i++) arLookup[i] = arList[i].id;
+
+    // A list of some ingredients, with nutritional information about it
+    const ingredients = {};
 
     // Builds an array of keys from the object passed, sorted by popularity
     // "key" is the key of the Array within the object which contains the strings to count
@@ -1873,6 +1877,7 @@ export default function recipeFactory() {
     // Builds a list of all the ingredients used and returns it in JSON format
     function ingredientsJSON() {
       let arIngredients = [];
+      let objIngredients = {};
       // Loop through all recipes
       for (let i = 0; i < arList.length; i++) {
         const thisRecipe = arList[i];
@@ -1883,7 +1888,11 @@ export default function recipeFactory() {
         arIngredients = tempArray;
       }
       arIngredients.sort();
-      console.log(arIngredients);
+
+      for (let i = 0; i < arIngredients.length; i++) {
+        objIngredients[i] = { 'name': arIngredients[i], 'id': arIngredients[i].toLowerCase().replace(/\s+/g,'-'), 'keto': true, 'dairy': false, 'meat': false };
+      }
+      console.log(objIngredients);
       //return arIngredients;
     }
     ingredientsJSON();

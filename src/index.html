@@ -53,7 +53,96 @@
 
   <main>
     <div class="container pad-vert-base">
-      <div data-js="app"></div>
+      <div data-js="app" class="gutter-large"></div>
+
+      <section aria-label="Welcome back, Sarah">
+        <header class="media gutter-large">
+          <p class="mr-3 align-self-center"><img src="/img/users/thumb-sarah-bishop.jpg" alt="User" class="round"></p>
+          <div class="media-body">
+            <h2 class="flush">Welcome back, Sarah</h2>
+            <p class="lead">Last time we saw you, you looked at these. How did your cooking go?</p>
+          </div>
+        </header>
+        <div class="row">
+
+          <section aria-label="Gambas al Ajillo" class="col-sm flex-vert">
+            <div class="media">
+              <p class="mr-3"><img src="/img/recipes/gambas-al-ajillo.jpg" width="100" alt=""></p>
+              <div class="media-body">
+                <h3>Gambas al Ajillo</h3>
+                <p>Quick and garlicky!</p>
+              </div>
+            </div>
+            <fieldset class="star-rating gutter-base mt-auto">
+              <legend class="sr-only">Your rating</legend>
+              <strong>Your rating</strong>
+              <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-5" value="5" class="sr-only">
+              <label for="gambas-al-ajillo-5" aria-label="Perfection">&#9733;</label>
+              <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-4" value="4" class="sr-only">
+              <label for="gambas-al-ajillo-4" aria-label="Very good">&#9733;</label>
+              <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-3" value="3" class="sr-only">
+              <label for="gambas-al-ajillo-3" aria-label="Average">&#9733;</label>
+              <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-2" value="2" class="sr-only">
+              <label for="gambas-al-ajillo-2" aria-label="Quite good">&#9733;</label>
+              <input type="radio" name="gambas-al-ajillo-rating" id="gambas-al-ajillo-1" value="1" class="sr-only">
+              <label for="gambas-al-ajillo-1" aria-label="Poor">&#9733;</label>
+            </fieldset>
+            <p><button type="button" class="btn btn-primary" data-view="gambas-al-ajillo">View <span class="sr-only">Gambas al Ajillo</span> recipe</button></p>
+          </section>
+
+          <section aria-label="Real Caesar Salad" class="col-sm flex-vert">
+            <div class="media">
+              <p class="mr-3"><img src="/img/recipes/real-caesar-salad.jpg" width="100" alt=""></p>
+              <div class="media-body">
+                <h3>Real Caesar Salad</h3>
+                <p>Based on the original 1920's Italian-American table-side recipe</p>
+              </div>
+            </div>
+            <fieldset class="star-rating gutter-base mt-auto">
+              <legend class="sr-only">Your rating</legend>
+              <strong>Your rating</strong>
+              <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-5" value="5" class="sr-only">
+              <label for="real-caesar-salad-5" aria-label="Perfection">&#9733;</label>
+              <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-4" value="4" class="sr-only">
+              <label for="real-caesar-salad-4" aria-label="Very good">&#9733;</label>
+              <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-3" value="3" class="sr-only">
+              <label for="real-caesar-salad-3" aria-label="Average">&#9733;</label>
+              <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-2" value="2" class="sr-only">
+              <label for="real-caesar-salad-2" aria-label="Quite good">&#9733;</label>
+              <input type="radio" name="real-caesar-salad-rating" id="real-caesar-salad-1" value="1" class="sr-only">
+              <label for="real-caesar-salad-1" aria-label="Poor">&#9733;</label>
+            </fieldset>
+            <p><button type="button" class="btn btn-primary" data-view="real-caesar-salad">View <span class="sr-only">Real Caesar Salad</span> recipe</button></p>
+          </section>
+
+          <section aria-label="Sfouggato" class="col-sm flex-vert">
+            <div class="media">
+              <p class="mr-3"><img src="/img/recipes/sfouggato.jpg" width="100" alt=""></p>
+              <div class="media-body">
+                <h3>Sfouggato</h3>
+                <p>A Lesbian delicacy that is super easy to make and can be eaten hot or cold.</p>
+              </div>
+            </div>
+            <fieldset class="star-rating gutter-base mt-auto">
+              <legend class="sr-only">Your rating</legend>
+              <strong>Your rating</strong>
+              <input type="radio" name="sfouggato-rating" id="sfouggato-5" value="5" class="sr-only">
+              <label for="sfouggato-5" aria-label="Perfection">&#9733;</label>
+              <input type="radio" name="sfouggato-rating" id="sfouggato-4" value="4" class="sr-only">
+              <label for="sfouggato-rating-4" aria-label="Very good">&#9733;</label>
+              <input type="radio" name="sfouggato-rating" id="sfouggato-3" value="3" class="sr-only">
+              <label for="sfouggato-3" aria-label="Average">&#9733;</label>
+              <input type="radio" name="sfouggato-rating" id="sfouggato-2" value="2" class="sr-only">
+              <label for="sfouggato-2" aria-label="Quite good">&#9733;</label>
+              <input type="radio" name="sfouggato-rating" id="sfouggato-1" value="1" class="sr-only">
+              <label for="sfouggato-1" aria-label="Poor">&#9733;</label>
+            </fieldset>
+            <p><button type="button" class="btn btn-primary" data-view="sfouggato">View <span class="sr-only">Sfouggato</span> recipe</button></p>
+          </section>
+        </div>
+
+      </section>
+
       <div data-js="overlay" class="modal-overlay" title="Close popup" hidden></div>
       <div data-js="ptt-results" class="modal bt-yellow brd-all brd-yellow" hidden></div>
     </div>
