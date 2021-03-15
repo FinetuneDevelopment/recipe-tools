@@ -1731,7 +1731,538 @@ export default function recipeFactory() {
     for (var i = 0; i < arList.length; i++) arLookup[i] = arList[i].id;
 
     // A list of some ingredients, with nutritional information about it
-    const ingredients = {};
+    const objIngredients = {
+      ingredients: [
+        {
+          "name": "All Spice",
+          "id": "all-spice"
+        },
+        {
+          "name": "Almond Flour",
+          "id": "almond-flour",
+          "keto": true,
+          "nuts": true
+        },
+        {
+          "name": "Anchovies",
+          "id": "anchovies",
+          "meat": true,
+          "fish": true,
+          "shellfish": true
+        },
+        {
+          "name": "Aubergine",
+          "id": "aubergine"
+        },
+        {
+          "name": "Avocado",
+          "id": "avocado"
+        },
+        {
+          "name": "Bacon",
+          "id": "bacon",
+          "meat": true
+        },
+        {
+          "name": "Baking powder",
+          "id": "baking-powder"
+        },
+        {
+          "name": "Basil",
+          "id": "basil"
+        },
+        {
+          "name": "Bay leaves",
+          "id": "bay-leaves"
+        },
+        {
+          "name": "Bean Sprouts",
+          "id": "bean-sprouts"
+        },
+        {
+          "name": "Beef",
+          "id": "beef",
+          "keto": false,
+          "meat": true
+        },
+        {
+          "name": "Beef stock",
+          "id": "beef-stock",
+          "keto": false,
+          "dairy": false,
+          "meat": true
+        },
+        {
+          "name": "Black pepper",
+          "id": "black-pepper"
+        },
+        {
+          "name": "Brown sugar",
+          "id": "brown-sugar",
+          "keto": false
+        },
+        {
+          "name": "Butter",
+          "id": "butter",
+          "keto": true,
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Caraway seed",
+          "id": "caraway-seed",
+          "keto": true,
+          "nuts": true
+        },
+        {
+          "name": "Cardamom",
+          "id": "cardamom"
+        },
+        {
+          "name": "Cauliflower",
+          "id": "cauliflower"
+        },
+        {
+          "name": "Cayenne pepper",
+          "id": "cayenne-pepper"
+        },
+        {
+          "name": "Celery",
+          "id": "celery"
+        },
+        {
+          "name": "Cheddar",
+          "id": "cheddar",
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Chicken liver",
+          "id": "chicken-liver",
+          "keto": true,
+          "meat": true
+        },
+        {
+          "name": "Chili powder",
+          "id": "chili-powder"
+        },
+        {
+          "name": "Cilantro",
+          "id": "cilantro"
+        },
+        {
+          "name": "Cinnamon",
+          "id": "cinnamon"
+        },
+        {
+          "name": "Cloves",
+          "id": "cloves"
+        },
+        {
+          "name": "Coarse kosher salt",
+          "id": "coarse-kosher-salt"
+        },
+        {
+          "name": "Cocoa nibs",
+          "id": "cocoa-nibs"
+        },
+        {
+          "name": "Coconut flour",
+          "id": "coconut-flour",
+          "keto": true,
+          "nuts": true
+        },
+        {
+          "name": "Coconut oil",
+          "id": "coconut-oil",
+          "nuts": true
+        },
+        {
+          "name": "Coffee",
+          "id": "coffee",
+          "caffeine": true
+        },
+        {
+          "name": "Cognac",
+          "id": "cognac",
+          "alcohol": true
+        },
+        {
+          "name": "Coriander",
+          "id": "coriander"
+        },
+        {
+          "name": "Courgette",
+          "id": "courgette"
+        },
+        {
+          "name": "Cumin",
+          "id": "cumin"
+        },
+        {
+          "name": "Dijon Mustard",
+          "id": "dijon-mustard"
+        },
+        {
+          "name": "Dill",
+          "id": "dill"
+        },
+        {
+          "name": "Double cream",
+          "id": "double-cream",
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Dried basil",
+          "id": "dried-basil"
+        },
+        {
+          "name": "Dried chili",
+          "id": "dried-chili"
+        },
+        {
+          "name": "Dry sherry",
+          "id": "dry-sherry",
+          "alcohol": true
+        },
+        {
+          "name": "Egg",
+          "id": "egg",
+          "dairy": true,
+          "eggs": true
+        },
+        {
+          "name": "Eggplant",
+          "id": "eggplant"
+        },
+        {
+          "name": "Erythritol",
+          "id": "erythritol"
+        },
+        {
+          "name": "Feta",
+          "id": "feta",
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Fresh mint",
+          "id": "fresh-mint"
+        },
+        {
+          "name": "Garlic",
+          "id": "garlic"
+        },
+        {
+          "name": "Garlic powder",
+          "id": "garlic-powder"
+        },
+        {
+          "name": "Gelatin",
+          "id": "gelatin",
+          "meat": true
+        },
+        {
+          "name": "Ginger",
+          "id": "ginger"
+        },
+        {
+          "name": "Grand Marnier",
+          "id": "grand-marnier",
+          "alcohol": true
+        },
+        {
+          "name": "Graviera",
+          "id": "graviera",
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Green bell pepper",
+          "id": "green-bell-pepper"
+        },
+        {
+          "name": "Green onion",
+          "id": "green-onion"
+        },
+        {
+          "name": "Gruyère",
+          "id": "gruyère",
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Honey",
+          "id": "honey",
+          "keto": false
+        },
+        {
+          "name": "Icing sugar",
+          "id": "icing-sugar",
+          "keto": false
+        },
+        {
+          "name": "Jalapeño chilli",
+          "id": "jalapeño-chilli"
+        },
+        {
+          "name": "Kaffir lime leaf powder",
+          "id": "kaffir-lime-leaf-powder"
+        },
+        {
+          "name": "Kale",
+          "id": "kale"
+        },
+        {
+          "name": "Lamb",
+          "id": "lamb",
+          "meat": true,
+          "lamb": true
+        },
+        {
+          "name": "Lemon",
+          "id": "lemon"
+        },
+        {
+          "name": "Lime",
+          "id": "lime"
+        },
+        {
+          "name": "Mango",
+          "id": "mango",
+          "keto": false
+        },
+        {
+          "name": "Maple extract",
+          "id": "maple-extract",
+          "keto": false
+        },
+        {
+          "name": "Mascarpone",
+          "id": "mascarpone",
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Mint",
+          "id": "mint"
+        },
+        {
+          "name": "Mozzarella",
+          "id": "mozzarella",
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Mushroom",
+          "id": "mushroom"
+        },
+        {
+          "name": "Nutmeg",
+          "id": "nutmeg"
+        },
+        {
+          "name": "Nutritional yeast",
+          "id": "nutritional-yeast"
+        },
+        {
+          "name": "Olive",
+          "id": "olive"
+        },
+        {
+          "name": "Olive oil",
+          "id": "olive-oil"
+        },
+        {
+          "name": "Onion",
+          "id": "onion",
+          "keto": false
+        },
+        {
+          "name": "Oregano",
+          "id": "oregano"
+        },
+        {
+          "name": "Parmesan",
+          "id": "parmesan",
+          "dairy": true,
+          "lactose": true
+        },
+        {
+          "name": "Parsley",
+          "id": "parsley"
+        },
+        {
+          "name": "Passata",
+          "id": "passata"
+        },
+        {
+          "name": "Pepper",
+          "id": "pepper"
+        },
+        {
+          "name": "Pineapple",
+          "id": "pineapple",
+          "keto": false
+        },
+        {
+          "name": "Pork",
+          "id": "pork",
+          "meat": true
+        },
+        {
+          "name": "Potato",
+          "id": "potato",
+          "keto": false
+        },
+        {
+          "name": "Raw octopus",
+          "id": "raw-octopus",
+          "meat": true,
+          "fish": true
+        },
+        {
+          "name": "Red onion",
+          "id": "red-onion",
+          "keto": false
+        },
+        {
+          "name": "Red wine",
+          "id": "red-wine",
+          "alcohol": true
+        },
+        {
+          "name": "Romaine hearts",
+          "id": "romaine-hearts"
+        },
+        {
+          "name": "Salmon fillets",
+          "id": "salmon-fillets",
+          "meat": true,
+          "fish": true
+        },
+        {
+          "name": "Salt",
+          "id": "salt"
+        },
+        {
+          "name": "Sesame",
+          "id": "sesame",
+          "nuts": true
+        },
+        {
+          "name": "Sesame oil",
+          "id": "sesame-oil",
+          "nuts": true
+        },
+        {
+          "name": "Sesame seeds",
+          "id": "sesame-seeds",
+          "nuts": true
+        },
+        {
+          "name": "Shallots",
+          "id": "shallots",
+          "keto": false
+        },
+        {
+          "name": "Shrimp",
+          "id": "shrimp",
+          "meat": true,
+          "fish": true
+        },
+        {
+          "name": "Smoked paprika",
+          "id": "smoked-paprika"
+        },
+        {
+          "name": "Soy Sauce",
+          "id": "soy-sauce",
+          "soy": true
+        },
+        {
+          "name": "Spring onion",
+          "id": "spring-onion",
+          "keto": false
+        },
+        {
+          "name": "Stock",
+          "id": "stock"
+        },
+        {
+          "name": "Strawberry",
+          "id": "strawberry"
+        },
+        {
+          "name": "Sukrin Gold",
+          "id": "sukrin-gold"
+        },
+        {
+          "name": "Tahini",
+          "id": "tahini",
+          "nuts": true
+        },
+        {
+          "name": "Thai basil",
+          "id": "thai-basil"
+        },
+        {
+          "name": "Thyme",
+          "id": "thyme"
+        },
+        {
+          "name": "Tomato",
+          "id": "tomato"
+        },
+        {
+          "name": "Tomato concentrate",
+          "id": "tomato-concentrate"
+        },
+        {
+          "name": "Tomato purée",
+          "id": "tomato-purée"
+        },
+        {
+          "name": "Tomatoes",
+          "id": "tomatoes"
+        },
+        {
+          "name": "Turmeric",
+          "id": "turmeric"
+        },
+        {
+          "name": "Turnip",
+          "id": "turnip"
+        },
+        {
+          "name": "Vanilla extract",
+          "id": "vanilla-extract"
+        },
+        {
+          "name": "White onion",
+          "id": "white-onion",
+          "keto": false
+        },
+        {
+          "name": "Worcestershire sauce",
+          "id": "worcestershire-sauce",
+          "keto": false,
+          "meat": true,
+          "fish": true,
+          "shellfish": true
+        },
+        {
+          "name": "Yellow onion",
+          "id": "yellow-onion",
+          "keto": false
+        },
+        {
+          "name": "Zucchini",
+          "id": "zucchini"
+        }
+      ]
+    }
 
     // Builds an array of keys from the object passed, sorted by popularity
     // "key" is the key of the Array within the object which contains the strings to count
@@ -1875,9 +2406,10 @@ export default function recipeFactory() {
     }
 
     // Builds a list of all the ingredients used and returns it in JSON format
+    // Used to generate the ingredients object, but then never again.
     function ingredientsJSON() {
       let arIngredients = [];
-      let objIngredients = {};
+      let objIngredients = [];
       // Loop through all recipes
       for (let i = 0; i < arList.length; i++) {
         const thisRecipe = arList[i];
@@ -1890,12 +2422,27 @@ export default function recipeFactory() {
       arIngredients.sort();
 
       for (let i = 0; i < arIngredients.length; i++) {
-        objIngredients[i] = { 'name': arIngredients[i], 'id': arIngredients[i].toLowerCase().replace(/\s+/g,'-'), 'keto': true, 'dairy': false, 'meat': false };
+        const obj = {
+          'name':      arIngredients[i],
+          'id':        arIngredients[i].toLowerCase().replace(/\s+/g,'-'),
+          'keto':      true,
+          'dairy':     false,
+          'meat':      false,
+          'alcohol':   false,
+          'caffeine':  false,
+          'eggs':      false,
+          'fish':      false,
+          'gluten':    false,
+          'lactose':   false,
+          'lamb':      false,
+          'nuts':      false,
+          'shellfish': false,
+          'soy':       false
+        };
+        objIngredients.push(obj);
       }
       console.log(objIngredients);
-      //return arIngredients;
     }
-    ingredientsJSON();
 
     // Builds a list of tags for recipe themes, plus links
     function buildTagList(tags) {
@@ -1910,16 +2457,46 @@ export default function recipeFactory() {
 
     // Builds the markup for the ingredients panel
     function ingredientsMarkup(obj,objGroup) {
+      /*
+                'keto':      true,
+          'dairy':     false,
+          'meat':      false,
+          'alcohol':   false,
+          'caffeine':  false,
+          'eggs':      false,
+          'fish':      false,
+          'gluten':    false,
+          'lactose':   false,
+          'lamb':      false,
+          'nuts':      false,
+          'shellfish': false,
+          'soy':       false
+
+       */
+      const iconDairy = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains dairy"><path d="M 16,8 C 15,8 14,9 13,9 11,9 12,7 10,8 9,9 8.6,7.8 8,8 m 8,0 c -0.2,3.1 0,14 0,14 0,1 0,1 -1,1 H 9 C 8,23 8,23 8,22 V 8 C 8,7 10,4 10,4 9,4 9,4 9,3 V 2 C 9,1 9,1 10,1 h 4 c 1,0 1,0 1,1 v 1 c 0,1 0,1 -1,1 0.3,0.5 2,3 2,4 z M 14,4 h -4" fill="none" stroke="currentColor"/></svg>';
+      const iconMeat = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains meat"><path d="m 11,13 c 2,0 5,0 8,0 -1,2 -2,3 -2,5 M 9,14 c 1,-1 1,-1 2,-1 0,1 1,4 1,5 M 3,10 v 4 l 1,1 c 1,0 2,-1 2,-2 h 2 l 1,1 v 4 M 20,6 c 0,3 0,4 -1,6 1,2 1,3 1,6 m 3,-5 V 8 C 23,7 22,6 20,6 H 9 C 8,6 6,8 5,9 L 3,10 H 1" fill="none" stroke="currentColor"/></svg>';
+      const iconAlcohol = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains alcohol"><path d="m 14,23 h 3 v -6 c -1,0 -3,-1 -3,-3 V 8 h 6 v 6 c 0,2 -2,3 -3,3 v 6 h 3 M 7,1 h 2 c 0,2 0,5 1,6 1,1 2,2 2,4 V 23 H 4 V 11 C 4,9 5,8 6,7 7,6 7,3 7,1 Z" fill="none" stroke="currentColor"/></svg>';
+      const iconCaffeine = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains caffeine"><path d="m 4,8 c -5,-1 -3,8 1,4 m 9,4 c 4,0 6,-4 6,-9 H 4 c 0,5 3,9 6,9 m -9,0 h 22 c -2,1 -5,2 -10,2 H 11 C 6,18 3,17 1,16 Z" fill="none" stroke="currentColor"/></svg>';
+      const iconEggs = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains eggs"><path d="m 15,13 c 1,-6 5,-6 6,0 M 9,13 c 1,-6 5,-6 6,0 M 3,13 C 4,7 8,7 9,13 M 1,13 H 23 M 2,13 c 0,2 1,4 2,5 h 4 l 1,-2 1,2 h 4 l 1,-2 1,2 h 4 c 1,-1 2,-3 2,-5" fill="none" stroke="currentColor"/></svg>';
+      const iconFish = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains fish"><path d="m 18,13 c -3,1 -5,1 -5,-1 m 7,-1.5 A 0.5,0.5 0 0 1 19.5,11 0.5,0.5 0 0 1 19,10.5 0.5,0.5 0 0 1 19.5,10 0.5,0.5 0 0 1 20,10.5 Z M 9,10 c 1,-1 3,-2 3,-4 3,0 3,1 4,2 m 7,4 C 22,20 9,16 5,12 4.5,11 4,10 2,10 c 2,1.5 1,2 -1,3 2,1 3,1 4,-1 9,-5 15,-6 18,0 z" fill="none" stroke="currentColor"/></svg>';
+      const iconGluten = '<svg xmlns="http://www.w3.org/2000/svg" aria-label="Gluten free" stroke="currentColor" fill="none" viewBox="0 0 24 24" width="24" height="24"><path d="M 8,5 C 7,4 4,2 2,2 2,3 4,7 5,8 M 22,22 8,8"/><path d="m 19,19 c 1,-2 0,-7 -1,-9 -1,2 -2,5 -1,7 -2,-1 -5,0 -7,1 2,1 7,2 9,1 m -2,-6 c 0,-1 -1,-4 -2,-6 -1,2 -2,5 -1,7 -2,-1 -5,0 -7,1 2,1 5,2 6,2 m 1,-7 c 0,-1 -1,-4 -2,-6 -1,2 -2,5 -1,7 -2,-1 -5,0 -7,1 2,1 5,2 6,2 M 11,7 C 11,6 10,3 9,1 8,3 7,6 8,8 6,7 3,8 1,9 c 2,1 5,2 6,2"/></svg>';
+      const iconLactose = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains lactose"><path d="m 12,15 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 z m 6,-3 a 2.5,2.5 0 0 1 -2.5,2.5 2.5,2.5 0 0 1 -2.5,-2.5 2.5,2.5 0 0 1 2.5,-2.5 2.5,2.5 0 0 1 2.5,2.5 M 8,11.5 A 2.5,2.5 0 0 1 5.5,14 2.5,2.5 0 0 1 3,11.5 2.5,2.5 0 0 1 5.5,9 2.5,2.5 0 0 1 8,11.5 Z M 22,8 H 3 m 19,9 v 2 H 6 C -1,19 -1,5 9,5 l 13,3 v 2 c -4,0 -4,7 0,7 z" fill="none" stroke="currentColor"/></svg>';
+      const iconLamb = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains lamb"><path d="M 7,7.5 A 0.5,0.5 0 0 1 6.5,8 0.5,0.5 0 0 1 6,7.5 0.5,0.5 0 0 1 6.5,7 0.5,0.5 0 0 1 7,7.5 Z M 11,11 C 10,12 9.3080284,10.098628 9.5,8.5 9.6919716,6.9013718 9,6 8,6 m 5,12 -5,-1 m 12,0 c -3,-3 -4,-3 -6,0 l -3,4 m 0,-10 c 1.671949,-1.4205852 4.015423,-2.0756926 7,-2 5,0 5,8 3,11 -1,1 -4,-1 -5,-1 0,1 0,2 -2,2 H 6 C 3,21 2,17 5,15 L 6,11 C 4,14 0,13 2,9 8,-2 14,6 11,11 Z" fill="none" stroke="currentColor"/></svg>';
+      const iconNuts = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains nuts"><path d="M 6,3 C 8,3 21,18 12,22 0,22 4,3 6,3 Z m 7,8 c 3,-3 6,-7 7,-7 0,1 -0.8,2.8 -3,7 m 2,-0.6 -1.5,4 m 2.1,1.1 1.4,0.5 c 0,1 -1,6 -7,5 M 12,9 c 3,-4 6,-6 8,-5 2,1 1,8 -0.4,11.5 L 14,13 M 7,16 C 5.6,9.7 5.6,4.9 6,3 l 3,10 m 2,-1 C 7.8,4.9 6.6,3 6,3" fill="none" stroke="currentColor"/></svg>';
+      const iconShellfish = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains shellfish"><path d="M 10,7.5 A 0.5,0.5 0 0 1 9.5,8 0.5,0.5 0 0 1 9,7.5 0.5,0.5 0 0 1 9.5,7 0.5,0.5 0 0 1 10,7.5 Z M 10,20 8,19 5,20 7,22 9.5,21 M 10,19 8,17 5,18 6,19.6 m 10.6,-1 2.4,2.4 m -2,-8 4,-4 m -3,6 h 4.5 M 13,19 v 3 M 15,12 V 6 m -4,6 c -2,0 -2,2 0,2 M 5,8 C 0,10 0,1 5,1 H 7 M 5,8 C 1,10 1,3 5,3 H 7 M 5,6 h 10 c 10,0 10,16 0,16 h -4 c -2,0 -2,-3 0,-3 h 4 c 4,0 4,-7 0,-7 H 10 C 7,12 6,8 5,6 Z" fill="none" stroke="currentColor"/></svg>';
+      const iconSoy = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains soy"><path d="m 12,11 -2,1 v 2 l 2,1 2,-1 V 12 Z M 10,5 h 4 M 8,2 c 3,-1 5,-1 8,0 l -1,3 h -1 c 2,3 7,14 4,18 H 6 C 3,19 8,8 10,5 H 9 Z" fill="none" stroke="currentColor"/></svg>';
       let markup = '';
       if (obj.length > 0) {
         markup += '<ul>';
         for (let i = 0; i < obj.length; i++) {
           const thisIngredient = obj[i];
+          const name = thisIngredient.name;
           markup += '<li>';
           if (typeof thisIngredient.amount !== 'undefined')      markup += thisIngredient.amount + ' ';
           if (typeof thisIngredient.unit !== 'undefined')        markup += thisIngredient.unit + ' ';
-          if (typeof thisIngredient.name !== 'undefined')        markup += thisIngredient.name + ' ';
+          if (typeof name !== 'undefined')                       markup += name + ' ';
           if (typeof thisIngredient.preparation !== 'undefined') markup += thisIngredient.preparation + ' ';
+          // Check if "name" is in the ingredients object
           markup +=  '</li>';
         }
         markup +=  '</ul>';
