@@ -300,12 +300,12 @@ export default function recipeFactory() {
 
       // Most of the ingredient string
       let endString = '';
-      if (typeof unit !== 'undefined') endString += unit + ' ';
-      if (typeof name !== 'undefined') endString += name + ' ';
+      if (typeof unit !== 'undefined') endString += '<span data-js="unit">' + unit + '</span> ';
+      if (typeof name !== 'undefined') endString += '<span data-js="name">' + name + '</span> ';
       if (typeof prep !== 'undefined') endString += prep + ' ';
       if (endString !== '') endString += '<span class="icon-small">' + itemIcons + '</span>';
 
-      markup += '<li>';
+      markup += '<li itemprop="recipeIngredient">';
       // (1) Do we have any amount for this ingredient
       // (2) Is the ingredient amount a sensible number?
       // (3) Does the name of this ingredient have a match in the ingredients JSON? (see above loop)
@@ -314,7 +314,7 @@ export default function recipeFactory() {
         typeof amount !== 'undefined' &&
         parseFloat(amount) !== NaN &&
         knownName &&
-        (unit === 'cups' || unit === 'cup' || unit === 'g' || unit === 'lb' || unit === 'lbs' || unit === 'ml' || unit === 'oz' || unit === 'pound' || unit === 'pounds' || unit === 'tbsp')
+        (unit === 'cups' || unit === 'cup' || unit === 'g' || unit === 'lb' || unit === 'lbs' || unit === 'oz' || unit === 'pound' || unit === 'pounds' || unit === 'tbsp')
       ) {
         markup += '<input type="number" value="' + amount + '" id="ingredient-' + formName + '" name="ingredient-' + formName + '" data-js="barometer-value" class="input-short text-right"> ' +
         '<label for="ingredient-' + formName + '"> ' + endString + '</label>';
@@ -435,7 +435,7 @@ export default function recipeFactory() {
       let notesQuery = '';
       if (object.notes !== undefined) notesQuery = '&amp;recipe-notes=' + encodeURIComponent(object.notes);
 
-      recipeTools += '<p><strong>Keto barometer</strong></p><p id="keto-barometer" class="meter"><span style="width: 30%;"></span><span></span></p>' +
+      recipeTools += '<p><strong>Keto barometer</strong></p><p id="keto-barometer" class="meter"><span data-js="bar"></span><span data-js="mask"></span></p>' +
       '<p><a href="/account/" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg> Add to favourites</a>' +
         '<a href="/account/edit-recipe/?' +
         'recipe-name=' + encodeURIComponent(object.name) +
@@ -462,12 +462,12 @@ export default function recipeFactory() {
       let forked = '';
       if (typeof object.forked !== 'undefined') forked = '<p>' + object.forked + '</p>';
 
-      const markup = '<section class="container" aria-label="' + object.name + '">' +
+      const markup = '<section class="container" aria-label="' + object.name + '" itemscope itemtype="https://schema.org/Recipe">' +
         '<header class="row gutter-base">' +
-        '<p class="col-md-8 pos-rel"><img src="' + object.image + '" class="img-fit-md" alt=""></p>' +
+        '<p class="col-md-8 pos-rel"><img src="' + object.image + '" class="img-fit-md" alt="" itemprop="image"></p>' +
         '<div class="col-md-4 pad-vert-large">' +
-        '<h2>' + object.name + '</h2>' +
-        '<p>' + object.description + '</p>' +
+        '<h2 itemprop="name">' + object.name + '</h2>' +
+        '<p itemprop="description">' + object.description + '</p>' +
         '</div>' +
         '</header>' +
         '<div class="row">' +
@@ -475,7 +475,7 @@ export default function recipeFactory() {
         '<section aria-label="Ingredients"><h3>Ingredients</h3>' +
         ingredients +
         '</section>' +
-        '<section aria-label="Method"><h3>Method</h3><ol>' +
+        '<section aria-label="Method" itemprop="recipeInstructions"><h3>Method</h3><ol>' +
         steps + '</ol></section>' +
         '<footer>' + notes + forked + '</footer>' +
         '</div>' +
