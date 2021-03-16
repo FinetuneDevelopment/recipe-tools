@@ -281,19 +281,19 @@ export default function recipeFactory() {
             knownName = true;
 
             // Trying to find a matching icon
-            //if (!thisThing.keto) itemIcons += '';
-            if (thisThing.dairy)     itemIcons += icons.dairy;
-            if (thisThing.meat)      itemIcons += icons.meat;
-            if (thisThing.alcohol)   itemIcons += icons.alcohol;
-            if (thisThing.caffeine)  itemIcons += icons.caffeine;
-            if (thisThing.eggs)      itemIcons += icons.eggs;
-            if (thisThing.fish)      itemIcons += icons.fish;
-            if (thisThing.gluten)    itemIcons += icons.gluten;
-            if (thisThing.lactose)   itemIcons += icons.lactose;
-            if (thisThing.lamb)      itemIcons += icons.lamb;
-            if (thisThing.nuts)      itemIcons += icons.nuts;
-            if (thisThing.shellfish) itemIcons += icons.shellfish;
-            if (thisThing.soy)       itemIcons += icons.soy;
+            if (thisThing.keto !== false) itemIcons += icons.keto;
+            if (thisThing.dairy)          itemIcons += icons.dairy;
+            if (thisThing.meat)           itemIcons += icons.meat;
+            if (thisThing.alcohol)        itemIcons += icons.alcohol;
+            if (thisThing.caffeine)       itemIcons += icons.caffeine;
+            if (thisThing.eggs)           itemIcons += icons.eggs;
+            if (thisThing.fish)           itemIcons += icons.fish;
+            if (thisThing.gluten)         itemIcons += icons.gluten;
+            if (thisThing.lactose)        itemIcons += icons.lactose;
+            if (thisThing.lamb)           itemIcons += icons.lamb;
+            if (thisThing.nuts)           itemIcons += icons.nuts;
+            if (thisThing.shellfish)      itemIcons += icons.shellfish;
+            if (thisThing.soy)            itemIcons += icons.soy;
           }
         }
       }

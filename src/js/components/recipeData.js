@@ -406,7 +406,7 @@ window.recipeTools = {
       "name": "Papoutsakia",
       "id": "papoutsakia",
       "description": "A traditional Greek dish that tastes very similar to moussaka, but is much quicker to cook. Fun fact: Papoutsakia in Greek means \"little shoes\" and a portion usually has two. However, when cooking with large American eggplants, you'll likely find that one per portion is enough.",
-      "shopping": ["Eggplant", "Aubergine", "Thyme", "Beef", "Lamb", "Cinnamon", "Cloves", "All Spice", "Double cream", "Worcestershire sauce", "Gruyère", "Nutmeg", "Olive oil", "Salt", "Pepper", "Yellow onion", "Garlic", "Passata", "Beef stock", "Cognac", "Brown sugar", "Bay leaves", "Butter", "Black pepper", "Coconut flour", "Egg"],
+      "shopping": ["Eggplant", "Aubergine", "Thyme", "Beef", "Lamb", "Cinnamon", "Cloves", "All Spice", "Double cream", "Worcestershire sauce", "Gruyère", "Nutmeg", "Olive oil", "Salt", "Pepper", "Onion", "Garlic", "Passata", "Beef stock", "Cognac", "Brown sugar", "Bay leaves", "Butter", "Black pepper", "Coconut flour", "Egg"],
       "tags": ["Mediterranean", "Comfort food", "Low-carb"],
       "ingredient": [{
           "amount": "3",
@@ -432,7 +432,7 @@ window.recipeTools = {
             },
             {
               "amount": "2",
-              "name": "yellow onions",
+              "name": "onions",
               "preparation": "chopped"
             },
             {
@@ -470,7 +470,7 @@ window.recipeTools = {
             {
               "amount": "2",
               "unit": "tbsp",
-              "name": "Sukrin Gold or brown sugar"
+              "name": "Sukrin Gold"
             },
             {
               "amount": "4",
@@ -563,7 +563,7 @@ window.recipeTools = {
         {
           "amount": "1.25",
           "unit": "cup",
-          "name": "extra-virgin olive oil"
+          "name": "olive oil"
         },
         {
           "amount": "1",
@@ -609,7 +609,7 @@ window.recipeTools = {
       "name": "Shakshuka",
       "id": "shakshuka",
       "description": "Breakfast of champions (one of them)",
-      "shopping": ["Lamb", "Beef", "Jalapeño chilli", "Tomato concentrate", "Smoked paprika", "Cumin", "Caraway seed", "Kale", "Egg", "Olive oil", "Yellow onion", "Green bell pepper", "Garlic", "Tomatoes", "Red wine", "Bay leaves", "Erythritol", "Beef stock", "Black pepper"],
+      "shopping": ["Lamb", "Beef", "Jalapeño chilli", "Tomato concentrate", "Smoked paprika", "Cumin", "Caraway seed", "Kale", "Egg", "Olive oil", "Onion", "Green bell pepper", "Garlic", "Tomatoes", "Red wine", "Bay leaves", "Erythritol", "Beef stock", "Black pepper"],
       "tags": ["Mediterranean", "Breakfast"],
       "ingredient": [{
           "amount": "3",
@@ -619,7 +619,7 @@ window.recipeTools = {
         {
           "amount": "2",
           "unit": "medium",
-          "name": "Yellow onions",
+          "name": "Onions",
           "preparation": "chopped"
         },
         {
@@ -1396,12 +1396,12 @@ window.recipeTools = {
     {
       "name": "Khoresht Karafs",
       "description": "A delicious Persian stew with beef and celery.",
-      "shopping": ["Fresh mint", "Beef", "Turmeric", "Yellow onion", "Garlic", "Parsley", "Celery", "Stock", "Lemon", "Butter"],
+      "shopping": ["Fresh mint", "Beef", "Turmeric", "onion", "Garlic", "Parsley", "Celery", "Stock", "Lemon", "Butter"],
       "tags": ["Mediterranean", "Winter"],
       "ingredient": [
         {
           "amount": "1",
-          "name": "large yellow onion",
+          "name": "large onion",
           "preparation": "diced"
         },
         {

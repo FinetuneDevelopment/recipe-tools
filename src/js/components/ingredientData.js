@@ -20,7 +20,6 @@ window.recipeTools.ingredients =  [
   {
     "name": "Almond Flour",
     "id": "almond-flour",
-    "keto": true,
     "nuts": true
   },
   {
@@ -83,14 +82,12 @@ window.recipeTools.ingredients =  [
   {
     "name": "Butter",
     "id": "butter",
-    "keto": true,
     "dairy": true,
     "lactose": true
   },
   {
     "name": "Caraway seed",
     "id": "caraway-seed",
-    "keto": true,
     "nuts": true
   },
   {
@@ -162,7 +159,6 @@ window.recipeTools.ingredients =  [
   {
     "name": "Coconut flour",
     "id": "coconut-flour",
-    "keto": true,
     "nuts": true
   },
   {
