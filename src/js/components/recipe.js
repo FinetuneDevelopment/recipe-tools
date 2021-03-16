@@ -2444,6 +2444,36 @@ export default function recipeFactory() {
       console.log(objIngredients);
     }
 
+    // I needed a list of the potential units and values of ingredients, to see
+    // what I was up against.
+    function ingredientUnit() {
+      let arIngredients = [];
+      let arValues = [];
+      // Loop through all recipes
+      for (let i = 0; i < arList.length; i++) {
+        const thisRecipe = arList[i];
+        const ingredientList = thisRecipe.ingredient;
+        for (let j = 0; j < ingredientList.length; j++) {
+          const thisIngredient = ingredientList[j];
+          const thisUnit = thisIngredient.unit;
+          if (thisUnit) {
+            arIngredients.push(thisUnit);
+          }
+          const thisAmmount = ingredientList[j].amount;
+          if (thisAmmount) {
+            arValues.push(thisAmmount);
+          }
+        }
+      }
+      arIngredients = arIngredients.filter(onlyUnique);
+      arIngredients.sort();
+      console.log(arIngredients);
+      arValues = arValues.filter(onlyUnique);
+      arValues.sort();
+      console.log(arValues);
+    }
+    ingredientUnit();
+
     // Builds a list of tags for recipe themes, plus links
     function buildTagList(tags) {
       let markup = '';
@@ -2457,22 +2487,6 @@ export default function recipeFactory() {
 
     // Builds the markup for the ingredients panel
     function ingredientsMarkup(obj,objGroup) {
-      /*
-                'keto':      true,
-          'dairy':     false,
-          'meat':      false,
-          'alcohol':   false,
-          'caffeine':  false,
-          'eggs':      false,
-          'fish':      false,
-          'gluten':    false,
-          'lactose':   false,
-          'lamb':      false,
-          'nuts':      false,
-          'shellfish': false,
-          'soy':       false
-
-       */
       const iconDairy = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains dairy"><path d="M 16,8 C 15,8 14,9 13,9 11,9 12,7 10,8 9,9 8.6,7.8 8,8 m 8,0 c -0.2,3.1 0,14 0,14 0,1 0,1 -1,1 H 9 C 8,23 8,23 8,22 V 8 C 8,7 10,4 10,4 9,4 9,4 9,3 V 2 C 9,1 9,1 10,1 h 4 c 1,0 1,0 1,1 v 1 c 0,1 0,1 -1,1 0.3,0.5 2,3 2,4 z M 14,4 h -4" fill="none" stroke="currentColor"/></svg>';
       const iconMeat = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains meat"><path d="m 11,13 c 2,0 5,0 8,0 -1,2 -2,3 -2,5 M 9,14 c 1,-1 1,-1 2,-1 0,1 1,4 1,5 M 3,10 v 4 l 1,1 c 1,0 2,-1 2,-2 h 2 l 1,1 v 4 M 20,6 c 0,3 0,4 -1,6 1,2 1,3 1,6 m 3,-5 V 8 C 23,7 22,6 20,6 H 9 C 8,6 6,8 5,9 L 3,10 H 1" fill="none" stroke="currentColor"/></svg>';
       const iconAlcohol = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-label="Contains alcohol"><path d="m 14,23 h 3 v -6 c -1,0 -3,-1 -3,-3 V 8 h 6 v 6 c 0,2 -2,3 -3,3 v 6 h 3 M 7,1 h 2 c 0,2 0,5 1,6 1,1 2,2 2,4 V 23 H 4 V 11 C 4,9 5,8 6,7 7,6 7,3 7,1 Z" fill="none" stroke="currentColor"/></svg>';
@@ -2491,9 +2505,33 @@ export default function recipeFactory() {
         for (let i = 0; i < obj.length; i++) {
           const thisIngredient = obj[i];
           const name = thisIngredient.name;
+          const unit = thisIngredient.unit;
+          let knownName = false;
+          //       console.log(objIngredients.ingredients);
+          // Loop through the ingredients JSON, looking for a match for the name
+          for (let j = 0; j < objIngredients.ingredients.length; j ++) {
+            const thisThing = objIngredients.ingredients[j];
+            if(thisThing.name.toLowerCase() === name.toLowerCase()) knownName = true
+          }
+
           markup += '<li>';
-          if (typeof thisIngredient.amount !== 'undefined')      markup += thisIngredient.amount + ' ';
-          if (typeof thisIngredient.unit !== 'undefined')        markup += thisIngredient.unit + ' ';
+          // (1) Do we have any amount for this ingredient
+          // (2) Is the ingredient amount a sensible number?
+          // (3) Does the name of this ingredient have a match in the ingredients JSON? (see above loop)
+          // (4) Is the unit of measurement something I can convert to gramms, so I can do the calculation?
+          if (
+            typeof thisIngredient.amount !== 'undefined' &&
+            parseFloat(thisIngredient.amount) !== NaN &&
+            knownName &&
+            (unit === 'cups' || unit === 'cup' || unit === 'g' || unit === 'lb' || unit === 'lbs' || unit === 'ml' || unit === 'oz' || unit === 'pound' || unit === 'pounds' || unit === 'tbsp' || unit === 'tsp' )
+          ) {
+            markup += '<input type="number" value="' + thisIngredient.amount + '" id="" name="" data-js="" class="input-short text-right"> ';
+          }
+          // We cannot adjust this ingredient amount
+          else if (typeof thisIngredient.amount !== 'undefined') {
+            markup += thisIngredient.amount + ' ';
+          }
+          if (typeof unit !== 'undefined')                       markup += unit + ' ';
           if (typeof name !== 'undefined')                       markup += name + ' ';
           if (typeof thisIngredient.preparation !== 'undefined') markup += thisIngredient.preparation + ' ';
           // Check if "name" is in the ingredients object
