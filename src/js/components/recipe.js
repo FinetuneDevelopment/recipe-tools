@@ -2472,7 +2472,6 @@ export default function recipeFactory() {
       arValues.sort();
       console.log(arValues);
     }
-    ingredientUnit();
 
     // Builds a list of tags for recipe themes, plus links
     function buildTagList(tags) {
@@ -2504,10 +2503,19 @@ export default function recipeFactory() {
         markup += '<ul>';
         for (let i = 0; i < obj.length; i++) {
           const thisIngredient = obj[i];
-          const name = thisIngredient.name;
-          const unit = thisIngredient.unit;
-          let knownName = false;
-          //       console.log(objIngredients.ingredients);
+          const name     = thisIngredient.name;
+          const formName = name.toLowerCase().replace(/\s+/g,'-');
+          const unit     = thisIngredient.unit;
+          const amount   = thisIngredient.amount;
+          const prep     = thisIngredient.preparation;
+          let knownName  = false;
+
+          // Most of the ingredient string
+          const endString = '';
+          if (typeof unit   !== 'undefined') endString += unit + ' ';
+          if (typeof name   !== 'undefined') endString += name + ' ';
+          if (typeof prep   !== 'undefined') endString += prep + ' ';
+
           // Loop through the ingredients JSON, looking for a match for the name
           for (let j = 0; j < objIngredients.ingredients.length; j ++) {
             const thisThing = objIngredients.ingredients[j];
@@ -2520,21 +2528,19 @@ export default function recipeFactory() {
           // (3) Does the name of this ingredient have a match in the ingredients JSON? (see above loop)
           // (4) Is the unit of measurement something I can convert to gramms, so I can do the calculation?
           if (
-            typeof thisIngredient.amount !== 'undefined' &&
-            parseFloat(thisIngredient.amount) !== NaN &&
+            typeof amount !== 'undefined' &&
+            parseFloat(amount) !== NaN &&
             knownName &&
             (unit === 'cups' || unit === 'cup' || unit === 'g' || unit === 'lb' || unit === 'lbs' || unit === 'ml' || unit === 'oz' || unit === 'pound' || unit === 'pounds' || unit === 'tbsp' || unit === 'tsp' )
           ) {
-            markup += '<input type="number" value="' + thisIngredient.amount + '" id="" name="" data-js="" class="input-short text-right"> ';
+            markup += '<input type="number" value="' + amount + '" id="ingredient-' + formName + '" name="ingredient-' + formName + '" data-js="barometer-value" class="input-short text-right"> ' +
+            '<label for="ingredient-' + formName + '"> ' + endString + '</label>';
           }
           // We cannot adjust this ingredient amount
-          else if (typeof thisIngredient.amount !== 'undefined') {
-            markup += thisIngredient.amount + ' ';
+          else {
+            markup += amount + ' ' + endString;
           }
-          if (typeof unit !== 'undefined')                       markup += unit + ' ';
-          if (typeof name !== 'undefined')                       markup += name + ' ';
-          if (typeof thisIngredient.preparation !== 'undefined') markup += thisIngredient.preparation + ' ';
-          // Check if "name" is in the ingredients object
+
           markup +=  '</li>';
         }
         markup +=  '</ul>';
