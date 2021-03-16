@@ -316,7 +316,7 @@ export default function recipeFactory() {
         knownName &&
         (unit === 'cups' || unit === 'cup' || unit === 'g' || unit === 'lb' || unit === 'lbs' || unit === 'oz' || unit === 'pound' || unit === 'pounds' || unit === 'tbsp')
       ) {
-        markup += '<input type="number" value="' + amount + '" id="ingredient-' + formName + '" name="ingredient-' + formName + '" data-js="barometer-value" class="input-short text-right"> ' +
+        markup += '<input type="number" min="0" value="' + amount + '" id="ingredient-' + formName + '" name="ingredient-' + formName + '" data-js="barometer-value" class="input-short text-right"> ' +
         '<label for="ingredient-' + formName + '"> ' + endString + '</label>';
       }
       // We cannot adjust this ingredient amount
