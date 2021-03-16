@@ -13,7 +13,7 @@ export default function clickFactory() {
       if (baromiterInputs.length < 3) {
         console.log("Yeah, this recipe needs work");
       } else {
-        console.llg("Bonk!");
+        console.log("Bonk!");
       }
     }
   }

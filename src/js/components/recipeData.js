@@ -10,7 +10,8 @@ window.recipeTools = {
       "ingredient": [{
           "amount": "500",
           "unit": "g",
-          "name": "ground meat (beef, pork, or both), at least 20% fat"
+          "name": "beef",
+          "preparation": ", ground, at least 20% fat"
         },
         {
           "amount": "1",
@@ -117,7 +118,7 @@ window.recipeTools = {
         {
           "amount": "3",
           "unit": "tbsp",
-          "name": "Sukrin Gold or brown sugar"
+          "name": "Sukrin Gold"
         },
         {
           "amount": "1",
@@ -225,7 +226,8 @@ window.recipeTools = {
       "ingredient": [{
           "amount": "16",
           "unit": "oz",
-          "name": "turnip noodles"
+          "name": "turnip",
+          "preparation": "noodles"
         },
         {
           "amount": "6",
@@ -425,7 +427,7 @@ window.recipeTools = {
           "ingredient": [{
               "amount": "2",
               "unit": "lbs",
-              "name": "beef or lamb",
+              "name": "beef",
               "preparation": "minced"
             },
             {
@@ -441,7 +443,8 @@ window.recipeTools = {
             {
               "amount": "500",
               "unit": "g",
-              "name": "passata (Italian-style sieved tomato purée)"
+              "name": "passata",
+              "preparation": "(Italian-style sieved tomato purée)"
             },
             {
               "name": "Cinnamon",
@@ -457,7 +460,7 @@ window.recipeTools = {
             {
               "amount": "4",
               "unit": "tsp",
-              "name": "Better than Bouillon or other beef bouillon base"
+              "name": "Beef stock"
             },
             {
               "amount": "0.5",
@@ -507,8 +510,8 @@ window.recipeTools = {
             {
               "amount": "250",
               "unit": "g",
-              "name": "hard cheese (we used Gruyère)",
-              "preparation": "grated"
+              "name": "cheese",
+              "preparation": "(we used Gruyère) grated"
             },
             {
               "name": "nutmeg",
@@ -622,7 +625,8 @@ window.recipeTools = {
         {
           "amount": "1.5",
           "unit": "lb",
-          "name": "Miced lamb or beef"
+          "name": "Lamb",
+          "preparation": ", minced"
         },
         {
           "amount": "1",
@@ -701,7 +705,8 @@ window.recipeTools = {
         },
         {
           "amount": "8",
-          "name": "Freerange eggs"
+          "name": "Eggs",
+          "preparation": "free range"
         }
       ],
       "step": [{
@@ -884,7 +889,7 @@ window.recipeTools = {
             {
               "amount": "330",
               "unit": "g",
-              "name": "mozarella",
+              "name": "mozzarella",
               "preparation": "grated"
             },
             {
@@ -915,7 +920,7 @@ window.recipeTools = {
           "ingredient": [{
               "amount": "200",
               "unit": "g",
-              "name": "tomato concentrate/paste"
+              "name": "tomato concentrate"
             },
             {
               "amount": "5",
@@ -957,13 +962,13 @@ window.recipeTools = {
           "ingredient": [{
               "amount": "170",
               "unit": "g",
-              "name": "mozarella",
+              "name": "mozzarella",
               "preparation": "grated"
             },
             {
               "amount": "250",
               "unit": "g",
-              "name": "cheddar, gouda, gruyere or similar grated"
+              "name": "cheese"
             },
             {
               "amount": "5",
@@ -1235,8 +1240,9 @@ window.recipeTools = {
       "shopping": ["Salmon fillets", "Bean Sprouts", "Soy Sauce", "Ginger", "Sesame", "Erythritol", "Garlic", "Dry sherry", "Sesame oil", "Spring onion"],
       "tags": ["Alcohol", "Asian", "Seafood", "Low-carb"],
       "ingredient": [{
-          "amount": "2",
-          "name": "half pound salmon fillets"
+          "amount": "1",
+          "unit": "lbs",
+          "name": "salmon fillets"
         },
         {
           "amount": "1",
@@ -1417,7 +1423,7 @@ window.recipeTools = {
         {
           "amount": "1.5",
           "unit": "pound",
-          "name": "stew beef",
+          "name": "beef",
           "preparation": "cut in 1in cubes"
         },
         {
@@ -1512,10 +1518,10 @@ window.recipeTools = {
             {
               "amount": "200",
               "unit": "g",
-              "name": "butter or ghee"
+              "name": "butter"
             },
             {
-              "name": "brown sugar substitute",
+              "name": "Sukrin Gold",
               "amount": "3",
               "unit": "tbsp"
             },
@@ -1564,7 +1570,7 @@ window.recipeTools = {
           "ingredient": [{
               "amount": "1",
               "unit": "lbs",
-              "name": "strawberries or other berries"
+              "name": "strawberries"
             },
             {
               "name": "gelatin",
@@ -1577,7 +1583,7 @@ window.recipeTools = {
               "preparation": "juiced"
             },
             {
-              "name": "Sukrin Gold or similar",
+              "name": "Sukrin Gold",
               "amount": "2",
               "unit": "tbsp"
             }

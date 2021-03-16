@@ -69,7 +69,6 @@ window.recipeTools.ingredients =  [
     "name": "Beef stock",
     "id": "beef-stock",
     "keto": false,
-    "dairy": false,
     "meat": true
   },
   {
@@ -95,6 +94,10 @@ window.recipeTools.ingredients =  [
     "nuts": true
   },
   {
+    "name": "Cauliflower rice",
+    "id": "cauliflower-rice"
+  },
+  {
     "name": "Cardamom",
     "id": "cardamom"
   },
@@ -113,6 +116,12 @@ window.recipeTools.ingredients =  [
   {
     "name": "Cheddar",
     "id": "cheddar",
+    "dairy": true,
+    "lactose": true
+  },
+  {
+    "name": "Cheese",
+    "id": "cheese",
     "dairy": true,
     "lactose": true
   },
@@ -493,6 +502,10 @@ window.recipeTools.ingredients =  [
   {
     "name": "Strawberry",
     "id": "strawberry"
+  },
+  {
+    "name": "Strawberries",
+    "id": "strawberries"
   },
   {
     "name": "Sukrin Gold",

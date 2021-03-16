@@ -4,6 +4,7 @@ import "../scss/app.scss";
 import "./polyfills/closest.js";
 import "./components/recipeData.js";
 import "./components/ingredientData.js";
+import "./components/iconData.js";
 import recipe         from "./components/recipe.js";
 import addField       from "./components/add-field.js";
 import checkShow      from "./components/check-show.js";
