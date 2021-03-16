@@ -7,8 +7,9 @@ export default function clickFactory() {
   // Listens for clicks, then takes action (or none)
   myFactory.init = function () {
     const elBaromiter = document.getElementById('keto-barometer');
+    const baromiterInputs = document.querySelectorAll('[data-js="barometer-value"]');
     if (elBaromiter) {
-      console.log("Yes, there is a Keto Baromiter on this page.");
+      console.log(baromiterInputs.length);
     }
   }
 
