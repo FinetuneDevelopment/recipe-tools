@@ -436,6 +436,7 @@ export default function recipeFactory() {
       if (object.notes !== undefined) notesQuery = '&amp;recipe-notes=' + encodeURIComponent(object.notes);
 
       recipeTools += '<p><strong>Keto barometer</strong></p><p id="keto-barometer" class="meter"><span data-js="bar"></span><span data-js="mask"></span></p>' +
+      '<p class="small gutter-base icon-tiny">The keto baromiter gives you an indication of how keto a recipe is, based on the weight of the ingredients which you can adjust in the ingredients panel. It will update in real time, so try changing the recipe to allow it to fit your diet plans. Ingredients which have a <svg xmlns="http://www.w3.org/2000/svg" aria-label="Keto ingredient" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"><circle r="11" cy="12" cx="12"/><path d="m 10,12 6,6 M 8,14 16,6 M 8,6 v 12" stroke="#446703"/></svg> icon are keto, those which do not, will drag down the keto value of the recipe.</p>' +
       '<p><a href="/account/" class="btn btn-secondary icon-small"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-label="Delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg> Add to favourites</a>' +
         '<a href="/account/edit-recipe/?' +
         'recipe-name=' + encodeURIComponent(object.name) +
