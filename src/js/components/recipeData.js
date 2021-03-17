@@ -1600,8 +1600,8 @@ window.recipeTools = {
       "ingredient": [{
           "amount": "2",
           "unit": "pounds",
-          "name": "beef chuck",
-          "preparation": "trimmed and cut into 1.5-2\" cubes"
+          "name": "beef",
+          "preparation": "chuck trimmed and cut into 1.5-2\" cubes"
         },
         {
           "amount": "1",
@@ -1612,7 +1612,7 @@ window.recipeTools = {
         {
           "amount": "6",
           "unit": "tbsp",
-          "name": "unrefined coconut oil",
+          "name": "coconut oil",
           "preparation": "melted"
         },
         {
@@ -1623,7 +1623,7 @@ window.recipeTools = {
         {
           "amount": "9",
           "unit": "cup",
-          "name": "beef broth"
+          "name": "beef stock"
         },
         {
           "amount": "1",
