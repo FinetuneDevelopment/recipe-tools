@@ -149,6 +149,10 @@ window.recipeTools.ingredients =  [
     "id": "cloves"
   },
   {
+    "name": "Cloves garlic",
+    "id": "cloves-garlic"
+  },
+  {
     "name": "Coarse kosher salt",
     "id": "coarse-kosher-salt"
   },
@@ -248,6 +252,10 @@ window.recipeTools.ingredients =  [
   {
     "name": "Garlic",
     "id": "garlic"
+  },
+  {
+    "name": "Garlic cloves",
+    "id": "garlic-cloves"
   },
   {
     "name": "Garlic powder",
@@ -382,6 +390,11 @@ window.recipeTools.ingredients =  [
   {
     "name": "Onion",
     "id": "onion",
+    "keto": false
+  },
+  {
+    "name": "Onions",
+    "id": "onions",
     "keto": false
   },
   {
@@ -540,6 +553,10 @@ window.recipeTools.ingredients =  [
   {
     "name": "Tomatoes",
     "id": "tomatoes"
+  },
+  {
+    "name": "Chopped peeled tomatoes",
+    "id": "chopped-peeled-tomatoes"
   },
   {
     "name": "Turmeric",

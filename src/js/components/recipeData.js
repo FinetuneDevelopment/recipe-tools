@@ -15,7 +15,8 @@ window.recipeTools = {
         },
         {
           "amount": "1",
-          "name": "small onion",
+          "name": "onion",
+          "unit": "small",
           "preparation": "finely chopped or minced"
         },
         {
@@ -167,7 +168,7 @@ window.recipeTools = {
         {
           "amount": "1",
           "unit": "cup",
-          "name": "icing sugar or substitite"
+          "name": "icing sugar"
         },
         {
           "amount": "4",
@@ -552,7 +553,8 @@ window.recipeTools = {
       "ingredient": [{
           "amount": "2",
           "unit": "lbs",
-          "name": "shelled and deveined shrimp"
+          "name": "shrimp",
+          "preparation": "(shelled and deveined)"
         },
         {
           "amount": "1",
@@ -646,13 +648,13 @@ window.recipeTools = {
           "preparation": "minced"
         },
         {
-          "amount": "1",
-          "unit": "7 oz jar",
+          "amount": "7",
+          "unit": "oz",
           "name": "Tomato concentrate"
         },
         {
-          "amount": "1",
-          "unit": "28 oz tin",
+          "amount": "28",
+          "unit": "oz",
           "name": "Chopped peeled tomatoes"
         },
         {
@@ -1114,7 +1116,8 @@ window.recipeTools = {
         },
         {
           "amount": "1",
-          "name": "large white onion"
+          "name": "onion",
+          "unit": "large"
         },
         {
           "amount": "2",
@@ -1199,7 +1202,7 @@ window.recipeTools = {
         {
           "amount": "1",
           "unit": "large",
-          "name": "potato or turnip",
+          "name": "potato",
           "preparation": "in 1in cubes"
         },
         {
@@ -1549,7 +1552,7 @@ window.recipeTools = {
               "name": "Mascarpone"
             },
             {
-              "name": "icing sugar substitute",
+              "name": "icing sugar",
               "amount": "4",
               "unit": "tbsp"
             },

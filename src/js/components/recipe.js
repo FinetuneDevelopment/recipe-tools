@@ -263,20 +263,29 @@ export default function recipeFactory() {
 
     // Used above, to build up a single ingredient line for the recipes
     function ingredientLine(thisIngredient) {
-      let markup     = '';
       const name     = thisIngredient.name;
-      let formName   = '';
-      const unit     = thisIngredient.unit;
+      let unit       = thisIngredient.unit;
       const amount   = thisIngredient.amount;
       const prep     = thisIngredient.preparation;
+      let markup     = '';
+      let formName   = '';
       let knownName  = false;
       let itemIcons  = '';
+
+      if (unit) unit.toLowerCase;
+
+      // An Array of measurements which we can convert to grams
+      const arUnits = ['tbsp','tablespoon','tablespoons','table spoon','table spoons','cup','cups','oz','ozs','ounce','ounces','lb','lbs','pound','pounds','g','gramm','gramms','gram','grams','gramme','grammes'];
+      // An Array of ingredient names which we can (kinda) convert into grams
+      const discreteUnits = ['onion','onions','garlic head','garlic','garlic clove','garlic cloves','cloves garlic','egg','eggs'];
+
       if (typeof name !== 'undefined') {
         formName = name.toLowerCase().replace(/\s+/g,'-');
 
         // Loop through the ingredients JSON, looking for a match for the name
         for (let j = 0; j < objIngredients.length; j ++) {
           const thisThing = objIngredients[j];
+
           if(thisThing.name.toLowerCase() === name.toLowerCase()) {
             knownName = true;
 
@@ -306,15 +315,17 @@ export default function recipeFactory() {
       if (endString !== '') endString += '<span class="icon-small">' + itemIcons + '</span>';
 
       markup += '<li itemprop="recipeIngredient">';
+
       // (1) Do we have any amount for this ingredient
       // (2) Is the ingredient amount a sensible number?
       // (3) Does the name of this ingredient have a match in the ingredients JSON? (see above loop)
-      // (4) Is the unit of measurement something I can convert to gramms and use in the calculation?
+      // (4a) Is the unit of measurement something I can convert to gramms and use in the calculation?
+      // (4b) Is this an ingredient which is a discrete lump which we can approximate a gram conversion on?
       if (
         typeof amount !== 'undefined' &&
         parseFloat(amount) !== NaN &&
         knownName &&
-        (unit === 'cups' || unit === 'cup' || unit === 'g' || unit === 'lb' || unit === 'lbs' || unit === 'oz' || unit === 'pound' || unit === 'pounds' || unit === 'tbsp')
+        (arUnits.indexOf(unit) > -1 || discreteUnits.indexOf(name.toLowerCase()) > -1)
       ) {
         markup += '<input type="number" min="0" value="' + amount + '" id="ingredient-' + formName + '" name="ingredient-' + formName + '" data-js="barometer-value" class="input-short text-right"> ' +
         '<label for="ingredient-' + formName + '"> ' + endString + '</label>';

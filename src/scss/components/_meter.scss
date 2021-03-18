@@ -1,6 +1,7 @@
 // A meter element, but, you know, stylable.
 .meter {
-  background: linear-gradient(90deg, red 0%, yellow 50%, green 100%) no-repeat;;
+  // Spectrum, going from red to green
+  background: linear-gradient(90deg, rgba(256,0,0,.3) 0%, rgba(256,204,0,.3) 35%, rgba(256,204,0,.3) 65%, rgba(0,255,0,.4) 100%) no-repeat;;
   background-origin: content-box;
   border: solid 1px $colour-black;
   border-radius: 0 0 5px 5px;
@@ -22,18 +23,18 @@
   // more of the background spectrum is exposed as the span increases in size.
   span[style] {
     background: transparent;
-    //border-right: solid 5px $colour-black;
     flex-grow: 0;
     position: relative;
 
+    // ⧗
     &::after {
       border:        solid .3em transparent;
-      border-bottom: solid .5em $colour-black;
-      border-top:    solid .5em $colour-black;
+      border-bottom: solid .7em $colour-black;
+      border-top:    solid .7em $colour-black;
       content: "";
       position: absolute;
       right: -.15em;
-      top: 0;
+      top: -.2em;
     }
   }
 
